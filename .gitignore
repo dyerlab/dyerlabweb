@@ -6,3 +6,4 @@
 blogdown/*
 *.html
 public/*
+*_files

@@ -37,7 +37,7 @@ e
 ```
 This can now be used as the area from within the alt raster that we want to keep.
 ```{r}
-alt <- raster( "alt_22.tif" )
+alt <- raster( "../../data/alt_22.tif" )
 bc <- crop( alt, e )
 bc
 ```

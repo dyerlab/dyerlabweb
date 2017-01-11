@@ -36,7 +36,7 @@ e
 Now we can crop the raster to this size. I'll use the altitude tile 22 from 
 [worldclim](http://worldclim.org) for this. Here is the original raster.
 ```{r message=FALSE}
-alt <- raster("alt_22.tif")
+alt <- raster("../../data/alt_22.tif")
 alt
 ```
 which looks like.
