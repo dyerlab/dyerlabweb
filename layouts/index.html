@@ -1,0 +1,23 @@
+{{ partial "header" . }}
+    {{ $.Scratch.Set "shareNav" true }}
+    {{ partial "navbar" . }}
+    <!-- Main -->
+    <div id="main">
+<h2>Featured Content</h2>
+
+
+<div class="polaroid">
+  <h4>Contemporary Gene Flow</h4>
+  <img src="/img/dogwood.jpg" alt="dogwood"/>
+</div>
+
+
+<h2>Recent News</h2>
+        {{ range first 3 (where .Site.Pages "Type" "post") }}
+            {{ .Render "content-list" }}
+
+            {{ partial "share-menu" . }}
+        {{ end }}
+    </div>
+    {{ partial "sidebar" . }}
+{{ partial "footer" . }}
