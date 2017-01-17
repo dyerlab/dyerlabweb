@@ -29,27 +29,27 @@
 
 
 .publist {
-    border: 1px solid black;
-    color: red;
+  border-collapse:separate; 
+  border-spacing: 5em;
 }
 
 .td-img {
-    width: 100px;
+    width: 125px;
     height:auto;
+}
+
+.publist > tr {
+  margin-top: 2em;
+  margin-bottom: 100px;
 }
 
 th {
   text-align: center;
-  font-size: 2em;
-  color: red;
+  font-size: 1.5em;
 }
 
-/* For Twitter Module */
 
-.twitter-timeline {
-  height: 500px; 
-  z-index: -10;
-}
+
 
 /*
 XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>

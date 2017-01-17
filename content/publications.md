@@ -8,7 +8,7 @@ featuredalt: ""
 featuredpath: ""
 linktitle: ""
 title: "Publications"
-layout: fullpage
+type: fullpage
 ---
 
 <table id="publist">
