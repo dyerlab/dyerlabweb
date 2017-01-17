@@ -11,9 +11,7 @@ title: "People"
 layout: fullpage
 ---
 
-
-
-<table>
+<table class="publist">
 
 <tr>
   <td><img src="/img/people/RodneyDyer.jpg" /></td>
@@ -22,7 +20,7 @@ layout: fullpage
     <ul>
       <li>Director, <a href="http://ces.vcu.edu">Center for Environmental Studies</a></li>
       <li>Associate Professor</li>
-      <li><a href="mailto:rjdyer@vcu.edu">rjdyer@vcu.edu</a></li>
+      <li>Email: <a href="mailto:rjdyer@vcu.edu">rjdyer@vcu.edu</a></li>
       <li>Metrics:
       <ul>
         <li><a href="https://docs.google.com/document/d/1B5DopW1PR12KhL3yiWiGf_YZCIXn1b77Er87mxqgShg/edit?usp=sharing">Curriculum vitae</a></li>
@@ -40,7 +38,8 @@ layout: fullpage
   <td>
     <h3>Jane Remfert</h3>
     <ul>
-      <li>PhD Program in <a href="http://lifesciences.vcu.edu/academic-programs/phd-in-integrative-life-sciences/">Integative Life Sciences</li></li>
+      <li>PhD Program in <a href="http://lifesciences.vcu.edu/academic-programs/phd-in-integrative-life-sciences/">Integative Life Sciences</a></li>
+      <li>Email: <a href="mailto:remfertjl@mymail.vcu.edu">remfertjl@mymail.vcu.edu</a></li>
     </ul>
   </td>
 </tr>
@@ -50,7 +49,10 @@ layout: fullpage
   <td><img src="/img/people/BonnieRoderique.png" align="center" /></td>
   <td>
     <h3>Bonnie Roderique</h3>
-    <p>MS Program in Environmental Studies</p>
+    <ul>
+      <li>MS Program in Environmental Studies</li>
+      <li>Email: <a href="mailto:baroderique@vcu.edu">baroderique@vcu.edu</a></li>
+    </ul>
   </td>
 </tr>
 
@@ -59,7 +61,10 @@ layout: fullpage
   <td><img src="/img/people/SanaVohra.jpg" /></td>
   <td>
     <h3>Sana Vohra</h3>
-    <p>Research Technician working on the gypsy moth landscape genetics project</p>
+    <ul>
+      <li>Research Technician working on the gypsy moth landscape genetics project</li>
+      <li>Email: <a href="mailto:vohrasi@vcu.edu">vohrasi@vcu.edu</a></li>
+    </ul>
   </td>
 </tr>
 
