@@ -1,0 +1,22 @@
+<aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  {{ if .Site.Params.sidebar }}
+  {{ $num_recent_posts := (index .Site.Params.sidebar "num_recent_posts" | default 5) }}
+
+  <section class="sidebar-module  sidebar-module-inset">
+    <h4>{{ i18n "recentPosts" }}</h4>
+    <ol class="list-unstyled">
+      {{ range first $num_recent_posts (where .Site.Pages "Type" "post") }}
+      <li><a href="{{.RelPermalink}}">{{.Title | markdownify }}</a></li>
+      {{ end }}
+    </ol>
+  </section>
+
+  {{ end }}
+  
+  <div class="twitter-timeline">
+    <a class="twitter-timeline" href="https://twitter.com/Dyerlab" data-height="1200">Tweets by Dyerlab</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+</aside><!-- /.blog-sidebar -->
+
+{{- /* vim: set ts=2 sw=2 et: */}}
