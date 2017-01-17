@@ -46,6 +46,18 @@ layout: fullpage
 
 
 <tr>
+  <td><img src="/img/people/GenericPerson.png" align="center" /></td>
+  <td>
+    <h3>Matthew DeSaix</h3>
+    <ul>
+      <li>MS Program in Environmental Studies</li>
+      <li>Email: <a href="mailto:desaixmg@mymail.vcu.edu">desaixmg@mymail.vcu.edu</a></li>
+    </ul>
+  </td>
+</tr>
+
+
+<tr>
   <td><img src="/img/people/BonnieRoderique.png" align="center" /></td>
   <td>
     <h3>Bonnie Roderique</h3>
@@ -55,6 +67,7 @@ layout: fullpage
     </ul>
   </td>
 </tr>
+
 
 
 <tr>
