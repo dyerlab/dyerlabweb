@@ -50,7 +50,7 @@ type: fullpage
   <td>
     <h3>Matthew DeSaix</h3>
     <ul>
-      <li>MS Program in Environmental Studies</li>
+      <li>MS Program in <a href="http://ces.vcu.edu">Environmental Studies</a></li>
       <li>Email: <a href="mailto:desaixmg@mymail.vcu.edu">desaixmg@mymail.vcu.edu</a></li>
     </ul>
   </td>
@@ -62,7 +62,7 @@ type: fullpage
   <td>
     <h3>Bonnie Roderique</h3>
     <ul>
-      <li>MS Program in Environmental Studies</li>
+      <li>MS Program in <a href="http://ces.vcu.edu">Environmental Studies</a></li>
       <li>Email: <a href="mailto:baroderique@vcu.edu">baroderique@vcu.edu</a></li>
     </ul>
   </td>
