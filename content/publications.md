@@ -26,7 +26,6 @@ Authors marked with <sup>§</sup> indicate graduate student co-authors whereas t
     <td><img class="td-img" src="/img/pubs/TuckerEtAl2016.png"></td>
     <td>Chan DM, Lee JH, Dyer RJ.  In Review.  Comparison of pollination networks.  <i>Theoretical Biology and Medical Modelling*.</td>
   </tr>
-  
 -->
 
 <tr><th colspan="3">2016</th></tr>
