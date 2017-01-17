@@ -47,14 +47,20 @@ layout: fullpage
 
 
 <tr>
-  <td><img src="/img/people/BonnieRoderique.png" /></td>
-  <td></td>
+  <td><img src="/img/people/BonnieRoderique.png" align="center" /></td>
+  <td>
+    <h3>Bonnie Roderique</h3>
+    <p>MS Program in Environmental Studies</p>
+  </td>
 </tr>
 
 
 <tr>
-  <td><img src="" /></td>
-  <td></td>
+  <td><img src="/img/people/SanaVohra.jpg" /></td>
+  <td>
+    <h3>Sana Vohra</h3>
+    <p>Research Technician working on the gypsy moth landscape genetics project</p>
+  </td>
 </tr>
 
 </table>
