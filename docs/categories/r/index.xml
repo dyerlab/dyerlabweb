@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/r/index.xml</link>
+    <description>Recent content in R on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>New Server, New Site, First Post!</title>
+      <link>http://dyerlab/2017/01/new-server-new-site-first-post/</link>
+      <pubDate>Sun, 08 Jan 2017 06:12:59 -0500</pubDate>
+      
+      <guid>http://dyerlab/2017/01/new-server-new-site-first-post/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;This is the first post after moving the dyerlab web server off of WordPress and the *bio.vcu.edu domain. I’ve made this move to simplify the information that I provide on the site, all integrated within a markdown/R context. Yes, this blog and the entire website was written in &lt;a href=&#34;http://rmarkdown.rstudio.com/&#34;&gt;Rmarkdown&lt;/a&gt; using a blog-friendly packages called &lt;a href=&#34;http://github.com/rstudio/blogdown&#34;&gt;blogdown&lt;/a&gt; (thanks &lt;a href=&#34;https://github.com/yihui&#34;&gt;yihui&lt;/a&gt;, you are a genius!) on a server instance of &lt;a href=&#34;http://rstudio.com&#34;&gt;RStudio&lt;/a&gt; hosted on an ubuntu virtual server owned by &lt;a href=&#34;https://lightsail.aws.amazon.com&#34;&gt;Amazon Web Services&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;One of the drawbacks of moving from a more closed system to an open one is that things may not translate as well. I’ve tried to preserve the posts from the previous site here but translation from WordPress XML &lt;span class=&#34;math inline&#34;&gt;\(\to\)&lt;/span&gt; Jeckyll &lt;span class=&#34;math inline&#34;&gt;\(\to\)&lt;/span&gt; markdown may have tarnished their luster a bit. I can honestly say that I’m not going to go back through posts of years past and reconfigure them so they work better. Sorry, just not going to happen.&lt;/p&gt;
+&lt;p&gt;Given that drawback, I think the benefits of a consolidated web presence outweigh the problems. Here are two of the main reasons I made this move.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Posting of R-related content is easier if I do not have to cut-and-paste content, code, and images into a separate interface. Having posts such as this one be a real Rmarkdown document simplify my life. As a result, you get more access to R materials.&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;I have posted the texts that I’ve written for classes I teach using R on this page (hidden behind the cleaverly worded menu item called ‘Texts’). They will be here and available in perpituity.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In recognition of the hard work many groups have contributed for this mashup to actually function, I’ll start by retelling a statistics joke in the following pie chart below.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
+  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
+  init.angle = -50, border = NA
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;http://dyerlab/2017/01/new-server-new-site-first-post/figures/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: A fancy pie chart.
+&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Talk at Temple!</title>
+      <link>http://dyerlab/2016/11/talk-at-temple/</link>
+      <pubDate>Sun, 13 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/11/talk-at-temple/</guid>
+      <description>&lt;p&gt;Giving a talk up at Temple University, last seminar of the year but one I&amp;rsquo;ve been looking forward to giving for a while.&lt;/p&gt;
+
+&lt;!-- More --&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/0B0T81CzLjtfPbVlYTFVGVzVKUWc/view?usp=sharing&#34;&gt;&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/11/Screen-Shot-2016-11-13-at-10.30.05-PM-300x224.png&#34; alt=&#34;screen-shot-2016-11-13-at-10-30-05-pm&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Click through the image to download a PDF version of the talk.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Spatial Data Sources</title>
+      <link>http://dyerlab/2016/10/spatial-data-sources/</link>
+      <pubDate>Thu, 06 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/10/spatial-data-sources/</guid>
+      <description>&lt;p&gt;As part of a class in Landscape Genetics, faculty (mostly done by
+&lt;a href=&#34;https://sites.google.com/site/murphylabuwyo/&#34;&gt;Melanie Murphy&lt;/a&gt; and
+&lt;a href=&#34;http://www.nature.org/science-in-action/our-scientists/jeff-evans.xml&#34;&gt;Jeffrey Evans&lt;/a&gt;) compiled an extensive list of spatial data sources.  These were made available on the course website we hosted but I wanted to make a more persistent copy of them here so they will not be lost.  They are listed below the break.
+moreAfrica
+Infrastructure Knowledge Program
+&lt;a href=&#34;http://www.infrastructureafrica.org/&#34;&gt;http://www.infrastructureafrica.org/&lt;/a&gt;
+ASTER (Advanced Spaceborne
+Thermal Emission and Reflection Radiometer)
+&lt;a href=&#34;http://asterweb.jpl.nasa.gov/&#34;&gt;http://asterweb.jpl.nasa.gov/&lt;/a&gt;
+ASTER
+Global 30m DEM
+&lt;a href=&#34;http://www.gdem.aster.ersdac.or.jp/&#34;&gt;http://www.gdem.aster.ersdac.or.jp/&lt;/a&gt;
+Atlas of
+the Biosphere
+&lt;a href=&#34;http://www.sage.wisc.edu/atlas/&#34;&gt;http://www.sage.wisc.edu/atlas/&lt;/a&gt;
+Atrium
+biodiversity information system
+&lt;a href=&#34;http://atrium.andesamazon.org/metadata_search.php&#34;&gt;http://atrium.andesamazon.org/metadata_search.php&lt;/a&gt;
+Atrium biodiversity
+information system
+&lt;a href=&#34;http://atrium.andesamazon.org/&#34;&gt;http://atrium.andesamazon.org/&lt;/a&gt;
+AVIRIS (Airborne
+Visible/Infrared Imaging Spectrometer)
+&lt;a href=&#34;http://aviris.jpl.nasa.gov/&#34;&gt;http://aviris.jpl.nasa.gov/&lt;/a&gt;
+BLM Land
+Survey Information System
+&lt;a href=&#34;http://www.geocommunicator.gov/GeoComm/&#34;&gt;http://www.geocommunicator.gov/GeoComm/&lt;/a&gt;
+BLM Sage
+Grouse Breeding Densities
+&lt;a href=&#34;http://conserveonline.org/workspaces/sagegrouse/documents/all.html&#34;&gt;http://conserveonline.org/workspaces/sagegrouse/documents/all.html&lt;/a&gt;
+CAL-Atlas
+California GIS data
+&lt;a href=&#34;http://www.atlas.ca.gov/&#34;&gt;http://www.atlas.ca.gov/&lt;/a&gt;
+Colorado
+2009 NAIP County Mosaics
+&lt;a href=&#34;https://my.usgs.gov/Public/NSDIPartnershipOffice/CO/2009%20NAIP%20County%20Mosaics/&#34;&gt;https://my.usgs.gov/Public/NSDIPartnershipOffice/CO/2009%20NAIP%20County%20Mosaics/&lt;/a&gt;
+Colorado
+Dept of Transportation
+&lt;a href=&#34;http://apps.coloradodot.info/dataaccess/GeoData/index.cfm?fuseaction=GeoDataMain&#34;&gt;http://apps.coloradodot.info/dataaccess/GeoData/index.cfm?fuseaction=GeoDataMain&lt;/a&gt;
+Colorado
+Ownership database (COMaP)
+&lt;a href=&#34;http://www.nrel.colostate.edu/projects/comap/index.html&#34;&gt;http://www.nrel.colostate.edu/projects/comap/index.html&lt;/a&gt;
+CSIRO Lidar mapping of vegetation
+canopies
+&lt;a href=&#34;http://www.cossa.csiro.au/vsis/lidhome.htm&#34;&gt;http://www.cossa.csiro.au/vsis/lidhome.htm&lt;/a&gt;
+Downscaled
+Climate GCM&amp;rsquo;s
+&lt;a href=&#34;http://futureclim.info/&#34;&gt;http://futureclim.info/&lt;/a&gt;
+EPA
+Webmap Services
+&lt;a href=&#34;http://www.epa.gov/geospatial/help.htm&#34;&gt;http://www.epa.gov/geospatial/help.htm&lt;/a&gt;
+FEMA
+Flood maps
+&lt;a href=&#34;https://msc.fema.gov/webapp/wcs/stores/servlet/FemaWelcomeView?storeId=10001&amp;amp;catalogId=10001&amp;amp;langId=-1&amp;amp;userType=G&#34;&gt;https://msc.fema.gov/webapp/wcs/stores/servlet/FemaWelcomeView?storeId=10001&amp;amp;catalogId=10001&amp;amp;langId=-1&amp;amp;userType=G&lt;/a&gt;
+FEMA
+Imagery download
+&lt;a href=&#34;http://stratus.cr.usgs.gov/viewer/&#34;&gt;http://stratus.cr.usgs.gov/viewer/&lt;/a&gt;
+GeoEye foundation
+&lt;a href=&#34;http://www.geoeye.com/CorpSite/corporate/foundation/&#34;&gt;http://www.geoeye.com/CorpSite/corporate/foundation/&lt;/a&gt;
+Global
+Gridded Popuation data
+&lt;a href=&#34;http://sedac.ciesin.columbia.edu/gpw/aboutus.jsp&#34;&gt;http://sedac.ciesin.columbia.edu/gpw/aboutus.jsp&lt;/a&gt;
+Global
+Land Cover Characterization
+&lt;a href=&#34;http://edc2.usgs.gov/glcc/glcc.php&#34;&gt;http://edc2.usgs.gov/glcc/glcc.php&lt;/a&gt;
+Global Landcover
+Facility
+&lt;a href=&#34;http://landcover.org/index.shtml&#34;&gt;http://landcover.org/index.shtml&lt;/a&gt;
+Global
+Landcover Facility Amazon and Central Africa Forest Change
+&lt;a href=&#34;http://landcover.org/data/pathfinder/data.shtml&#34;&gt;http://landcover.org/data/pathfinder/data.shtml&lt;/a&gt;
+Global
+Multi-resolution Terrain Elevation Data 2010
+&lt;a href=&#34;http://pubs.usgs.gov/of/2011/1073/&#34;&gt;http://pubs.usgs.gov/of/2011/1073/&lt;/a&gt;
+Global
+Protected Areas
+&lt;a href=&#34;http://www.protectedplanet.net/&#34;&gt;http://www.protectedplanet.net/&lt;/a&gt;
+ICESat/GLAS
+&lt;a href=&#34;http://icesat.gsfc.nasa.gov/icesat/&#34;&gt;http://icesat.gsfc.nasa.gov/icesat/&lt;/a&gt;
+Idaho
+Dept Water Resources
+&lt;a href=&#34;http://www.idwr.idaho.gov/&#34;&gt;http://www.idwr.idaho.gov/&lt;/a&gt;
+Idaho
+GIS data (Inside Idaho)
+&lt;a href=&#34;http://inside.uidaho.edu/&#34;&gt;http://inside.uidaho.edu/&lt;/a&gt;
+Landsat
+Path/Row Index Shapefile
+&lt;a href=&#34;https://landsat.usgs.gov/tools_wrs-2_shapefile.php&#34;&gt;https://landsat.usgs.gov/tools_wrs-2_shapefile.php&lt;/a&gt;
+MODIS
+Global NPP
+&lt;a href=&#34;http://secure.ntsg.umt.edu/projects/index.php/ID/ca2901a0/fuseaction/projects.detail.htm&#34;&gt;http://secure.ntsg.umt.edu/projects/index.php/ID/ca2901a0/fuseaction/projects.detail.htm&lt;/a&gt;
+MODIS
+Sinusoidal Grid shapefile
+&lt;a href=&#34;http://gis.cri.fmach.it/modis-sinusoidal-gis-files/&#34;&gt;http://gis.cri.fmach.it/modis-sinusoidal-gis-files/&lt;/a&gt;
+MODIS
+Subset tool
+&lt;a href=&#34;http://daac.ornl.gov/cgi-bin/MODIS/GLBVIZ_1_Glb/modis_subset_order_global_col5.pl&#34;&gt;http://daac.ornl.gov/cgi-bin/MODIS/GLBVIZ_1_Glb/modis_subset_order_global_col5.pl&lt;/a&gt;
+Montana
+Geographic Information Clearinghouse
+&lt;a href=&#34;http://nris.mt.gov/gis/default.asp&#34;&gt;http://nris.mt.gov/gis/default.asp&lt;/a&gt;
+MRLC
+National Land Cover
+&lt;a href=&#34;http://www.mrlc.gov/nlcd2006.php&#34;&gt;http://www.mrlc.gov/nlcd2006.php&lt;/a&gt;
+NASA GLOVIS
+&lt;a href=&#34;http://glovis.usgs.gov/&#34;&gt;http://glovis.usgs.gov/&lt;/a&gt;
+NASA
+Land Processes Distributed Active Archive Center
+&lt;a href=&#34;https://lpdaac.usgs.gov/&#34;&gt;https://lpdaac.usgs.gov/&lt;/a&gt;
+NASA Multiangle Imaging
+SpectroRadiometer
+&lt;a href=&#34;http://eosweb.larc.nasa.gov/PRODOCS/misr/table_misr.html&#34;&gt;http://eosweb.larc.nasa.gov/PRODOCS/misr/table_misr.html&lt;/a&gt;
+NASA-JPL Global Carbon mapping
+&lt;a href=&#34;http://lidarradar.jpl.nasa.gov/&#34;&gt;http://lidarradar.jpl.nasa.gov/&lt;/a&gt;
+National
+Agricultural Statistics Service Crop Data
+&lt;a href=&#34;http://www.nass.usda.gov/research/Cropland/SARS1a.htm&#34;&gt;http://www.nass.usda.gov/research/Cropland/SARS1a.htm&lt;/a&gt;
+National Agriculture Imagery
+Program (NAIP)
+&lt;a href=&#34;http://www.fsa.usda.gov/FSA/apfoapp?area=home&amp;amp;subject=prog&amp;amp;topic=nai&#34;&gt;http://www.fsa.usda.gov/FSA/apfoapp?area=home&amp;amp;subject=prog&amp;amp;topic=nai&lt;/a&gt;
+Natural
+Earth Global data
+&lt;a href=&#34;http://www.naturalearthdata.com/&#34;&gt;http://www.naturalearthdata.com/&lt;/a&gt;
+NCALM (National Center of Airborne Laser
+Mapping)
+&lt;a href=&#34;http://www.ncalm.org/home.html&#34;&gt;http://www.ncalm.org/home.html&lt;/a&gt;
+NDEP (National Digital Elevation Program)
+&lt;a href=&#34;http://www.ndep.gov/&#34;&gt;http://www.ndep.gov/&lt;/a&gt;
+Nevada
+GIS data
+&lt;a href=&#34;http://keck.library.unr.edu/&#34;&gt;http://keck.library.unr.edu/&lt;/a&gt;
+NOAA Costal topographic change
+&lt;a href=&#34;http://www.csc.noaa.gov/crs/tcm/index.html&#34;&gt;http://www.csc.noaa.gov/crs/tcm/index.html&lt;/a&gt;
+North
+American Regional Climate Change Assessment Program
+&lt;a href=&#34;http://www.narccap.ucar.edu/users/observed-datasets.html&#34;&gt;http://www.narccap.ucar.edu/users/observed-datasets.html&lt;/a&gt;
+North
+Dakota Webmap Services
+&lt;a href=&#34;http://www.nd.gov/gis/mapsdata/web/&#34;&gt;http://www.nd.gov/gis/mapsdata/web/&lt;/a&gt;
+NRCS
+Geospatial Data Gateway
+&lt;a href=&#34;http://datagateway.nrcs.usda.gov/&#34;&gt;http://datagateway.nrcs.usda.gov/&lt;/a&gt;
+Open
+Street Map
+&lt;a href=&#34;http://www.openstreetmap.org/&#34;&gt;http://www.openstreetmap.org/&lt;/a&gt;
+OpenTopography
+&lt;a href=&#34;http://www.opentopography.org/&#34;&gt;http://www.opentopography.org/&lt;/a&gt;
+Oregon
+Geospatial Enterprise Office
+&lt;a href=&#34;http://www.oregon.gov/DAS/EISPD/GEO/sdlibrary.shtml&#34;&gt;http://www.oregon.gov/DAS/EISPD/GEO/sdlibrary.shtml&lt;/a&gt;
+Planet Action SPOT
+program
+&lt;a href=&#34;http://www.planet-action.org/&#34;&gt;http://www.planet-action.org/&lt;/a&gt;
+Pritected
+Areas Database of the United States
+&lt;a href=&#34;http://www.protectedlands.net/&#34;&gt;http://www.protectedlands.net/&lt;/a&gt;
+Puget Sound Lidar Consortium
+&lt;a href=&#34;http://pugetsoundlidar.ess.washington.edu/&#34;&gt;http://pugetsoundlidar.ess.washington.edu/&lt;/a&gt;
+US State data clearinghouse (links to state data)
+&lt;a href=&#34;http://web.mit.edu/dtfg/www/data/data_gis_us_state.htm&#34;&gt;http://web.mit.edu/dtfg/www/data/data_gis_us_state.htm&lt;/a&gt;
+SRTM (Shuttle Radar Topography Mission)
+90m global data
+&lt;a href=&#34;http://srtm.csi.cgiar.org/&#34;&gt;http://srtm.csi.cgiar.org/&lt;/a&gt;
+STRM
+Topography and Canopy data
+&lt;a href=&#34;http://srtm.csi.cgiar.org/&#34;&gt;http://srtm.csi.cgiar.org/&lt;/a&gt;
+SWreGAP processed Landsat,
+ASTER and MSS
+&lt;a href=&#34;http://earth.gis.usu.edu/search.phtml&#34;&gt;http://earth.gis.usu.edu/search.phtml&lt;/a&gt;
+Texas
+Natural Resources Information System
+&lt;a href=&#34;http://www.tnris.org/get-data#ccm&#34;&gt;http://www.tnris.org/get-data#ccm&lt;/a&gt;
+TNC AWWI
+Landscape Assessment Tool
+&lt;a href=&#34;http://wind.tnc.org/awwi/&#34;&gt;http://wind.tnc.org/awwi/#&lt;/a&gt;
+TNC
+Climate Wizard
+&lt;a href=&#34;http://www.climatewizard.org/&#34;&gt;http://www.climatewizard.org/&lt;/a&gt;
+TNC
+Climate Wizard Custom Queries
+&lt;a href=&#34;http://climatewizardcustom.org/&#34;&gt;http://climatewizardcustom.org/&lt;/a&gt;
+TNC
+Development by Design Webmap Server
+&lt;a href=&#34;http://50.18.62.210/DevByDesign/&#34;&gt;http://50.18.62.210/DevByDesign/&lt;/a&gt;
+UMAC
+Remote Sensing Imagery
+&lt;a href=&#34;http://www.umac.org/imagery/sources/index.html&#34;&gt;http://www.umac.org/imagery/sources/index.html&lt;/a&gt;
+University
+of Washington, Various Global Data
+&lt;a href=&#34;http://wagda.lib.washington.edu/data/geography/world/&#34;&gt;http://wagda.lib.washington.edu/data/geography/world/&lt;/a&gt;
+US
+Census Bureau
+&lt;a href=&#34;http://www.census.gov/geo/www/pvs/PVS_main.html&#34;&gt;http://www.census.gov/geo/www/pvs/PVS_main.html&lt;/a&gt;
+US
+Census Bureau - TIGER data
+&lt;a href=&#34;http://www.census.gov/geo/www/tiger/tgrshp2009/tgrshp2009.html&#34;&gt;http://www.census.gov/geo/www/tiger/tgrshp2009/tgrshp2009.html&lt;/a&gt;
+US
+Federal Geographic Data Committee
+&lt;a href=&#34;http://www.fgdc.gov/&#34;&gt;http://www.fgdc.gov/&lt;/a&gt;
+US
+National Atlas raw data download
+&lt;a href=&#34;http://www.nationalatlas.gov/atlasftp.html&#34;&gt;http://www.nationalatlas.gov/atlasftp.html&lt;/a&gt;
+USDA-AFPO
+NAIP Webmap Service
+&lt;a href=&#34;wms.ftw.nrcs.usda.gov&#34;&gt;wms.ftw.nrcs.usda.gov&lt;/a&gt;
+USFS-Rocky
+Mt Region GIS data
+&lt;a href=&#34;http://www.fs.fed.us/r2/gis/datasets_regionwide.shtml&#34;&gt;http://www.fs.fed.us/r2/gis/datasets_regionwide.shtml&lt;/a&gt;
+USFWS
+Critical Habitat data
+&lt;a href=&#34;http://criticalhabitat.fws.gov/crithab/&#34;&gt;http://criticalhabitat.fws.gov/crithab/&lt;/a&gt;
+USFWS
+National Wetlands Inventory
+&lt;a href=&#34;http://www.fws.gov/wetlands/Data/DataDownload.html&#34;&gt;http://www.fws.gov/wetlands/Data/DataDownload.html&lt;/a&gt;
+USGS CLICK
+&lt;a href=&#34;http://lidar.cr.usgs.gov/&#34;&gt;http://lidar.cr.usgs.gov/&lt;/a&gt;
+USGS
+Geologic formations
+&lt;a href=&#34;http://pubs.usgs.gov/of/2005/1325/index_map.htm&#34;&gt;http://pubs.usgs.gov/of/2005/1325/index_map.htm&lt;/a&gt;
+USGS
+Geosciences Database
+&lt;a href=&#34;http://ngmdb.usgs.gov/Other_Resources/rdb_es.html&#34;&gt;http://ngmdb.usgs.gov/Other_Resources/rdb_es.html&lt;/a&gt;
+USGS
+Global Ecosystems
+&lt;a href=&#34;http://rmgsc.cr.usgs.gov/ecosystems/&#34;&gt;http://rmgsc.cr.usgs.gov/ecosystems/&lt;/a&gt;
+USGS
+National geophysical data
+&lt;a href=&#34;http://tin.er.usgs.gov/catalog/cite-view.php?cite=97&#34;&gt;http://tin.er.usgs.gov/catalog/cite-view.php?cite=97&lt;/a&gt;
+USGS
+National Hydrography Dataset
+&lt;a href=&#34;http://nhd.usgs.gov/&#34;&gt;http://nhd.usgs.gov/&lt;/a&gt;
+USGS
+North West ReGap Landcover
+&lt;a href=&#34;http://gap.uidaho.edu/index.php/gap-home/Northwest-GAP/landcover/download-data-by-state&#34;&gt;http://gap.uidaho.edu/index.php/gap-home/Northwest-GAP/landcover/download-data-by-state&lt;/a&gt;
+USGS
+Seamless data server
+&lt;a href=&#34;http://seamless.usgs.gov/&#34;&gt;http://seamless.usgs.gov/&lt;/a&gt;
+USGS
+South West ReGap Landcover
+&lt;a href=&#34;http://earth.gis.usu.edu/swgap/&#34;&gt;http://earth.gis.usu.edu/swgap/&lt;/a&gt;
+USGS
+Water Resource Data
+&lt;a href=&#34;http://water.usgs.gov/maps.html&#34;&gt;http://water.usgs.gov/maps.html&lt;/a&gt;
+VITO Image processing and
+archiving center
+&lt;a href=&#34;http://www.vgt.vito.be/&#34;&gt;http://www.vgt.vito.be/&lt;/a&gt;
+Washington
+2009 NAIP County Mosaics
+&lt;a href=&#34;http://gis.ess.washington.edu/data/raster/naip2009ccm_wa/index.html&#34;&gt;http://gis.ess.washington.edu/data/raster/naip2009ccm_wa/index.html&lt;/a&gt;
+WorldClim
+&lt;a href=&#34;http://www.worldclim.org/&#34;&gt;http://www.worldclim.org/&lt;/a&gt;
+ WyGISc (Wyoming GIS data server)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.uwyo.edu/wygisc/geodata/&#34;&gt;http://www.uwyo.edu/wygisc/geodata/&lt;/a&gt;
+WWF
+Ecoregions
+&lt;a href=&#34;http://www.worldwildlife.org/science/data/item1875.html&#34;&gt;http://www.worldwildlife.org/science/data/item1875.html&lt;/a&gt;
+WWF GIS
+data
+&lt;a href=&#34;http://www.worldwildlife.org/science/data/item1872.html&#34;&gt;http://www.worldwildlife.org/science/data/item1872.html&lt;/a&gt;
+WWF
+Global Hydrosheds
+&lt;a href=&#34;http://hydrosheds.cr.usgs.gov/&#34;&gt;http://hydrosheds.cr.usgs.gov/#&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Applied Environmental Statistics</title>
+      <link>http://dyerlab/2016/08/applied-environmental-statistics/</link>
+      <pubDate>Mon, 29 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/08/applied-environmental-statistics/</guid>
+      <description>&lt;p&gt;This semester, I&amp;rsquo;ll be leading a graduate course in applied ecological statistics.  Should be a lot of fun getting a group of people up to speed on the benefits of being an R guru!
+&lt;a href=&#34;https://sites.google.com/a/vcu.edu/applied-environmental-statistics&#34;&gt;https://sites.google.com/a/vcu.edu/applied-environmental-statistics&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Collab &lt;- Slack &#43; R</title>
+      <link>http://dyerlab/2016/07/collab---slack-&#43;-r/</link>
+      <pubDate>Fri, 08 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/07/collab---slack-&#43;-r/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;I just ran across an R package that allows you to integrate your R workflow into the &lt;a href=&#34;http://www.slack.com&#34;&gt;Slack&lt;/a&gt; environment. Really cool. Below I show how to set it up and to post output of your analyses to slack channels for your team as well as to register notifications.&lt;/p&gt;
+&lt;p&gt;First things first, I recommend installing the latest version from the &lt;a href=&#34;https://github.com/hrbrmstr/slackr&#34;&gt;github&lt;/a&gt; repository.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(devtools)
+install_github(&amp;quot;hrbrmstr/slackr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now you have to set up a config file.  I think it looks for it in&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;~/.slackr&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is a normal Debian Control File (DCF) format. Here is my example one:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;api_token: xoxp-XXXXXXXXXXX-XXXXXXXXX-XXXXXXXXXX-XXXXXXXXX
+channel: #r
+username: rodney
+incoming_webhook_url: https://hooks.slack.com/services/XXXXXXXX/XXXXXXXX/XXXXXXXX&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You need to get the api_token and the &lt;code&gt;incoming_webhook_url&lt;/code&gt; from slack itself. Once you have that file saved, when you want to setup the slackr environment, you load it in and can send messages such as:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(slackr)
+slackr_setup()
+slackr(&amp;quot;This is an incoming piece of text from RStudio&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which results in the following in my #r slack channel:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab./Users/rodney/Desktop/dyerlabweb/static/img/slack_msg_from_r.png&#34; alt=&#34;Slack message from R&#34; /&gt; There is also a provision for sending output graphics like ggplot objects. Here&lt;/p&gt;
+&lt;p&gt;is an example of heterozygosity in the Arapat data set.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gstudio)
+library(ggplot2)
+data(arapat)
+he &amp;lt;- genetic_diversity(arapat,mode=&amp;quot;He&amp;quot;)
+p &amp;lt;- ggplot( he, aes(x=Locus, y=He)) + geom_bar(stat=&amp;quot;identity&amp;quot;) + theme_bw()
+ggslack(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which directly uploads the image to the channel as: &lt;img src=&#34;http://dyerlab./Users/rodney/Desktop/dyerlabweb/static/img/slack_plot.png&#34; alt=&#34;Slack image from R&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Very Cool!&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;There is a slight problem though. The current version of the slackr library has an error in it associated with (perhaps) a recent change in the Slack API that has not been fixed by the developer.&lt;/p&gt;
+&lt;p&gt;For me to get this to work, I had to compile the package myself after making the following change in one file.  To fix it, do the following:&lt;br /&gt;
+- Download (or checkout) the repository from github at:&lt;br /&gt;
+&lt;a href=&#34;https://github.com/hrbrmstr/slackr&#34; class=&#34;uri&#34;&gt;https://github.com/hrbrmstr/slackr&lt;/a&gt;&lt;br /&gt;
+- Open the project in RStudio&lt;br /&gt;
+- Open the R file names &lt;code&gt;slackr_utils.R&lt;/code&gt;&lt;br /&gt;
+- In the function named &lt;code&gt;slackr_ims&lt;/code&gt; the last line (line 117) is something like &lt;code&gt;dplyr::left_join( %some stuff% )&lt;/code&gt;&lt;br /&gt;
+- Replace this line with &lt;code&gt;suppressWarnings( merge(users, ims, by.x=&amp;quot;id&amp;quot;, by.y=&#39;user&#39;) )&lt;/code&gt;&lt;br /&gt;
+- The compile and install the package as below and it should all be fine:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(devtools)
+load_all()
+build()
+install()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hopefully, on the next time that this package is updated by the author, the &lt;code&gt;left_join()&lt;/code&gt; problem will have been resolved. This issue had been marked as “resolved” in the github issues a while back but apparently not pushed to the repository.&lt;/p&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Intalling Shiny Server on Ubuntu 14 LTS</title>
+      <link>http://dyerlab/2016/06/intalling-shiny-server-on-ubuntu-14-lts/</link>
+      <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/06/intalling-shiny-server-on-ubuntu-14-lts/</guid>
+      <description>&lt;p&gt;OK, so I just &amp;lsquo;
+&lt;a href=&#34;http://shiny.rstudio.com&#34;&gt;found&lt;/a&gt;&amp;rsquo; shiny and it has a lot of cool stuff to it.  OK, I&amp;rsquo;ve known about it for a long time but have just had the opportunity to sit down and work it out and see how it can fit into the presentation and learning I&amp;rsquo;m trying to develop in my
+&lt;a href=&#34;http://popgen.bio.vcu.edu&#34;&gt;Applied Population Genetics&lt;/a&gt; online textbook.  Here is a brief overview of how I set up the shiny server on my Ubuntu box that is hosting the book (so I can embed more interactivity in the display).
+more
+OK, below are the steps that I&amp;rsquo;m taking to upgrade everything on the box and install the shiny server app and start hosting individual shiny apps.##Updating Background &amp;amp; Installing Necessary Components
+First, you should update to the latest releases.  I&amp;rsquo;m running a LTS version (long-term support) so it is pretty stark.
+sudo apt-get update
+sudo apt-get upgrade
+Next, I needed to install the following development libraries so that things will go easily.
+sudo apt-get install libssl-dev
+sudo apt-get install gdebi-core
+sudo su - -c &amp;ldquo;R -e \&amp;ldquo;install.packages(&amp;lsquo;devtools&amp;rsquo;, repos=&amp;lsquo;&lt;a href=&#34;http://cran.rstudio.com/&#39;)&amp;quot;&amp;quot;&#34;&gt;http://cran.rstudio.com/&#39;)&amp;quot;&amp;quot;&lt;/a&gt;
+And then we can use the
+gdebi  framework to install the the server
+wget &lt;a href=&#34;https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb&#34;&gt;https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb&lt;/a&gt;
+sudo gdebi shiny-server-1.4.2.786-amd64.deb
+This puts the conf file in
+/etc/init/shiny-server.conf , sets up the user
+shiny  (and has a home directory), and starts the shiny-server process.
+##Redirecting URL Requests
+At this point the shiny-server is running and is servubg pages on port 3838.  However, I block all ports other than 22 and 80 for security, so what I want to do is to redirect requests to my server asking for anything in the subdirectory
+&lt;a href=&#34;http://popgen.bio.vcu.edu/shiny/&#34;&gt;http://popgen.bio.vcu.edu/shiny&lt;/a&gt; to redirect to
+&lt;a href=&#34;http://127.0.0.1:3838/&#34;&gt;http://127.0.0.1:3838&lt;/a&gt; locally.  I need to do this by fiddling with the Apache configuration scripts.
+Apache on Ubuntu puts configuration scripts in /etc/apache2/sites-available and symliks them to /etc/apache2/sites-enabled.  In this file, I set up a proxy pass so that any url that is asking for stuff in the /shiny/ subdirectory be redirected to the 3838 port on this machine.  At the end of the section for this server, enclosed in
+&lt;VirtualHost &lt;i&gt;:80&amp;gt;
+, I put the following in:
+RewriteCond %{HTTP:Upgrade} =websocket
+RewriteRule /shiny/(.&lt;em&gt;) ws://localhost:3838/$1 [P,L]
+RewriteCond %{HTTP:Upgrade} !=websocket
+RewriteRule /shiny/(.&lt;/em&gt;) &lt;a href=&#34;http://localhost:3838/$1&#34;&gt;http://localhost:3838/$1&lt;/a&gt; [P,L]
+ProxyPass /shiny/ &lt;a href=&#34;http://localhost:3838/&#34;&gt;http://localhost:3838/&lt;/a&gt;&lt;br /&gt;
+ProxyPassReverse /shiny/ &lt;a href=&#34;http://localhost:3838/&#34;&gt;http://localhost:3838/&lt;/a&gt;
+You need to make sure that the following mod are turned on for apache:
+*mod_proxy&lt;/p&gt;
+
+&lt;p&gt;*mod_proxy_html&lt;/p&gt;
+
+&lt;p&gt;*mod_proxy_wstunnel
+Enable them the way that is appropriate for your server.  On Ubuntu it is:
+a2enmod mod_proxy
+a2enmod mod_proxy_html
+a2enmod mod_proxy_wstunnel
+##Restart Apache
+All that is left to do now is restart apache and check to see the startup screen for all shiny apps on the
+&lt;a href=&#34;http://popgen.bio.vcu.edu/shiny/&#34;&gt;http://popgen.bio.vcu.edu/shiny/&lt;/a&gt; page.
+sudo service apache2 restart
+The first shiny app to be integrated into the Applied Population Genetics textbook is located in the Hardy-Weinberg chapter.  It is embedded as:
+And creates the following widget in the book (go ahead and play with it, it is interactive):
+This opens a whole slew of interactive graphics for the textbook!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Layered Maps in R (Using GGPlot of course...)</title>
+      <link>http://dyerlab/2016/04/layered-maps-in-r-using-ggplot-of-course.../</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/04/layered-maps-in-r-using-ggplot-of-course.../</guid>
+      <description>&lt;p&gt;A very cool writeup on making blow out maps.
+&lt;a href=&#34;http://urbandemographics.blogspot.co.uk/2016/04/creating-tilted-and-stacked-maps-in-r.html&#34;&gt;&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/687474703a2f2f692e737461636b2e696d6775722e636f6d2f336c6241542e706e67.png&#34; alt=&#34;687474703a2f2f692e737461636b2e696d6775722e636f6d2f336c6241542e706e67&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;http://urbandemographics.blogspot.co.uk/2016/04/creating-tilted-and-stacked-maps-in-r.html&#34;&gt;http://urbandemographics.blogspot.co.uk/2016/04/creating-tilted-and-stacked-maps-in-r.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RStudio Cheatsheets</title>
+      <link>http://dyerlab/2016/04/rstudio-cheatsheets/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/04/rstudio-cheatsheets/</guid>
+      <description>&lt;p&gt;Here are some very useful cheat sheets put out by RStudio. A great resource of information!
+&lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34;&gt;https://www.rstudio.com/resources/cheatsheets/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>So True!</title>
+      <link>http://dyerlab/2016/04/so-true/</link>
+      <pubDate>Mon, 18 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/04/so-true/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/phd101212s.gif&#34; alt=&#34;phd101212s&#34; /&gt;
+Use
+&lt;a href=&#34;http://github.com&#34;&gt;version control&lt;/a&gt; or editors in the
+&lt;a href=&#34;http://drive.google.com&#34;&gt;cloud&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Volume 0 - On iBooks Store</title>
+      <link>http://dyerlab/2016/04/volume-0---on-ibooks-store/</link>
+      <pubDate>Fri, 08 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/04/volume-0---on-ibooks-store/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://itunes.apple.com/us/book/applied-population-genetics/id1101353809?ls=1&amp;amp;mt=11&#34;&gt;&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/Screen-Shot-2016-04-08-at-7.43.40-AM.png&#34; alt=&#34;Screen Shot 2016-04-08 at 7.43.40 AM&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Buffers &amp; Convex Hulls</title>
+      <link>http://dyerlab/2016/03/buffers--convex-hulls/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/03/buffers--convex-hulls/</guid>
+      <description>---
+author: Rodney J. Dyer
+date: 2016-03-18
+layout: post
+title: Buffers &amp; Convex Hulls
+categories: 
+- Code
+- gdistance
+- polygon
+- R
+- raster
+- Tutorials
+---
+
+
+&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;An analysis common to modern population genetics is that of finding ecological distances between objects on a landscape. The estimation of pairwise distance derived from spatial data is a computationally intensive thing, one that if you are not careful will bring your laptop to its knees! One way to mitigate this data problem is to use a minimal amount raster area so that the estimation of the underlying distance graph can be done on a smaller set of points. This example provides a simple solution using convex hulls. ## A Bounding Box Approach The first option is to create a bounding box around your points. For this, I’ll use the enigmatic arapat data set included in the gstudio package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(raster)
+library(gstudio)
+data(arapat)
+lon.min &amp;lt;- min(arapat$Longitude)
+lon.max &amp;lt;- max(arapat$Longitude)
+lat.min &amp;lt;- min(arapat$Latitude)
+lat.max &amp;lt;- max(arapat$Latitude)
+e &amp;lt;- extent( lon.min, lon.max, lat.min, lat.max )
+e&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : Extent 
+## xmin        : -114.2935 
+## xmax        : -109.1263 
+## ymin        : 23.0757 
+## ymax        : 29.32541&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is the minimal box around the points, but we probably want to have some kind of buffer as we don’t want our populations on the very edge of the raster.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;e &amp;lt;- extent( -115, -108, 23, 30 )
+e&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : Extent 
+## xmin        : -115 
+## xmax        : -108 
+## ymin        : 23 
+## ymax        : 30&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can crop the raster to this size. I’ll use the altitude tile 22 from &lt;a href=&#34;http://worldclim.org&#34;&gt;worldclim&lt;/a&gt; for this. Here is the original raster.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;alt &amp;lt;- raster(&amp;quot;../../data/alt_22.tif&amp;quot;)
+alt&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : RasterLayer 
+## dimensions  : 3600, 3600, 12960000  (nrow, ncol, ncell)
+## resolution  : 0.008333333, 0.008333333  (x, y)
+## extent      : -120, -90, 0, 30  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## data source : /Users/rodney/Desktop/dyerlabweb/data/alt_22.tif 
+## names       : alt_22 
+## values      : -202, 5469  (min, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;which looks like.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(alt)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt; We can crop it to the bounding box for the points as:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bc &amp;lt;- crop( alt, e )
+bc&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : RasterLayer 
+## dimensions  : 840, 840, 705600  (nrow, ncol, ncell)
+## resolution  : 0.008333333, 0.008333333  (x, y)
+## extent      : -115, -108, 23, 30  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## data source : in memory
+## names       : alt_22 
+## values      : -202, 2774  (min, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coords &amp;lt;- strata_coordinates(arapat)
+pts &amp;lt;- SpatialPoints( coords[,2:3] )
+plot(bc, xlab=&amp;quot;Longitude&amp;quot;, ylab=&amp;quot;Latitude&amp;quot;)
+points( pts, col=&amp;quot;darkred&amp;quot;, pch=16)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt; ## A Convex Hull Approach As you look at the image above, you see that there is a lot of area that is not in ‘the midst’ of the points. Moreover, there are those points on the mainland who are probably not going to be connected to the peninsular points due to the Sea of Cortez.  I’m going to first limit the points to the ones on the peninsula and then we will estimate a convex hull. A convex hull is the small convex polygon that contains all the points. You can think of it like snapping a rubber band around the points.  This will give us the minimal raster area on which can estimate raster-based distances (though we probably want to put a buffer around it so that we do not have points at the very edge). Here is how we do that. First, I’ll extract just the peninsular populations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;baja_coords &amp;lt;- coords[ !(coords$Stratum %in% c(&amp;quot;101&amp;quot;,&amp;quot;102&amp;quot;,&amp;quot;32&amp;quot;)), ]
+baja_pts &amp;lt;- SpatialPoints( baja_coords[,2:3])
+plot(bc)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt; Then we will load in the rgeos library and determine the hull&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(rgeos)
+hull &amp;lt;- gConvexHull(baja_pts)
+plot(bc)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)
+plot(hull,add=T,border=&amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt; This is great! So now, we probably want to put a buffer around it so that the points are on the very edge. The units we will use depend upon the units of the raster. So in this case, it will be in degrees of lat/lon (which is a bit dodgy since they are not quite equal distance metrics but for our purposes it is just fine).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hull_plus_buffer &amp;lt;- gBuffer(hull,width=.2)
+plot(bc)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)
+plot(hull_plus_buffer, add=T, border=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt; Perfect! Now, we need to only keep those components of our raster that are within the hull_plus_buffer polygon, and for this we use a mask.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pop_hull &amp;lt;- mask(bc,hull_plus_buffer)
+plot(pop_hull)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt; Exact! Now, when you run this raster and these points through gdistance, you will be using a more minimal set of raster data for the calculations and it will be more efficient—and reduce the thermal load you are imposing on your laptop!&lt;/p&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cropping Rasters</title>
+      <link>http://dyerlab/2016/03/cropping-rasters/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/03/cropping-rasters/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;It is often the case that the raster we are working with is not the exact size of the area from which our data are collected. It is a much easier situation if the raster is larger than the area than if you need to stitch together two raster Tiles to get all your data onto one extent. In my doctoral thesis work, the area of the southern Ozark mountains that my sites were in was not only straddling a boundary between existing rasters, it was also at the boundary of two UTM zones! What a pain. Spatial data often consists of very large datasets. One way to minimize the amount of computational resources you are going to use in R is to select only the spatial regions (extents) that you are working in and get rid of the remaining data. This is particularly important if you are going to be doing isolation modeling for genetic connectivity as the cost surface raster needs to be translated into a connectivity network. Data outside your area of interest are unnecessarily taking both resources and time away from your work. To crop a raster, we need to identify the region we wish to keep as an extent object. An extent is a vector of length 4 defined as &lt;code&gt;c(xmin, xmax, ymin, ymax)&lt;/code&gt; describing the boundaries of are of interest. Here is an extent for the arapat data set.require(gstudio)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(raster)
+library(gstudio)
+data(arapat)
+lon.min &amp;lt;- min(arapat$Longitude)
+lon.max &amp;lt;- max(arapat$Longitude)
+lat.min &amp;lt;- min(arapat$Latitude)
+lat.max &amp;lt;- max(arapat$Latitude)
+e &amp;lt;- extent( lon.min, lon.max, lat.min, lat.max )
+e&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : Extent 
+## xmin        : -114.2935 
+## xmax        : -109.1263 
+## ymin        : 23.0757 
+## ymax        : 29.32541&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is the exact boundaries of the data set. However, it is probably a good idea to not have your map cropped exactly to your boundaries but have your most extreme locations plotted within the map boundaries. So I’ll take an approximation (rounding up and down as necessary) to use.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;e &amp;lt;- extent( -115, -108, 23, 30 )
+e&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : Extent 
+## xmin        : -115 
+## xmax        : -108 
+## ymin        : 23 
+## ymax        : 30&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This can now be used as the area from within the alt raster that we want to keep.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;alt &amp;lt;- raster( &amp;quot;../../data/alt_22.tif&amp;quot; )
+bc &amp;lt;- crop( alt, e )
+bc&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : RasterLayer 
+## dimensions  : 840, 840, 705600  (nrow, ncol, ncell)
+## resolution  : 0.008333333, 0.008333333  (x, y)
+## extent      : -115, -108, 23, 30  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## data source : in memory
+## names       : alt_22 
+## values      : -202, 2774  (min, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And if we plot it, we see that it is more properly scaled for the region we are interested in working on.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(bc)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/cropping-rasters/figures/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Raster Plotting</title>
+      <link>http://dyerlab/2016/03/raster-plotting/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/03/raster-plotting/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;A raster is essentially an image, whose pixel size correspond to a particular spatial extent and the data contained within each pixel represents a particular feature on the landscape. Common rasters are DEM’s (measuring elevation), rainfall, temperature, buildings, etc. In R, it is common to think of rasters as matrices whose values measure some feature on the landscape. In this section, we will examine how to acquire, load, manipulate, and extract data from raster objects. As mentioned above, a raster is essentially a matrix with some additional data added onto it related to the spatial extent of the values it contains. As such, we can easily start with a general matrix, perform various matrix manipulations, and then transform it into a raster object when we need it to have spatial properties and attributes. Here is an example of a basic matrix, whose values have been set to random normal variables (mean=0, sd=1) and then plot using the normal R plotting functions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- matrix(rnorm(100),ncol=10)
+image(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/raster-plotting/figures/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt; You can see that despite the origin of a matrix when we write it (and when you work with the row and column indices in R on it) is different than when we plot it. Two things should be noted:&lt;br /&gt;
+- The axes from &lt;code&gt;image()&lt;/code&gt; are not very helpful as they are scaled to the fractional width of the matrix rather than the number of rows and columns. This is apparently the preferred behavior from the people who wrote the original R graphics package.&lt;br /&gt;
+- The aspect ratio of the cells (e.g., each cell width and height) are not the same. This is problematic if we are intending these data to represent spatial content. This matrix can be ‘decorated’ with additional attributes and turned into a raster object by casting it as one using the &lt;code&gt;raster()&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(raster)
+r &amp;lt;- raster( x )
+r&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : RasterLayer 
+## dimensions  : 10, 10, 100  (nrow, ncol, ncell)
+## resolution  : 0.1, 0.1  (x, y)
+## extent      : 0, 1, 0, 1  (xmin, xmax, ymin, ymax)
+## coord. ref. : NA 
+## data source : in memory
+## names       : layer 
+## values      : -2.854284, 2.982814  (min, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we plot the raster object, we get a different view.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(r)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/raster-plotting/figures/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Effective Population Size</title>
+      <link>http://dyerlab/2016/02/effective-population-size/</link>
+      <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/02/effective-population-size/</guid>
+      <description>&lt;p&gt;How big is the data set you are analyzing?  Apparently it depends on how you count&amp;hellip;
+more
+[embed]&lt;a href=&#34;https://youtu.be/JV85sUANwYQ[/embed&#34;&gt;https://youtu.be/JV85sUANwYQ[/embed&lt;/a&gt;]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chapter 2: Hardy-Weinberg Equilibrium</title>
+      <link>http://dyerlab/2016/02/chapter-2-hardy-weinberg-equilibrium/</link>
+      <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/02/chapter-2-hardy-weinberg-equilibrium/</guid>
+      <description>&lt;p&gt;Here are the online presentations for Chapter 2: Hardy Weinberg Equilibrium from the upcoming text,
+Applied Population Genetics.  More information on this text can be found
+&lt;a href=&#34;http://dyerlab.bio.vcu.edu/applied-population-genetics/&#34;&gt;here&lt;/a&gt;.
+more
+[embed]&lt;a href=&#34;https://youtu.be/s5Z0nItrdSo[/embed&#34;&gt;https://youtu.be/s5Z0nItrdSo[/embed&lt;/a&gt;]&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

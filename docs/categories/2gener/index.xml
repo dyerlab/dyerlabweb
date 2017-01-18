@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2gener on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/2gener/index.xml</link>
+    <description>Recent content in 2gener on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/2gener/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GStudio: An R Package for Spatial Analysis of Marker Data</title>
+      <link>http://dyerlab/2015/01/gstudio-an-r-package-for-spatial-analysis-of-marker-data/</link>
+      <pubDate>Fri, 16 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/01/gstudio-an-r-package-for-spatial-analysis-of-marker-data/</guid>
+      <description>&lt;p&gt;This is the main package that provides data types and routines for spatial analysis of genetic marker data. The previous version is currently available on
+&lt;a href=&#34;http://cran.r-project.org/&#34;&gt;CRAN&lt;/a&gt; and you can install it rom within your R environtment by invoking the command
+install.packages(&amp;ldquo;gstudio&amp;rdquo;)
+If you want to keep up with the latest developments of this package, you can use the version found on GitHub.  Install it from within R as:
+require(devtools)
+install_github(&amp;ldquo;dyerlab/gstudio&amp;rdquo;)
+and that should get you up-to-date.  You&amp;rsquo;ll need to have a fully working LaTeX install and some other stuff to build it if you fork.
+The Users Manual for the package with several examples can be found
+&lt;a href=&#34;http://dyerlab.github.io/gstudio/&#34;&gt;here&lt;/a&gt;
+I have started a github account for this package, you can get access to the whole codebase read about it on the wiki, and contribute to the project from its repo at
+&lt;a href=&#34;http://github.com/dyerlab&#34;&gt;https://github.com/dyerlab&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

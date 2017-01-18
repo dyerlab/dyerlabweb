@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Merging data frames" />
+<meta property="og:description" content="In R, there is often the need to merge two data.frame objects (say one with individual samples and the other with population coordinates. The merge() function is a pretty awesome though it may take a little getting used to. Here are some things to remember:*You need to have two data.frame objects to merge
+*The first one in the function call will be the one merged on-to the second one is added to the first." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://dyerlab/2015/08/merging-data-frames/" />
+
+
+<meta property="og:updated_time" content="2015-08-27T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Merging data frames">
+<meta itemprop="description" content="In R, there is often the need to merge two data.frame objects (say one with individual samples and the other with population coordinates. The merge() function is a pretty awesome though it may take a little getting used to. Here are some things to remember:*You need to have two data.frame objects to merge
+*The first one in the function call will be the one merged on-to the second one is added to the first.">
+
+
+<meta itemprop="dateModified" content="2015-08-27T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="625">
+
+
+
+<meta itemprop="keywords" content="2gener,aflp,applied-population-genetics,araptus-attenuata,baja-california,blog,ces,cgd,code,default-calendar,documents,dogwood,dyerlab,edna,fitness,gdistance,gene-flow,genetic-structure,genomics,ggplot2,google,google-docs,graduate,gsl,gstudio,laboratory,landscape-genetics,lophocereus-schottii,main-menu,manuscripts,maps,markers,null-alleles,ole2015,online,online-publishing,paternity,people,phylogeography,polygon,popgraph,population-genetics,population-graphs,presentations,projects,protocols,publications,r,raster,reproducible-research,research,rstudio,servers,slack,software,spatial,stamova,sturgeon,sustainability,teaching,theory,tutorial,tutorials,uncategorized,unix,urbanization,vcu,vcugenetics2015,xcode," />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Merging data frames"/>
+<meta name="twitter:description" content="In R, there is often the need to merge two data.frame objects (say one with individual samples and the other with population coordinates. The merge() function is a pretty awesome though it may take a little getting used to. Here are some things to remember:*You need to have two data.frame objects to merge
+*The first one in the function call will be the one merged on-to the second one is added to the first."/>
+<meta name="twitter:site" content="@dyerlab"/>
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+    <link rel="canonical" href="http://dyerlab/2015/08/merging-data-frames/">
+
+    <title>Merging data frames | The Dyer Laboratory</title>
+
+    <!-- combined, minified CSS -->
+    <link href="http://dyerlab/css/style.css" rel="stylesheet" integrity="sha384-qRVpIj9hSzsBhmO8Y7YEKF2UFra2sJQtl9V/uFKKDvy&#43;Wjh9zgTku6VRgT8YdPoD" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/css/dyerlab.css">
+<script>
+  (function() {
+    var cx = '005624429758912894427:ewy8fmekoli';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="http://dyerlab/">Home</a>
+          
+          
+          <a class="nav-link" href="http://dyerlab/people/">People</a>
+          
+          <a class="nav-link" href="http://dyerlab/publications/">Publications</a>
+          
+          <a class="nav-link" href="http://dyerlab/texts/">Texts</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="http://dyerlab/" rel="home">The Dyer Laboratory</a></h1>
+        <p class="lead blog-description">Illuminating the mechanics of genetic connectivity.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://dyerlab/2015/08/merging-data-frames/">Merging data frames</a></h2>
+    <p class="blog-post-meta"><time datetime="2015-08-27T00:00:00Z">Thu Aug 27, 2015</time> by Rodney J. Dyer in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/baja-california" rel="category tag">Baja California</a>, <a href="/categories/code" rel="category tag">Code</a>, <a href="/categories/lophocereus-schottii" rel="category tag">Lophocereus schottii</a>, <a href="/categories/popgraph" rel="category tag">popgraph</a>, <a href="/categories/r" rel="category tag">R</a>, <a href="/categories/tutorials" rel="category tag">Tutorials</a>
+
+
+</p>
+  </header>
+  <p>In R, there is often the need to merge two
+data.frame objects (say one with individual samples and the other with population coordinates.  The
+merge()  function is a pretty awesome though it may take a little getting used to.
+Here are some things to remember:*You need to have two
+data.frame objects to merge</p>
+
+<p>*The first one in the function call will be the one merged
+on-to the second one is added to the first.</p>
+
+<p>*Each will need a column to use as an index—it is a column that will be used to match rows of data.  If they are the same column names then the function will do it automagically, if no common names are found in the
+names()  of either
+data.frame objects, you can specify the columns using the optional
+by.x=  and
+by.y=  function arguments.
+moreHere is an example. I&rsquo;m going to load in some data from the
+popgraph  library.  First, I&rsquo;ll load up the library and hten grab the population meta data for the lophocereus data set we analyzed in
+<a href="http://dx.doi.org/10.1111/j.1365-294X.2004.02177.x">Dyer &amp; Nason (2004)</a>.
+require(popgraph)
+data(baja)
+summary(baja)
+    Region     Population    Latitude       Longitude<br />
+ Baja  :16   BaC    : 1   Min.   :22.93   Min.   :-114.7<br />
+ Sonora:13   Cabo   : 1   1st Qu.:24.45   1st Qu.:-112.6<br />
+             CP     : 1   Median :27.95   Median :-111.8<br />
+             Ctv    : 1   Mean   :27.33   Mean   :-111.8<br />
+             ELR    : 1   3rd Qu.:29.59   3rd Qu.:-110.7<br />
+             IC     : 1   Max.   :31.95   Max.   :-109.5<br />
+             (Other):23
+The graph itself has nodes indicated as populations and perhaps we are interested in plotting node size as a function of spatial location.  We can grab the names and sizes from the
+popgraph object (it is a kind of
+igraph ) by:
+data(lopho)
+df.nodes &lt;- data.frame( Population=V(lopho)$name, Size=V(lopho)$size )
+summary(df.nodes)
+   Population      Size<br />
+ BaC    : 1   Min.   : 2.500<br />
+ CP     : 1   1st Qu.: 5.291<br />
+ Ctv    : 1   Median : 6.860<br />
+ LaV    : 1   Mean   : 7.770<br />
+ LF     : 1   3rd Qu.:10.925<br />
+ Lig    : 1   Max.   :16.001<br />
+ (Other):15
+Now we have
+baja  and
+df.nodes as two data.frames and can merge them by their common column <code>Population</code>.  If we merge
+df.nodesonto
+baja  then we get the new
+data.frame:
+merge( baja, df.nodes )
+   Population Region Latitude Longitude      Size
+1         BaC   Baja    26.59   -111.79 12.158810
+2          CP Sonora    27.95   -110.66  7.870725
+3         Ctv   Baja    29.73   -114.72  3.880886
+4         LaV   Baja    24.04   -109.99  3.533757
+5          LF Sonora    30.68   -112.27  8.472215
+6         Lig   Baja    25.73   -111.27  4.731355
+7          PL Sonora    30.39   -112.58  6.692795
+8         PtC   Baja    24.19   -111.15  4.684652
+9         PtP   Baja    29.03   -113.90 10.925375
+10     SenBas Sonora    31.95   -112.87  9.116705
+11       Seri Sonora    28.88   -111.96  2.500000
+12         SG Sonora    29.40   -112.05 11.027530
+13         SI Sonora    29.75   -112.50 11.521450
+14        SLG   Baja    29.59   -114.40  5.955645
+15         SN Sonora    28.82   -111.80  8.325785
+16        SnE   Baja    24.45   -110.70 11.828220
+17        SnF   Baja    30.76   -114.73  6.325655
+18        SnI   Baja    27.29   -113.02  5.466695
+19        StR   Baja    24.91   -111.62  6.859545
+20         TS Sonora    28.41   -111.37 16.001165
+21        TsS   Baja    23.58   -110.34  5.290570
+but if we do it the other way, we get:
+merge(df.nodes,baja)
+   Population      Size Region Latitude Longitude
+1         BaC 12.158810   Baja    26.59   -111.79
+2          CP  7.870725 Sonora    27.95   -110.66
+3         Ctv  3.880886   Baja    29.73   -114.72
+4         LaV  3.533757   Baja    24.04   -109.99
+5          LF  8.472215 Sonora    30.68   -112.27
+6         Lig  4.731355   Baja    25.73   -111.27
+7          PL  6.692795 Sonora    30.39   -112.58
+8         PtC  4.684652   Baja    24.19   -111.15
+9         PtP 10.925375   Baja    29.03   -113.90
+10     SenBas  9.116705 Sonora    31.95   -112.87
+11       Seri  2.500000 Sonora    28.88   -111.96
+12         SG 11.027530 Sonora    29.40   -112.05
+13         SI 11.521450 Sonora    29.75   -112.50
+14        SLG  5.955645   Baja    29.59   -114.40
+15         SN  8.325785 Sonora    28.82   -111.80
+16        SnE 11.828220   Baja    24.45   -110.70
+17        SnF  6.325655   Baja    30.76   -114.73
+18        SnI  5.466695   Baja    27.29   -113.02
+19        StR  6.859545   Baja    24.91   -111.62
+20         TS 16.001165 Sonora    28.41   -111.37
+21        TsS  5.290570   Baja    23.58   -110.34
+Hope this helps.</p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fdyerlab%2f2015%2f08%2fmerging-data-frames%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=http%3a%2f%2fdyerlab%2f2015%2f08%2fmerging-data-frames%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      
+      <a class="nav-item" href="https://twitter.com/home?status=http%3a%2f%2fdyerlab%2f2015%2f08%2fmerging-data-frames%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  
+  
+
+  <section class="sidebar-module  sidebar-module-inset">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="/2017/01/new-server-new-site-first-post/">New Server, New Site, First Post!</a></li>
+      
+      <li><a href="/2017/01/new-position/">New Position</a></li>
+      
+      <li><a href="/2016/12/life-sciences-graduation/">Life Sciences Graduation</a></li>
+      
+      <li><a href="/2016/11/talk-at-temple/">Talk at Temple!</a></li>
+      
+      <li><a href="/2016/10/spatial-data-sources/">Spatial Data Sources</a></li>
+      
+    </ol>
+  </section>
+
+  
+  
+  <section class="sidebar-module sidebar-module-inset">
+  <h5>Search Dyerlab</h5>
+  <gcse:searchbox-only></gcse:searchbox-only>
+  </section>
+  
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="http://dyerlab.com/categories">Blog Tags</a></li>
+      
+      <li><a href="http://dyerlab.com/rstudio">RStudio</a></li>
+      
+      <li><a href="https://github.com/dyerlab">Github</a></li>
+      
+    </ol>
+  </section>
+  
+  
+  <div class="twitter-timeline">
+    <a class="twitter-timeline" href="https://twitter.com/Dyerlab" data-height="1200">Tweets by Dyerlab</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      &copy; by 2017 <a href="mailto:rjdyer@vcu.edu">R.J. Dyer</a>.
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

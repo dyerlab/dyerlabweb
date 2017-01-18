@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Spatial Data Sources" />
+<meta property="og:description" content="As part of a class in Landscape Genetics, faculty (mostly done by Melanie Murphy and Jeffrey Evans) compiled an extensive list of spatial data sources. These were made available on the course website we hosted but I wanted to make a more persistent copy of them here so they will not be lost. They are listed below the break. moreAfrica Infrastructure Knowledge Program http://www.infrastructureafrica.org/ ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer) http://asterweb." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://dyerlab/2016/10/spatial-data-sources/" />
+
+
+<meta property="og:updated_time" content="2016-10-06T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Spatial Data Sources">
+<meta itemprop="description" content="As part of a class in Landscape Genetics, faculty (mostly done by Melanie Murphy and Jeffrey Evans) compiled an extensive list of spatial data sources. These were made available on the course website we hosted but I wanted to make a more persistent copy of them here so they will not be lost. They are listed below the break. moreAfrica Infrastructure Knowledge Program http://www.infrastructureafrica.org/ ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer) http://asterweb.">
+
+
+<meta itemprop="dateModified" content="2016-10-06T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="539">
+
+
+
+<meta itemprop="keywords" content="2gener,aflp,applied-population-genetics,araptus-attenuata,baja-california,blog,ces,cgd,code,default-calendar,documents,dogwood,dyerlab,edna,fitness,gdistance,gene-flow,genetic-structure,genomics,ggplot2,google,google-docs,graduate,gsl,gstudio,laboratory,landscape-genetics,lophocereus-schottii,main-menu,manuscripts,maps,markers,null-alleles,ole2015,online,online-publishing,paternity,people,phylogeography,polygon,popgraph,population-genetics,population-graphs,presentations,projects,protocols,publications,r,raster,reproducible-research,research,rstudio,servers,slack,software,spatial,stamova,sturgeon,sustainability,teaching,theory,tutorial,tutorials,uncategorized,unix,urbanization,vcu,vcugenetics2015,xcode," />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Spatial Data Sources"/>
+<meta name="twitter:description" content="As part of a class in Landscape Genetics, faculty (mostly done by Melanie Murphy and Jeffrey Evans) compiled an extensive list of spatial data sources. These were made available on the course website we hosted but I wanted to make a more persistent copy of them here so they will not be lost. They are listed below the break. moreAfrica Infrastructure Knowledge Program http://www.infrastructureafrica.org/ ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer) http://asterweb."/>
+<meta name="twitter:site" content="@dyerlab"/>
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+    <link rel="canonical" href="http://dyerlab/2016/10/spatial-data-sources/">
+
+    <title>Spatial Data Sources | The Dyer Laboratory</title>
+
+    <!-- combined, minified CSS -->
+    <link href="http://dyerlab/css/style.css" rel="stylesheet" integrity="sha384-qRVpIj9hSzsBhmO8Y7YEKF2UFra2sJQtl9V/uFKKDvy&#43;Wjh9zgTku6VRgT8YdPoD" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/css/dyerlab.css">
+<script>
+  (function() {
+    var cx = '005624429758912894427:ewy8fmekoli';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="http://dyerlab/">Home</a>
+          
+          
+          <a class="nav-link" href="http://dyerlab/people/">People</a>
+          
+          <a class="nav-link" href="http://dyerlab/publications/">Publications</a>
+          
+          <a class="nav-link" href="http://dyerlab/texts/">Texts</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="http://dyerlab/" rel="home">The Dyer Laboratory</a></h1>
+        <p class="lead blog-description">Illuminating the mechanics of genetic connectivity.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://dyerlab/2016/10/spatial-data-sources/">Spatial Data Sources</a></h2>
+    <p class="blog-post-meta"><time datetime="2016-10-06T00:00:00Z">Thu Oct 06, 2016</time> by Rodney J. Dyer in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/code" rel="category tag">Code</a>, <a href="/categories/r" rel="category tag">R</a>, <a href="/categories/research" rel="category tag">Research</a>, <a href="/categories/spatial" rel="category tag">spatial</a>
+
+
+</p>
+  </header>
+  <p>As part of a class in Landscape Genetics, faculty (mostly done by
+<a href="https://sites.google.com/site/murphylabuwyo/">Melanie Murphy</a> and
+<a href="http://www.nature.org/science-in-action/our-scientists/jeff-evans.xml">Jeffrey Evans</a>) compiled an extensive list of spatial data sources.  These were made available on the course website we hosted but I wanted to make a more persistent copy of them here so they will not be lost.  They are listed below the break.
+moreAfrica
+Infrastructure Knowledge Program
+<a href="http://www.infrastructureafrica.org/">http://www.infrastructureafrica.org/</a>
+ASTER (Advanced Spaceborne
+Thermal Emission and Reflection Radiometer)
+<a href="http://asterweb.jpl.nasa.gov/">http://asterweb.jpl.nasa.gov/</a>
+ASTER
+Global 30m DEM
+<a href="http://www.gdem.aster.ersdac.or.jp/">http://www.gdem.aster.ersdac.or.jp/</a>
+Atlas of
+the Biosphere
+<a href="http://www.sage.wisc.edu/atlas/">http://www.sage.wisc.edu/atlas/</a>
+Atrium
+biodiversity information system
+<a href="http://atrium.andesamazon.org/metadata_search.php">http://atrium.andesamazon.org/metadata_search.php</a>
+Atrium biodiversity
+information system
+<a href="http://atrium.andesamazon.org/">http://atrium.andesamazon.org/</a>
+AVIRIS (Airborne
+Visible/Infrared Imaging Spectrometer)
+<a href="http://aviris.jpl.nasa.gov/">http://aviris.jpl.nasa.gov/</a>
+BLM Land
+Survey Information System
+<a href="http://www.geocommunicator.gov/GeoComm/">http://www.geocommunicator.gov/GeoComm/</a>
+BLM Sage
+Grouse Breeding Densities
+<a href="http://conserveonline.org/workspaces/sagegrouse/documents/all.html">http://conserveonline.org/workspaces/sagegrouse/documents/all.html</a>
+CAL-Atlas
+California GIS data
+<a href="http://www.atlas.ca.gov/">http://www.atlas.ca.gov/</a>
+Colorado
+2009 NAIP County Mosaics
+<a href="https://my.usgs.gov/Public/NSDIPartnershipOffice/CO/2009%20NAIP%20County%20Mosaics/">https://my.usgs.gov/Public/NSDIPartnershipOffice/CO/2009%20NAIP%20County%20Mosaics/</a>
+Colorado
+Dept of Transportation
+<a href="http://apps.coloradodot.info/dataaccess/GeoData/index.cfm?fuseaction=GeoDataMain">http://apps.coloradodot.info/dataaccess/GeoData/index.cfm?fuseaction=GeoDataMain</a>
+Colorado
+Ownership database (COMaP)
+<a href="http://www.nrel.colostate.edu/projects/comap/index.html">http://www.nrel.colostate.edu/projects/comap/index.html</a>
+CSIRO Lidar mapping of vegetation
+canopies
+<a href="http://www.cossa.csiro.au/vsis/lidhome.htm">http://www.cossa.csiro.au/vsis/lidhome.htm</a>
+Downscaled
+Climate GCM&rsquo;s
+<a href="http://futureclim.info/">http://futureclim.info/</a>
+EPA
+Webmap Services
+<a href="http://www.epa.gov/geospatial/help.htm">http://www.epa.gov/geospatial/help.htm</a>
+FEMA
+Flood maps
+<a href="https://msc.fema.gov/webapp/wcs/stores/servlet/FemaWelcomeView?storeId=10001&amp;catalogId=10001&amp;langId=-1&amp;userType=G">https://msc.fema.gov/webapp/wcs/stores/servlet/FemaWelcomeView?storeId=10001&amp;catalogId=10001&amp;langId=-1&amp;userType=G</a>
+FEMA
+Imagery download
+<a href="http://stratus.cr.usgs.gov/viewer/">http://stratus.cr.usgs.gov/viewer/</a>
+GeoEye foundation
+<a href="http://www.geoeye.com/CorpSite/corporate/foundation/">http://www.geoeye.com/CorpSite/corporate/foundation/</a>
+Global
+Gridded Popuation data
+<a href="http://sedac.ciesin.columbia.edu/gpw/aboutus.jsp">http://sedac.ciesin.columbia.edu/gpw/aboutus.jsp</a>
+Global
+Land Cover Characterization
+<a href="http://edc2.usgs.gov/glcc/glcc.php">http://edc2.usgs.gov/glcc/glcc.php</a>
+Global Landcover
+Facility
+<a href="http://landcover.org/index.shtml">http://landcover.org/index.shtml</a>
+Global
+Landcover Facility Amazon and Central Africa Forest Change
+<a href="http://landcover.org/data/pathfinder/data.shtml">http://landcover.org/data/pathfinder/data.shtml</a>
+Global
+Multi-resolution Terrain Elevation Data 2010
+<a href="http://pubs.usgs.gov/of/2011/1073/">http://pubs.usgs.gov/of/2011/1073/</a>
+Global
+Protected Areas
+<a href="http://www.protectedplanet.net/">http://www.protectedplanet.net/</a>
+ICESat/GLAS
+<a href="http://icesat.gsfc.nasa.gov/icesat/">http://icesat.gsfc.nasa.gov/icesat/</a>
+Idaho
+Dept Water Resources
+<a href="http://www.idwr.idaho.gov/">http://www.idwr.idaho.gov/</a>
+Idaho
+GIS data (Inside Idaho)
+<a href="http://inside.uidaho.edu/">http://inside.uidaho.edu/</a>
+Landsat
+Path/Row Index Shapefile
+<a href="https://landsat.usgs.gov/tools_wrs-2_shapefile.php">https://landsat.usgs.gov/tools_wrs-2_shapefile.php</a>
+MODIS
+Global NPP
+<a href="http://secure.ntsg.umt.edu/projects/index.php/ID/ca2901a0/fuseaction/projects.detail.htm">http://secure.ntsg.umt.edu/projects/index.php/ID/ca2901a0/fuseaction/projects.detail.htm</a>
+MODIS
+Sinusoidal Grid shapefile
+<a href="http://gis.cri.fmach.it/modis-sinusoidal-gis-files/">http://gis.cri.fmach.it/modis-sinusoidal-gis-files/</a>
+MODIS
+Subset tool
+<a href="http://daac.ornl.gov/cgi-bin/MODIS/GLBVIZ_1_Glb/modis_subset_order_global_col5.pl">http://daac.ornl.gov/cgi-bin/MODIS/GLBVIZ_1_Glb/modis_subset_order_global_col5.pl</a>
+Montana
+Geographic Information Clearinghouse
+<a href="http://nris.mt.gov/gis/default.asp">http://nris.mt.gov/gis/default.asp</a>
+MRLC
+National Land Cover
+<a href="http://www.mrlc.gov/nlcd2006.php">http://www.mrlc.gov/nlcd2006.php</a>
+NASA GLOVIS
+<a href="http://glovis.usgs.gov/">http://glovis.usgs.gov/</a>
+NASA
+Land Processes Distributed Active Archive Center
+<a href="https://lpdaac.usgs.gov/">https://lpdaac.usgs.gov/</a>
+NASA Multiangle Imaging
+SpectroRadiometer
+<a href="http://eosweb.larc.nasa.gov/PRODOCS/misr/table_misr.html">http://eosweb.larc.nasa.gov/PRODOCS/misr/table_misr.html</a>
+NASA-JPL Global Carbon mapping
+<a href="http://lidarradar.jpl.nasa.gov/">http://lidarradar.jpl.nasa.gov/</a>
+National
+Agricultural Statistics Service Crop Data
+<a href="http://www.nass.usda.gov/research/Cropland/SARS1a.htm">http://www.nass.usda.gov/research/Cropland/SARS1a.htm</a>
+National Agriculture Imagery
+Program (NAIP)
+<a href="http://www.fsa.usda.gov/FSA/apfoapp?area=home&amp;subject=prog&amp;topic=nai">http://www.fsa.usda.gov/FSA/apfoapp?area=home&amp;subject=prog&amp;topic=nai</a>
+Natural
+Earth Global data
+<a href="http://www.naturalearthdata.com/">http://www.naturalearthdata.com/</a>
+NCALM (National Center of Airborne Laser
+Mapping)
+<a href="http://www.ncalm.org/home.html">http://www.ncalm.org/home.html</a>
+NDEP (National Digital Elevation Program)
+<a href="http://www.ndep.gov/">http://www.ndep.gov/</a>
+Nevada
+GIS data
+<a href="http://keck.library.unr.edu/">http://keck.library.unr.edu/</a>
+NOAA Costal topographic change
+<a href="http://www.csc.noaa.gov/crs/tcm/index.html">http://www.csc.noaa.gov/crs/tcm/index.html</a>
+North
+American Regional Climate Change Assessment Program
+<a href="http://www.narccap.ucar.edu/users/observed-datasets.html">http://www.narccap.ucar.edu/users/observed-datasets.html</a>
+North
+Dakota Webmap Services
+<a href="http://www.nd.gov/gis/mapsdata/web/">http://www.nd.gov/gis/mapsdata/web/</a>
+NRCS
+Geospatial Data Gateway
+<a href="http://datagateway.nrcs.usda.gov/">http://datagateway.nrcs.usda.gov/</a>
+Open
+Street Map
+<a href="http://www.openstreetmap.org/">http://www.openstreetmap.org/</a>
+OpenTopography
+<a href="http://www.opentopography.org/">http://www.opentopography.org/</a>
+Oregon
+Geospatial Enterprise Office
+<a href="http://www.oregon.gov/DAS/EISPD/GEO/sdlibrary.shtml">http://www.oregon.gov/DAS/EISPD/GEO/sdlibrary.shtml</a>
+Planet Action SPOT
+program
+<a href="http://www.planet-action.org/">http://www.planet-action.org/</a>
+Pritected
+Areas Database of the United States
+<a href="http://www.protectedlands.net/">http://www.protectedlands.net/</a>
+Puget Sound Lidar Consortium
+<a href="http://pugetsoundlidar.ess.washington.edu/">http://pugetsoundlidar.ess.washington.edu/</a>
+US State data clearinghouse (links to state data)
+<a href="http://web.mit.edu/dtfg/www/data/data_gis_us_state.htm">http://web.mit.edu/dtfg/www/data/data_gis_us_state.htm</a>
+SRTM (Shuttle Radar Topography Mission)
+90m global data
+<a href="http://srtm.csi.cgiar.org/">http://srtm.csi.cgiar.org/</a>
+STRM
+Topography and Canopy data
+<a href="http://srtm.csi.cgiar.org/">http://srtm.csi.cgiar.org/</a>
+SWreGAP processed Landsat,
+ASTER and MSS
+<a href="http://earth.gis.usu.edu/search.phtml">http://earth.gis.usu.edu/search.phtml</a>
+Texas
+Natural Resources Information System
+<a href="http://www.tnris.org/get-data#ccm">http://www.tnris.org/get-data#ccm</a>
+TNC AWWI
+Landscape Assessment Tool
+<a href="http://wind.tnc.org/awwi/">http://wind.tnc.org/awwi/#</a>
+TNC
+Climate Wizard
+<a href="http://www.climatewizard.org/">http://www.climatewizard.org/</a>
+TNC
+Climate Wizard Custom Queries
+<a href="http://climatewizardcustom.org/">http://climatewizardcustom.org/</a>
+TNC
+Development by Design Webmap Server
+<a href="http://50.18.62.210/DevByDesign/">http://50.18.62.210/DevByDesign/</a>
+UMAC
+Remote Sensing Imagery
+<a href="http://www.umac.org/imagery/sources/index.html">http://www.umac.org/imagery/sources/index.html</a>
+University
+of Washington, Various Global Data
+<a href="http://wagda.lib.washington.edu/data/geography/world/">http://wagda.lib.washington.edu/data/geography/world/</a>
+US
+Census Bureau
+<a href="http://www.census.gov/geo/www/pvs/PVS_main.html">http://www.census.gov/geo/www/pvs/PVS_main.html</a>
+US
+Census Bureau - TIGER data
+<a href="http://www.census.gov/geo/www/tiger/tgrshp2009/tgrshp2009.html">http://www.census.gov/geo/www/tiger/tgrshp2009/tgrshp2009.html</a>
+US
+Federal Geographic Data Committee
+<a href="http://www.fgdc.gov/">http://www.fgdc.gov/</a>
+US
+National Atlas raw data download
+<a href="http://www.nationalatlas.gov/atlasftp.html">http://www.nationalatlas.gov/atlasftp.html</a>
+USDA-AFPO
+NAIP Webmap Service
+<a href="wms.ftw.nrcs.usda.gov">wms.ftw.nrcs.usda.gov</a>
+USFS-Rocky
+Mt Region GIS data
+<a href="http://www.fs.fed.us/r2/gis/datasets_regionwide.shtml">http://www.fs.fed.us/r2/gis/datasets_regionwide.shtml</a>
+USFWS
+Critical Habitat data
+<a href="http://criticalhabitat.fws.gov/crithab/">http://criticalhabitat.fws.gov/crithab/</a>
+USFWS
+National Wetlands Inventory
+<a href="http://www.fws.gov/wetlands/Data/DataDownload.html">http://www.fws.gov/wetlands/Data/DataDownload.html</a>
+USGS CLICK
+<a href="http://lidar.cr.usgs.gov/">http://lidar.cr.usgs.gov/</a>
+USGS
+Geologic formations
+<a href="http://pubs.usgs.gov/of/2005/1325/index_map.htm">http://pubs.usgs.gov/of/2005/1325/index_map.htm</a>
+USGS
+Geosciences Database
+<a href="http://ngmdb.usgs.gov/Other_Resources/rdb_es.html">http://ngmdb.usgs.gov/Other_Resources/rdb_es.html</a>
+USGS
+Global Ecosystems
+<a href="http://rmgsc.cr.usgs.gov/ecosystems/">http://rmgsc.cr.usgs.gov/ecosystems/</a>
+USGS
+National geophysical data
+<a href="http://tin.er.usgs.gov/catalog/cite-view.php?cite=97">http://tin.er.usgs.gov/catalog/cite-view.php?cite=97</a>
+USGS
+National Hydrography Dataset
+<a href="http://nhd.usgs.gov/">http://nhd.usgs.gov/</a>
+USGS
+North West ReGap Landcover
+<a href="http://gap.uidaho.edu/index.php/gap-home/Northwest-GAP/landcover/download-data-by-state">http://gap.uidaho.edu/index.php/gap-home/Northwest-GAP/landcover/download-data-by-state</a>
+USGS
+Seamless data server
+<a href="http://seamless.usgs.gov/">http://seamless.usgs.gov/</a>
+USGS
+South West ReGap Landcover
+<a href="http://earth.gis.usu.edu/swgap/">http://earth.gis.usu.edu/swgap/</a>
+USGS
+Water Resource Data
+<a href="http://water.usgs.gov/maps.html">http://water.usgs.gov/maps.html</a>
+VITO Image processing and
+archiving center
+<a href="http://www.vgt.vito.be/">http://www.vgt.vito.be/</a>
+Washington
+2009 NAIP County Mosaics
+<a href="http://gis.ess.washington.edu/data/raster/naip2009ccm_wa/index.html">http://gis.ess.washington.edu/data/raster/naip2009ccm_wa/index.html</a>
+WorldClim
+<a href="http://www.worldclim.org/">http://www.worldclim.org/</a>
+ WyGISc (Wyoming GIS data server)</p>
+
+<p><a href="http://www.uwyo.edu/wygisc/geodata/">http://www.uwyo.edu/wygisc/geodata/</a>
+WWF
+Ecoregions
+<a href="http://www.worldwildlife.org/science/data/item1875.html">http://www.worldwildlife.org/science/data/item1875.html</a>
+WWF GIS
+data
+<a href="http://www.worldwildlife.org/science/data/item1872.html">http://www.worldwildlife.org/science/data/item1872.html</a>
+WWF
+Global Hydrosheds
+<a href="http://hydrosheds.cr.usgs.gov/">http://hydrosheds.cr.usgs.gov/#</a></p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fdyerlab%2f2016%2f10%2fspatial-data-sources%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=http%3a%2f%2fdyerlab%2f2016%2f10%2fspatial-data-sources%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      
+      <a class="nav-item" href="https://twitter.com/home?status=http%3a%2f%2fdyerlab%2f2016%2f10%2fspatial-data-sources%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  
+  
+
+  <section class="sidebar-module  sidebar-module-inset">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="/2017/01/new-server-new-site-first-post/">New Server, New Site, First Post!</a></li>
+      
+      <li><a href="/2017/01/new-position/">New Position</a></li>
+      
+      <li><a href="/2016/12/life-sciences-graduation/">Life Sciences Graduation</a></li>
+      
+      <li><a href="/2016/11/talk-at-temple/">Talk at Temple!</a></li>
+      
+      <li><a href="/2016/10/spatial-data-sources/">Spatial Data Sources</a></li>
+      
+    </ol>
+  </section>
+
+  
+  
+  <section class="sidebar-module sidebar-module-inset">
+  <h5>Search Dyerlab</h5>
+  <gcse:searchbox-only></gcse:searchbox-only>
+  </section>
+  
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="http://dyerlab.com/categories">Blog Tags</a></li>
+      
+      <li><a href="http://dyerlab.com/rstudio">RStudio</a></li>
+      
+      <li><a href="https://github.com/dyerlab">Github</a></li>
+      
+    </ol>
+  </section>
+  
+  
+  <div class="twitter-timeline">
+    <a class="twitter-timeline" href="https://twitter.com/Dyerlab" data-height="1200">Tweets by Dyerlab</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      &copy; by 2017 <a href="mailto:rjdyer@vcu.edu">R.J. Dyer</a>.
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maps on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/maps/index.xml</link>
+    <description>Recent content in Maps on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/maps/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Layered Maps in R (Using GGPlot of course...)</title>
+      <link>http://dyerlab/2016/04/layered-maps-in-r-using-ggplot-of-course.../</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/04/layered-maps-in-r-using-ggplot-of-course.../</guid>
+      <description>&lt;p&gt;A very cool writeup on making blow out maps.
+&lt;a href=&#34;http://urbandemographics.blogspot.co.uk/2016/04/creating-tilted-and-stacked-maps-in-r.html&#34;&gt;&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/687474703a2f2f692e737461636b2e696d6775722e636f6d2f336c6241542e706e67.png&#34; alt=&#34;687474703a2f2f692e737461636b2e696d6775722e636f6d2f336c6241542e706e67&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;http://urbandemographics.blogspot.co.uk/2016/04/creating-tilted-and-stacked-maps-in-r.html&#34;&gt;http://urbandemographics.blogspot.co.uk/2016/04/creating-tilted-and-stacked-maps-in-r.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Volume 0 - On iBooks Store</title>
+      <link>http://dyerlab/2016/04/volume-0---on-ibooks-store/</link>
+      <pubDate>Fri, 08 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/04/volume-0---on-ibooks-store/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://itunes.apple.com/us/book/applied-population-genetics/id1101353809?ls=1&amp;amp;mt=11&#34;&gt;&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/Screen-Shot-2016-04-08-at-7.43.40-AM.png&#34; alt=&#34;Screen Shot 2016-04-08 at 7.43.40 AM&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dyerlab Location</title>
+      <link>http://dyerlab/2015/01/dyerlab-location/</link>
+      <pubDate>Fri, 09 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/01/dyerlab-location/</guid>
+      <description>&lt;p&gt;Here is where we are located.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

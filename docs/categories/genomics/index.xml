@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Genomics on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/genomics/index.xml</link>
+    <description>Recent content in Genomics on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/genomics/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Methylation Structure</title>
+      <link>http://dyerlab/2015/09/methylation-structure/</link>
+      <pubDate>Wed, 16 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/09/methylation-structure/</guid>
+      <description>&lt;p&gt;Here is some interesting data coming out of the Baja
+Araptus attenuatus project.  We looked at methylation variation, localized within the genome and compared the amount of among-population variation present.  The underlying idea here is that in insects, methylation is more often encountered in coding regions, and has been shown in many cases to be influencing phenotype.
+moreSo, the questions we are looking at are:*Is there spatial genetic variation in the methylation &amp;lsquo;loci&amp;rsquo;?  If not, methylation may not be useful in the search for adaptive variance.&lt;/p&gt;
+
+&lt;p&gt;*If there is variation, does it mimic the spatial structure found in nucleotide-based markers?
+*If some fraction of methylation loci, say
+p, do contain spatial structure then it means that these methylation patterns are inherited and can be used to help reconstruct neutral history.&lt;/p&gt;
+
+&lt;p&gt;*The rest of the methylation structure, say
+1-p, can be considered as being due to processes that operate at a time scale that does not capture recent demographic processes.  These would be the ones we are most interested in looking at for evidence of local adaptation, right?
+So in the first step, how is the variation distributed amongst populations in the nucleotide markers and their paired methylation markers can be seen below.
+[caption id=&amp;ldquo;attachment_659&amp;rdquo; align=&amp;ldquo;aligncenter&amp;rdquo; width=&amp;ldquo;760&amp;rdquo;]
+&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/09/PairedLocusStructure.png&#34; alt=&#34;PairedLocusStructure&#34; /&gt; Paired population structure for nucleotide, MSP, and methylation, HPA, loci.[/caption]
+If we look at genetic distances between population for both sets of markers, we see a discongruence in the topological structure.  Here is a tangle plot of the data, on the left are the nucleotide markers and on the right are the methylation ones.  The red branches in the interior of each are those that are different between the two topologies.
+[caption id=&amp;ldquo;attachment_660&amp;rdquo; align=&amp;ldquo;aligncenter&amp;rdquo; width=&amp;ldquo;718&amp;rdquo;]
+&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/09/Tanglegram.png&#34; alt=&#34;Paired neighbor joining trees for methylation and nucleotide population structure&#34; /&gt; Paired neighbor joining trees for methylation and nucleotide population structure[/caption]&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

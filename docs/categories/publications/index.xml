@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/publications/index.xml</link>
+    <description>Recent content in Publications on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/publications/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>So True!</title>
+      <link>http://dyerlab/2016/04/so-true/</link>
+      <pubDate>Mon, 18 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/04/so-true/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/phd101212s.gif&#34; alt=&#34;phd101212s&#34; /&gt;
+Use
+&lt;a href=&#34;http://github.com&#34;&gt;version control&lt;/a&gt; or editors in the
+&lt;a href=&#34;http://drive.google.com&#34;&gt;cloud&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Taxonomy of Academic Sustainability</title>
+      <link>http://dyerlab/2015/10/the-taxonomy-of-academic-sustainability/</link>
+      <pubDate>Thu, 29 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/10/the-taxonomy-of-academic-sustainability/</guid>
+      <description>&lt;p&gt;Been working on a lexicographic analysis of &amp;lsquo;Sustainability&amp;rsquo; as published by the journals
+PNAS and
+Sustainability.  Here are the stemmed word forms for 366 published articles represented as a hierarchical clustering.  The wordclouds represent the top 10 word stems per group.
+more
+&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/10/TaxonomyOfSustainability.png&#34; alt=&#34;TaxonomyOfSustainability&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Landscape Genetics Textbook is out!</title>
+      <link>http://dyerlab/2015/09/landscape-genetics-textbook-is-out/</link>
+      <pubDate>Wed, 02 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/09/landscape-genetics-textbook-is-out/</guid>
+      <description>&lt;p&gt;The edited volume of texts on Landscape Genetics is in the pipeline. It can be found on the Wiley &amp;amp; Sons &lt;a href=&#34;http://www.wiley.com/WileyCDA/WileyTitle/productCd-1118525299.html&#34;&gt;website&lt;/a&gt;. This is part of the text that we are going to use in teaching the Landscape Genetics Distributed Graduate Seminar.
+There are two chapters that were contributed to:
+- Graph theory and network models in landscape genetics by Murphy, Cushman, and Dyer
+- Landscape and plant population genetics by Dyer.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

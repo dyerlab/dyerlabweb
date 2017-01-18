@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slack on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/slack/index.xml</link>
+    <description>Recent content in Slack on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/slack/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Collab &lt;- Slack &#43; R</title>
+      <link>http://dyerlab/2016/07/collab---slack-&#43;-r/</link>
+      <pubDate>Fri, 08 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/07/collab---slack-&#43;-r/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;I just ran across an R package that allows you to integrate your R workflow into the &lt;a href=&#34;http://www.slack.com&#34;&gt;Slack&lt;/a&gt; environment. Really cool. Below I show how to set it up and to post output of your analyses to slack channels for your team as well as to register notifications.&lt;/p&gt;
+&lt;p&gt;First things first, I recommend installing the latest version from the &lt;a href=&#34;https://github.com/hrbrmstr/slackr&#34;&gt;github&lt;/a&gt; repository.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(devtools)
+install_github(&amp;quot;hrbrmstr/slackr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now you have to set up a config file.  I think it looks for it in&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;~/.slackr&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is a normal Debian Control File (DCF) format. Here is my example one:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;api_token: xoxp-XXXXXXXXXXX-XXXXXXXXX-XXXXXXXXXX-XXXXXXXXX
+channel: #r
+username: rodney
+incoming_webhook_url: https://hooks.slack.com/services/XXXXXXXX/XXXXXXXX/XXXXXXXX&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You need to get the api_token and the &lt;code&gt;incoming_webhook_url&lt;/code&gt; from slack itself. Once you have that file saved, when you want to setup the slackr environment, you load it in and can send messages such as:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(slackr)
+slackr_setup()
+slackr(&amp;quot;This is an incoming piece of text from RStudio&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which results in the following in my #r slack channel:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab./Users/rodney/Desktop/dyerlabweb/static/img/slack_msg_from_r.png&#34; alt=&#34;Slack message from R&#34; /&gt; There is also a provision for sending output graphics like ggplot objects. Here&lt;/p&gt;
+&lt;p&gt;is an example of heterozygosity in the Arapat data set.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gstudio)
+library(ggplot2)
+data(arapat)
+he &amp;lt;- genetic_diversity(arapat,mode=&amp;quot;He&amp;quot;)
+p &amp;lt;- ggplot( he, aes(x=Locus, y=He)) + geom_bar(stat=&amp;quot;identity&amp;quot;) + theme_bw()
+ggslack(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which directly uploads the image to the channel as: &lt;img src=&#34;http://dyerlab./Users/rodney/Desktop/dyerlabweb/static/img/slack_plot.png&#34; alt=&#34;Slack image from R&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Very Cool!&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;There is a slight problem though. The current version of the slackr library has an error in it associated with (perhaps) a recent change in the Slack API that has not been fixed by the developer.&lt;/p&gt;
+&lt;p&gt;For me to get this to work, I had to compile the package myself after making the following change in one file.  To fix it, do the following:&lt;br /&gt;
+- Download (or checkout) the repository from github at:&lt;br /&gt;
+&lt;a href=&#34;https://github.com/hrbrmstr/slackr&#34; class=&#34;uri&#34;&gt;https://github.com/hrbrmstr/slackr&lt;/a&gt;&lt;br /&gt;
+- Open the project in RStudio&lt;br /&gt;
+- Open the R file names &lt;code&gt;slackr_utils.R&lt;/code&gt;&lt;br /&gt;
+- In the function named &lt;code&gt;slackr_ims&lt;/code&gt; the last line (line 117) is something like &lt;code&gt;dplyr::left_join( %some stuff% )&lt;/code&gt;&lt;br /&gt;
+- Replace this line with &lt;code&gt;suppressWarnings( merge(users, ims, by.x=&amp;quot;id&amp;quot;, by.y=&#39;user&#39;) )&lt;/code&gt;&lt;br /&gt;
+- The compile and install the package as below and it should all be fine:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(devtools)
+load_all()
+build()
+install()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hopefully, on the next time that this package is updated by the author, the &lt;code&gt;left_join()&lt;/code&gt; problem will have been resolved. This issue had been marked as “resolved” in the github issues a while back but apparently not pushed to the repository.&lt;/p&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

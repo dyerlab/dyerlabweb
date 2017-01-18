@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ggplot2 on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/ggplot2/index.xml</link>
+    <description>Recent content in Ggplot2 on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Extracting Data from Rasters</title>
+      <link>http://dyerlab/2015/01/extracting-data-from-rasters/</link>
+      <pubDate>Sat, 10 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/01/extracting-data-from-rasters/</guid>
+      <description>
+
+&lt;p&gt;This document shows you how to extract data from rasters.&lt;/p&gt;
+
+&lt;h2 id=&#34;getting-the-libraries&#34;&gt;Getting The Libraries&lt;/h2&gt;
+
+&lt;p&gt;First, I&amp;rsquo;ll load in some packages to get the ability to work with raster data and to load in the &lt;em&gt;Arapatus attenuatus&lt;/em&gt; data set (it is part of the default &lt;strong&gt;gstudio&lt;/strong&gt; package).&lt;/p&gt;
+
+&lt;p&gt;require(raster)
+require(gstudio)&lt;/p&gt;
+
+&lt;p&gt;##
+##Loading and Cropping Rasters
+We can load in the raster, and then crop it to just the are we need. These rasters were downloaded from [
+&lt;a href=&#34;http://www.worldclim.org/&#34;&gt;http://www.worldclim.org&lt;/a&gt;] and are much larger than the study area. This just makes it easier on the computer to not have to deal with such large areas. After cropping it, we will load in the annual precip and temperature data as well.
+tmp &amp;lt;- raster(&amp;ldquo;alt_22.bil&amp;rdquo;)
+e &amp;lt;- extent(c(-115, -109, 22, 30))
+baja_alt &amp;lt;- crop(tmp, e)
+baja_temp &amp;lt;- crop(raster(&amp;ldquo;bio1_22.bil&amp;rdquo;), e)
+baja_prec &amp;lt;- crop(raster(&amp;ldquo;bio12_22.bil&amp;rdquo;), e)&lt;/p&gt;
+
+&lt;p&gt;##
+##Getting Example Data from
+Araptus attenuatus
+Now, lets grab the
+Araptus data and look at the data and plot out the locations.
+data(arapat)
+summary(arapat)&lt;/p&gt;
+
+&lt;h2 id=&#34;species-cluster-population-id-latitude&#34;&gt;Species      Cluster      Population        ID         Latitude&lt;/h2&gt;
+
+&lt;h2 id=&#34;cladea-75-cbp-c-150-32-19-101-10a-1-min-23-1&#34;&gt;CladeA: 75   CBP-C :150   32     : 19   101_10A:  1   Min.   :23.1&lt;/h2&gt;
+
+&lt;h2 id=&#34;cladeb-36-nbp-c-84-75-11-101-1a-1-1st-qu-24-6&#34;&gt;CladeB: 36   NBP-C : 84   75     : 11   101_1A :  1   1st Qu.:24.6&lt;/h2&gt;
+
+&lt;h2 id=&#34;cladec-252-sbp-c-18-const-11-101-2a-1-median-26-2&#34;&gt;CladeC:252   SBP-C : 18   Const  : 11   101_2A :  1   Median :26.2&lt;/h2&gt;
+
+&lt;h2 id=&#34;scbp-a-75-12-10-101-3a-1-mean-26-3&#34;&gt;SCBP-A: 75   12     : 10   101_3A :  1   Mean   :26.3&lt;/h2&gt;
+
+&lt;h2 id=&#34;son-b-36-153-10-101-4a-1-3rd-qu-27-5&#34;&gt;SON-B : 36   153    : 10   101_4A :  1   3rd Qu.:27.5&lt;/h2&gt;
+
+&lt;h2 id=&#34;157-10-101-5a-1-max-29-3&#34;&gt;157    : 10   101_5A :  1   Max.   :29.3&lt;/h2&gt;
+
+&lt;h2 id=&#34;other-292-other-357&#34;&gt;(Other):292   (Other):357&lt;/h2&gt;
+
+&lt;h2 id=&#34;longitude-ltrs-wnt-en-ef&#34;&gt;Longitude       LTRS          WNT            EN          EF&lt;/h2&gt;
+
+&lt;h2 id=&#34;min-114-01-01-147-03-03-108-01-01-225-2&#34;&gt;Min.   :-114   01:01:147   03:03  :108   01:01  :225        :  2&lt;/h2&gt;
+
+&lt;h2 id=&#34;1st-qu-113-01-02-86-01-01-82-01-02-52-01-01-219&#34;&gt;1st Qu.:-113   01:02: 86   01:01  : 82   01:02  : 52   01:01:219&lt;/h2&gt;
+
+&lt;h2 id=&#34;median-112-02-02-130-01-03-77-02-02-38-01-02-52&#34;&gt;Median :-112   02:02:130   01:03  : 77   02:02  : 38   01:02: 52&lt;/h2&gt;
+
+&lt;h2 id=&#34;mean-112-02-02-62-03-03-22-02-02-90&#34;&gt;Mean   :-112               02:02  : 62   03:03  : 22   02:02: 90&lt;/h2&gt;
+
+&lt;h2 id=&#34;3rd-qu-110-11-01-03-7&#34;&gt;3rd Qu.:-110                      : 11   01:03  :  7&lt;/h2&gt;
+
+&lt;h2 id=&#34;max-109-03-04-8-03-04-6&#34;&gt;Max.   :-109               03:04  :  8   03:04  :  6&lt;/h2&gt;
+
+&lt;h2 id=&#34;other-15-other-13&#34;&gt;(Other): 15   (Other): 13&lt;/h2&gt;
+
+&lt;h2 id=&#34;zmp-aml-atps-mp20&#34;&gt;ZMP           AML           ATPS          MP20&lt;/h2&gt;
+
+&lt;h2 id=&#34;33-08-08-51-05-05-155-05-07-64&#34;&gt;: 33   08:08  : 51   05:05  :155   05:07  : 64&lt;/h2&gt;
+
+&lt;h2 id=&#34;01-01-46-07-07-42-03-03-69-07-07-53&#34;&gt;01:01: 46   07:07  : 42   03:03  : 69   07:07  : 53&lt;/h2&gt;
+
+&lt;h2 id=&#34;01-02-51-07-08-42-09-09-66-18-18-52&#34;&gt;01:02: 51   07:08  : 42   09:09  : 66   18:18  : 52&lt;/h2&gt;
+
+&lt;h2 id=&#34;02-02-233-04-04-41-02-02-30-05-05-48&#34;&gt;02:02:233   04:04  : 41   02:02  : 30   05:05  : 48&lt;/h2&gt;
+
+&lt;h2 id=&#34;23-07-09-14-05-06-22&#34;&gt;: 23   07:09  : 14   05:06  : 22&lt;/h2&gt;
+
+&lt;h2 id=&#34;07-09-22-08-08-9-11-11-12&#34;&gt;07:09  : 22   08:08  :  9   11:11  : 12&lt;/h2&gt;
+
+&lt;h2 id=&#34;other-142-other-20-other-112&#34;&gt;(Other):142   (Other): 20   (Other):112&lt;/h2&gt;
+
+&lt;p&gt;plot(arapat, zoom = 6)
+&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/01/png-3.png&#34; alt=&#34;png-3&#34; /&gt;
+##Extracting Point Data
+To elevation, temperature and precipitation from the rasters for each sampling location, we need to translate them into points first. I&amp;rsquo;ll first grab the coordinate data as a
+data.frame.
+coords &amp;lt;- StrataCoordinates(arapat)&lt;/p&gt;
+
+&lt;p&gt;Then we can grab them using the normal functions in the
+&lt;strong&gt;sp&lt;/strong&gt;
+ library.
+pts &amp;lt;- SpatialPoints(coords[, 2:3])
+coords$elev &amp;lt;- extract(baja_alt, pts)
+coords$temp &amp;lt;- extract(baja_temp, pts)
+coords$prec &amp;lt;- extract(baja_prec, pts)
+coords&lt;/p&gt;
+
+&lt;h2 id=&#34;strata-longitude-latitude-elev-temp-prec&#34;&gt;Strata Longitude Latitude elev temp prec&lt;/h2&gt;
+
+&lt;h2 id=&#34;1-88-114-3-29-33-681-178-143&#34;&gt;1       88    -114.3    29.33  681  178  143&lt;/h2&gt;
+
+&lt;h2 id=&#34;11-9-113-9-29-01-361-195-148&#34;&gt;11       9    -113.9    29.01  361  195  148&lt;/h2&gt;
+
+&lt;h2 id=&#34;20-84-113-7-28-97-368-197-124&#34;&gt;20      84    -113.7    28.97  368  197  124&lt;/h2&gt;
+
+&lt;h2 id=&#34;29-175-113-5-28-73-240-205-106&#34;&gt;29     175    -113.5    28.73  240  205  106&lt;/h2&gt;
+
+&lt;h2 id=&#34;36-177-114-0-28-66-177-203-120&#34;&gt;36     177    -114.0    28.66  177  203  120&lt;/h2&gt;
+
+&lt;h2 id=&#34;46-173-112-9-28-41-26-223-102&#34;&gt;46     173    -112.9    28.41   26  223  102&lt;/h2&gt;
+
+&lt;h2 id=&#34;56-171-113-2-28-22-522-195-145&#34;&gt;56     171    -113.2    28.22  522  195  145&lt;/h2&gt;
+
+&lt;h2 id=&#34;66-89-113-4-28-04-290-203-117&#34;&gt;66      89    -113.4    28.04  290  203  117&lt;/h2&gt;
+
+&lt;h2 id=&#34;76-159-113-3-27-53-87-211-123&#34;&gt;76     159    -113.3    27.53   87  211  123&lt;/h2&gt;
+
+&lt;h2 id=&#34;85-sfr-113-0-27-36-305-205-107&#34;&gt;85     SFr    -113.0    27.36  305  205  107&lt;/h2&gt;
+
+&lt;h2 id=&#34;94-160-112-5-27-40-371-212-124&#34;&gt;94     160    -112.5    27.40  371  212  124&lt;/h2&gt;
+
+&lt;h2 id=&#34;104-162-112-4-27-20-248-220-119&#34;&gt;104    162    -112.4    27.20  248  220  119&lt;/h2&gt;
+
+&lt;h2 id=&#34;114-12-112-7-27-18-488-202-130&#34;&gt;114     12    -112.7    27.18  488  202  130&lt;/h2&gt;
+
+&lt;h2 id=&#34;124-161-113-0-27-04-29-216-91&#34;&gt;124    161    -113.0    27.04   29  216   91&lt;/h2&gt;
+
+&lt;h2 id=&#34;134-93-112-0-26-95-66-230-81&#34;&gt;134     93    -112.0    26.95   66  230   81&lt;/h2&gt;
+
+&lt;h2 id=&#34;144-165-112-4-26-25-na-na-na&#34;&gt;144    165    -112.4    26.25   NA   NA   NA&lt;/h2&gt;
+
+&lt;h2 id=&#34;154-169-111-4-26-21-6-238-134&#34;&gt;154    169    -111.4    26.21    6  238  134&lt;/h2&gt;
+
+&lt;h2 id=&#34;164-58-111-4-26-02-12-240-129&#34;&gt;164     58    -111.4    26.02   12  240  129&lt;/h2&gt;
+
+&lt;h2 id=&#34;173-166-112-1-25-91-70-224-84&#34;&gt;173    166    -112.1    25.91   70  224   84&lt;/h2&gt;
+
+&lt;h2 id=&#34;183-64-111-3-25-61-397-214-245&#34;&gt;183     64    -111.3    25.61  397  214  245&lt;/h2&gt;
+
+&lt;h2 id=&#34;188-168-111-2-25-56-354-217-235&#34;&gt;188    168    -111.2    25.56  354  217  235&lt;/h2&gt;
+
+&lt;h2 id=&#34;198-51-111-6-25-35-80-222-140&#34;&gt;198     51    -111.6    25.35   80  222  140&lt;/h2&gt;
+
+&lt;h2 id=&#34;205-const-111-7-25-02-50-217-127&#34;&gt;205  Const    -111.7    25.02   50  217  127&lt;/h2&gt;
+
+&lt;h2 id=&#34;216-77-110-7-24-88-52-231-193&#34;&gt;216     77    -110.7    24.88   52  231  193&lt;/h2&gt;
+
+&lt;h2 id=&#34;226-164-111-5-24-75-35-213-95&#34;&gt;226    164    -111.5    24.75   35  213   95&lt;/h2&gt;
+
+&lt;h2 id=&#34;236-75-110-7-24-59-21-231-166&#34;&gt;236     75    -110.7    24.59   21  231  166&lt;/h2&gt;
+
+&lt;h2 id=&#34;247-163-111-0-24-21-196-219-127&#34;&gt;247    163    -111.0    24.21  196  219  127&lt;/h2&gt;
+
+&lt;h2 id=&#34;257-esan-110-4-24-46-9-237-175&#34;&gt;257   ESan    -110.4    24.46    9  237  175&lt;/h2&gt;
+
+&lt;h2 id=&#34;265-153-110-5-24-13-31-235-165&#34;&gt;265    153    -110.5    24.13   31  235  165&lt;/h2&gt;
+
+&lt;h2 id=&#34;275-48-110-3-24-21-117-233-217&#34;&gt;275     48    -110.3    24.21  117  233  217&lt;/h2&gt;
+
+&lt;h2 id=&#34;285-156-110-0-24-04-0-237-196&#34;&gt;285    156    -110.0    24.04    0  237  196&lt;/h2&gt;
+
+&lt;h2 id=&#34;291-157-110-1-24-02-609-208-443&#34;&gt;291    157    -110.1    24.02  609  208  443&lt;/h2&gt;
+
+&lt;h2 id=&#34;301-73-109-9-24-01-103-233-227&#34;&gt;301     73    -109.9    24.01  103  233  227&lt;/h2&gt;
+
+&lt;h2 id=&#34;311-aqu-110-1-23-29-142-226-227&#34;&gt;311    Aqu    -110.1    23.29  142  226  227&lt;/h2&gt;
+
+&lt;h2 id=&#34;319-mat-110-1-23-09-5-234-159&#34;&gt;319    Mat    -110.1    23.09    5  234  159&lt;/h2&gt;
+
+&lt;h2 id=&#34;324-98-109-6-23-08-75-237-233&#34;&gt;324     98    -109.6    23.08   75  237  233&lt;/h2&gt;
+
+&lt;h2 id=&#34;328-101-110-6-27-91-8-249-244&#34;&gt;328    101    -110.6    27.91    8  249  244&lt;/h2&gt;
+
+&lt;h2 id=&#34;337-32-109-3-26-64-18-244-337&#34;&gt;337     32    -109.3    26.64   18  244  337&lt;/h2&gt;
+
+&lt;h2 id=&#34;356-102-109-1-26-38-10-245-346&#34;&gt;356    102    -109.1    26.38   10  245  346&lt;/h2&gt;
+
+&lt;p&gt;##
+##Plotting Trend lines.
+Cool, lets sort this by latitude
+coords &amp;lt;- coords[order(coords$Latitude), ]&lt;/p&gt;
+
+&lt;p&gt;and then plot out some values to look at what is going on.
+require(ggplot2)
+ggplot(coords, aes(x = Latitude, y = elev)) + geom_line(color = &amp;ldquo;gray&amp;rdquo;) + theme_bw() + geom_text(aes(y = elev + 10, label = Strata), color = &amp;ldquo;blue&amp;rdquo;)
+&lt;img src=&#34;http://rampages.us/dyerlab/wp-content/uploads/sites/4831/2015/01/png.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ggplot(coords, aes(x = Latitude, y = temp)) + geom_line(color = &amp;ldquo;gray&amp;rdquo;) + theme_bw() + geom_text(aes(y = temp + 5, label = Strata), color = &amp;ldquo;blue&amp;rdquo;)
+&lt;a href=&#34;http://rampages.us/dyerlab/wp-content/uploads/sites/4831/2015/01/png-1.png&#34;&gt;&lt;img src=&#34;http://rampages.us/dyerlab/wp-content/uploads/sites/4831/2015/01/png-1.png&#34; alt=&#34;png-1&#34; /&gt;&lt;/a&gt;
+ggplot(coords, aes(x = Latitude, y = prec)) + geom_line(color = &amp;ldquo;gray&amp;rdquo;) + theme_bw() + geom_text(aes(y = prec + 10, label = Strata), color = &amp;ldquo;blue&amp;rdquo;)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rampages.us/dyerlab/wp-content/uploads/sites/4831/2015/01/png-2.png&#34;&gt;&lt;img src=&#34;http://rampages.us/dyerlab/wp-content/uploads/sites/4831/2015/01/png-2.png&#34; alt=&#34;png-2&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

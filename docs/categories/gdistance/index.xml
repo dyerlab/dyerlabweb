@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gdistance on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/gdistance/index.xml</link>
+    <description>Recent content in Gdistance on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/gdistance/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Buffers &amp; Convex Hulls</title>
+      <link>http://dyerlab/2016/03/buffers--convex-hulls/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/03/buffers--convex-hulls/</guid>
+      <description>---
+author: Rodney J. Dyer
+date: 2016-03-18
+layout: post
+title: Buffers &amp; Convex Hulls
+categories: 
+- Code
+- gdistance
+- polygon
+- R
+- raster
+- Tutorials
+---
+
+
+&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;An analysis common to modern population genetics is that of finding ecological distances between objects on a landscape. The estimation of pairwise distance derived from spatial data is a computationally intensive thing, one that if you are not careful will bring your laptop to its knees! One way to mitigate this data problem is to use a minimal amount raster area so that the estimation of the underlying distance graph can be done on a smaller set of points. This example provides a simple solution using convex hulls. ## A Bounding Box Approach The first option is to create a bounding box around your points. For this, I’ll use the enigmatic arapat data set included in the gstudio package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(raster)
+library(gstudio)
+data(arapat)
+lon.min &amp;lt;- min(arapat$Longitude)
+lon.max &amp;lt;- max(arapat$Longitude)
+lat.min &amp;lt;- min(arapat$Latitude)
+lat.max &amp;lt;- max(arapat$Latitude)
+e &amp;lt;- extent( lon.min, lon.max, lat.min, lat.max )
+e&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : Extent 
+## xmin        : -114.2935 
+## xmax        : -109.1263 
+## ymin        : 23.0757 
+## ymax        : 29.32541&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is the minimal box around the points, but we probably want to have some kind of buffer as we don’t want our populations on the very edge of the raster.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;e &amp;lt;- extent( -115, -108, 23, 30 )
+e&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : Extent 
+## xmin        : -115 
+## xmax        : -108 
+## ymin        : 23 
+## ymax        : 30&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can crop the raster to this size. I’ll use the altitude tile 22 from &lt;a href=&#34;http://worldclim.org&#34;&gt;worldclim&lt;/a&gt; for this. Here is the original raster.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;alt &amp;lt;- raster(&amp;quot;../../data/alt_22.tif&amp;quot;)
+alt&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : RasterLayer 
+## dimensions  : 3600, 3600, 12960000  (nrow, ncol, ncell)
+## resolution  : 0.008333333, 0.008333333  (x, y)
+## extent      : -120, -90, 0, 30  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## data source : /Users/rodney/Desktop/dyerlabweb/data/alt_22.tif 
+## names       : alt_22 
+## values      : -202, 5469  (min, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;which looks like.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(alt)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt; We can crop it to the bounding box for the points as:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bc &amp;lt;- crop( alt, e )
+bc&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : RasterLayer 
+## dimensions  : 840, 840, 705600  (nrow, ncol, ncell)
+## resolution  : 0.008333333, 0.008333333  (x, y)
+## extent      : -115, -108, 23, 30  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## data source : in memory
+## names       : alt_22 
+## values      : -202, 2774  (min, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coords &amp;lt;- strata_coordinates(arapat)
+pts &amp;lt;- SpatialPoints( coords[,2:3] )
+plot(bc, xlab=&amp;quot;Longitude&amp;quot;, ylab=&amp;quot;Latitude&amp;quot;)
+points( pts, col=&amp;quot;darkred&amp;quot;, pch=16)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt; ## A Convex Hull Approach As you look at the image above, you see that there is a lot of area that is not in ‘the midst’ of the points. Moreover, there are those points on the mainland who are probably not going to be connected to the peninsular points due to the Sea of Cortez.  I’m going to first limit the points to the ones on the peninsula and then we will estimate a convex hull. A convex hull is the small convex polygon that contains all the points. You can think of it like snapping a rubber band around the points.  This will give us the minimal raster area on which can estimate raster-based distances (though we probably want to put a buffer around it so that we do not have points at the very edge). Here is how we do that. First, I’ll extract just the peninsular populations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;baja_coords &amp;lt;- coords[ !(coords$Stratum %in% c(&amp;quot;101&amp;quot;,&amp;quot;102&amp;quot;,&amp;quot;32&amp;quot;)), ]
+baja_pts &amp;lt;- SpatialPoints( baja_coords[,2:3])
+plot(bc)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt; Then we will load in the rgeos library and determine the hull&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(rgeos)
+hull &amp;lt;- gConvexHull(baja_pts)
+plot(bc)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)
+plot(hull,add=T,border=&amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt; This is great! So now, we probably want to put a buffer around it so that the points are on the very edge. The units we will use depend upon the units of the raster. So in this case, it will be in degrees of lat/lon (which is a bit dodgy since they are not quite equal distance metrics but for our purposes it is just fine).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hull_plus_buffer &amp;lt;- gBuffer(hull,width=.2)
+plot(bc)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)
+plot(hull_plus_buffer, add=T, border=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt; Perfect! Now, we need to only keep those components of our raster that are within the hull_plus_buffer polygon, and for this we use a mask.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pop_hull &amp;lt;- mask(bc,hull_plus_buffer)
+plot(pop_hull)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt; Exact! Now, when you run this raster and these points through gdistance, you will be using a more minimal set of raster data for the calculations and it will be more efficient—and reduce the thermal load you are imposing on your laptop!&lt;/p&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

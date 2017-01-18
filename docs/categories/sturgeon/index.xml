@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sturgeon on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/sturgeon/index.xml</link>
+    <description>Recent content in Sturgeon on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/sturgeon/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Congratulations to Jameson Hinkle</title>
+      <link>http://dyerlab/2015/07/congratulations-to-jameson-hinkle/</link>
+      <pubDate>Tue, 28 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/07/congratulations-to-jameson-hinkle/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/01/Hinkle-e1421078975142.png&#34; alt=&#34;Hinkle&#34; /&gt;
+Jameson successfully defended his MS Thesis on eDNA techniques for identification of Atlantic Sturgeon.  Jameson is now the twelfth graduate student to pass through the lab.  It was great having him here and we look forward to seeing where he goes from here.  Way to go!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

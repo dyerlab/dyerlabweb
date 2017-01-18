@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cgd on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/cgd/index.xml</link>
+    <description>Recent content in Cgd on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/cgd/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Volume 0 - On iBooks Store</title>
+      <link>http://dyerlab/2016/04/volume-0---on-ibooks-store/</link>
+      <pubDate>Fri, 08 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/04/volume-0---on-ibooks-store/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://itunes.apple.com/us/book/applied-population-genetics/id1101353809?ls=1&amp;amp;mt=11&#34;&gt;&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/Screen-Shot-2016-04-08-at-7.43.40-AM.png&#34; alt=&#34;Screen Shot 2016-04-08 at 7.43.40 AM&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Applied Population Genetics Textbook Release</title>
+      <link>http://dyerlab/2015/12/applied-population-genetics-textbook-release/</link>
+      <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/12/applied-population-genetics-textbook-release/</guid>
+      <description>&lt;p&gt;I will be posting portions of all 10 chapters of my upcoming textbook, Applied Population Genetics, as early draft chapters to this website over the spring semester.
+This book will be published in both ibook and print-on-demand versions. I prefer the ibook format because I can embed interactive content (movies, JavaScript, etc.) into the text and it will update automatically when I make revisions etc.
+The drawback is that ibook is limited to OSX and iOS devices at this time—which is why I will also be making it available as a print-on-demand text (though the interactive content will not obviously be included). The complete text is scheduled to be made available by the end of the academic year and I will be using it as the primary source in my Spring courses of Population Genetics BIOL516 and Landscape Genetics ENVS 692&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GStudio: An R Package for Spatial Analysis of Marker Data</title>
+      <link>http://dyerlab/2015/01/gstudio-an-r-package-for-spatial-analysis-of-marker-data/</link>
+      <pubDate>Fri, 16 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/01/gstudio-an-r-package-for-spatial-analysis-of-marker-data/</guid>
+      <description>&lt;p&gt;This is the main package that provides data types and routines for spatial analysis of genetic marker data. The previous version is currently available on
+&lt;a href=&#34;http://cran.r-project.org/&#34;&gt;CRAN&lt;/a&gt; and you can install it rom within your R environtment by invoking the command
+install.packages(&amp;ldquo;gstudio&amp;rdquo;)
+If you want to keep up with the latest developments of this package, you can use the version found on GitHub.  Install it from within R as:
+require(devtools)
+install_github(&amp;ldquo;dyerlab/gstudio&amp;rdquo;)
+and that should get you up-to-date.  You&amp;rsquo;ll need to have a fully working LaTeX install and some other stuff to build it if you fork.
+The Users Manual for the package with several examples can be found
+&lt;a href=&#34;http://dyerlab.github.io/gstudio/&#34;&gt;here&lt;/a&gt;
+I have started a github account for this package, you can get access to the whole codebase read about it on the wiki, and contribute to the project from its repo at
+&lt;a href=&#34;http://github.com/dyerlab&#34;&gt;https://github.com/dyerlab&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

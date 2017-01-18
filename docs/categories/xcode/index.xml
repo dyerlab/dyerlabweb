@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xcode on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/xcode/index.xml</link>
+    <description>Recent content in Xcode on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/xcode/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Compiling the GSL Library for OSX</title>
+      <link>http://dyerlab/2015/07/compiling-the-gsl-library-for-osx/</link>
+      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/07/compiling-the-gsl-library-for-osx/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been working on integrating the Swift language into my analysis workflow but much of what I do involves the GNU Scientific Libraries for matrix analysis and other tools.  Here is a quick tutorial on how to install the GSL library on a clean OSX platform.*It is easiest if you have XCode installed.  You can get this from the App Store for free.  Go download it and install it.&lt;/p&gt;
+
+&lt;p&gt;*Download the latest version of the GSL libraries.  You can grab them by:
+*Looking for your nearest mirror site listed at
+&lt;a href=&#34;http://www.gnu.org/prep/ftp.html&#34;&gt;http://www.gnu.org/prep/ftp.html&lt;/a&gt; and connecting to it.&lt;/p&gt;
+
+&lt;p&gt;*Open the directory
+gsl/ where all the versions will be listed.  Scroll down and grab
+gsl-latest.tar.gz.&lt;/p&gt;
+
+&lt;p&gt;*Open the terminal (Utilities -&amp;gt; Terminal.app) and type:&lt;br /&gt;
+cd ~/Downloads&lt;/p&gt;
+
+&lt;p&gt;*Unpack the archive by:&lt;br /&gt;
+tar zxvf gsl-latest.tar.gz then
+cd gsl-1.16/ (or whatever the version actually was, it will probably be some number larger than 1.16).&lt;/p&gt;
+
+&lt;p&gt;*Inside that folder will be a README file (which you probably won&amp;rsquo;t read) and an INSTALL file (which you should read).  In that folder it will tell you to:&lt;br /&gt;
+./configure then&lt;br /&gt;
+make then
+sudo make install. This last command will require you to type in your password as it is going to install something into the base system.&lt;/p&gt;
+
+&lt;p&gt;*All the libraries and header files will be installed into the
+/usr/local/ directory.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Default Calendar on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/default-calendar/index.xml</link>
+    <description>Recent content in Default Calendar on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/default-calendar/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dyer&#39;s Calendar</title>
+      <link>http://dyerlab/2015/01/dyers-calendar/</link>
+      <pubDate>Sat, 10 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/01/dyers-calendar/</guid>
+      <description>&lt;p&gt;[event-title]
+Starts: [start-time]
+Ends: [end-date] - [end-time]
+[if-location]
+Location: [location][/if-location]
+[if-description]
+Description: [description][/if-description]
+[link newwindow=&amp;ldquo;true&amp;rdquo;]More details&amp;hellip;[/link]&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

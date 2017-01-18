@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Urbanization on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/urbanization/index.xml</link>
+    <description>Recent content in Urbanization on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/urbanization/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>RVA Urban Dogwood</title>
+      <link>http://dyerlab/2015/08/rva-urban-dogwood/</link>
+      <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/08/rva-urban-dogwood/</guid>
+      <description>&lt;p&gt;Here is a map of the dogwood we&amp;rsquo;ve sampled in the Fan region of Richmond Virginia.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

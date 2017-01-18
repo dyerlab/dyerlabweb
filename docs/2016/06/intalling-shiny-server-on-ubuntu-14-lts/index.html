@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Intalling Shiny Server on Ubuntu 14 LTS" />
+<meta property="og:description" content="OK, so I just &lsquo; found&rsquo; shiny and it has a lot of cool stuff to it. OK, I&rsquo;ve known about it for a long time but have just had the opportunity to sit down and work it out and see how it can fit into the presentation and learning I&rsquo;m trying to develop in my Applied Population Genetics online textbook. Here is a brief overview of how I set up the shiny server on my Ubuntu box that is hosting the book (so I can embed more interactivity in the display)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://dyerlab/2016/06/intalling-shiny-server-on-ubuntu-14-lts/" />
+
+
+<meta property="og:updated_time" content="2016-06-05T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Intalling Shiny Server on Ubuntu 14 LTS">
+<meta itemprop="description" content="OK, so I just &lsquo; found&rsquo; shiny and it has a lot of cool stuff to it. OK, I&rsquo;ve known about it for a long time but have just had the opportunity to sit down and work it out and see how it can fit into the presentation and learning I&rsquo;m trying to develop in my Applied Population Genetics online textbook. Here is a brief overview of how I set up the shiny server on my Ubuntu box that is hosting the book (so I can embed more interactivity in the display).">
+
+
+<meta itemprop="dateModified" content="2016-06-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="489">
+
+
+
+<meta itemprop="keywords" content="2gener,aflp,applied-population-genetics,araptus-attenuata,baja-california,blog,ces,cgd,code,default-calendar,documents,dogwood,dyerlab,edna,fitness,gdistance,gene-flow,genetic-structure,genomics,ggplot2,google,google-docs,graduate,gsl,gstudio,laboratory,landscape-genetics,lophocereus-schottii,main-menu,manuscripts,maps,markers,null-alleles,ole2015,online,online-publishing,paternity,people,phylogeography,polygon,popgraph,population-genetics,population-graphs,presentations,projects,protocols,publications,r,raster,reproducible-research,research,rstudio,servers,slack,software,spatial,stamova,sturgeon,sustainability,teaching,theory,tutorial,tutorials,uncategorized,unix,urbanization,vcu,vcugenetics2015,xcode," />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Intalling Shiny Server on Ubuntu 14 LTS"/>
+<meta name="twitter:description" content="OK, so I just &lsquo; found&rsquo; shiny and it has a lot of cool stuff to it. OK, I&rsquo;ve known about it for a long time but have just had the opportunity to sit down and work it out and see how it can fit into the presentation and learning I&rsquo;m trying to develop in my Applied Population Genetics online textbook. Here is a brief overview of how I set up the shiny server on my Ubuntu box that is hosting the book (so I can embed more interactivity in the display)."/>
+<meta name="twitter:site" content="@dyerlab"/>
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+    <link rel="canonical" href="http://dyerlab/2016/06/intalling-shiny-server-on-ubuntu-14-lts/">
+
+    <title>Intalling Shiny Server on Ubuntu 14 LTS | The Dyer Laboratory</title>
+
+    <!-- combined, minified CSS -->
+    <link href="http://dyerlab/css/style.css" rel="stylesheet" integrity="sha384-qRVpIj9hSzsBhmO8Y7YEKF2UFra2sJQtl9V/uFKKDvy&#43;Wjh9zgTku6VRgT8YdPoD" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/css/dyerlab.css">
+<script>
+  (function() {
+    var cx = '005624429758912894427:ewy8fmekoli';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="http://dyerlab/">Home</a>
+          
+          
+          <a class="nav-link" href="http://dyerlab/people/">People</a>
+          
+          <a class="nav-link" href="http://dyerlab/publications/">Publications</a>
+          
+          <a class="nav-link" href="http://dyerlab/texts/">Texts</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="http://dyerlab/" rel="home">The Dyer Laboratory</a></h1>
+        <p class="lead blog-description">Illuminating the mechanics of genetic connectivity.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="http://dyerlab/2016/06/intalling-shiny-server-on-ubuntu-14-lts/">Intalling Shiny Server on Ubuntu 14 LTS</a></h2>
+    <p class="blog-post-meta"><time datetime="2016-06-05T00:00:00Z">Sun Jun 05, 2016</time> by Rodney J. Dyer in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/code" rel="category tag">Code</a>, <a href="/categories/documents" rel="category tag">Documents</a>, <a href="/categories/r" rel="category tag">R</a>, <a href="/categories/servers" rel="category tag">servers</a>, <a href="/categories/software" rel="category tag">software</a>, <a href="/categories/tutorials" rel="category tag">Tutorials</a>
+
+
+</p>
+  </header>
+  <p>OK, so I just &lsquo;
+<a href="http://shiny.rstudio.com">found</a>&rsquo; shiny and it has a lot of cool stuff to it.  OK, I&rsquo;ve known about it for a long time but have just had the opportunity to sit down and work it out and see how it can fit into the presentation and learning I&rsquo;m trying to develop in my
+<a href="http://popgen.bio.vcu.edu">Applied Population Genetics</a> online textbook.  Here is a brief overview of how I set up the shiny server on my Ubuntu box that is hosting the book (so I can embed more interactivity in the display).
+more
+OK, below are the steps that I&rsquo;m taking to upgrade everything on the box and install the shiny server app and start hosting individual shiny apps.##Updating Background &amp; Installing Necessary Components
+First, you should update to the latest releases.  I&rsquo;m running a LTS version (long-term support) so it is pretty stark.
+sudo apt-get update
+sudo apt-get upgrade
+Next, I needed to install the following development libraries so that things will go easily.
+sudo apt-get install libssl-dev
+sudo apt-get install gdebi-core
+sudo su - -c &ldquo;R -e \&ldquo;install.packages(&lsquo;devtools&rsquo;, repos=&lsquo;<a href="http://cran.rstudio.com/')&quot;&quot;">http://cran.rstudio.com/')&quot;&quot;</a>
+And then we can use the
+gdebi  framework to install the the server
+wget <a href="https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb">https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb</a>
+sudo gdebi shiny-server-1.4.2.786-amd64.deb
+This puts the conf file in
+/etc/init/shiny-server.conf , sets up the user
+shiny  (and has a home directory), and starts the shiny-server process.
+##Redirecting URL Requests
+At this point the shiny-server is running and is servubg pages on port 3838.  However, I block all ports other than 22 and 80 for security, so what I want to do is to redirect requests to my server asking for anything in the subdirectory
+<a href="http://popgen.bio.vcu.edu/shiny/">http://popgen.bio.vcu.edu/shiny</a> to redirect to
+<a href="http://127.0.0.1:3838/">http://127.0.0.1:3838</a> locally.  I need to do this by fiddling with the Apache configuration scripts.
+Apache on Ubuntu puts configuration scripts in /etc/apache2/sites-available and symliks them to /etc/apache2/sites-enabled.  In this file, I set up a proxy pass so that any url that is asking for stuff in the /shiny/ subdirectory be redirected to the 3838 port on this machine.  At the end of the section for this server, enclosed in
+<VirtualHost <i>:80&gt;
+, I put the following in:
+RewriteCond %{HTTP:Upgrade} =websocket
+RewriteRule /shiny/(.<em>) ws://localhost:3838/$1 [P,L]
+RewriteCond %{HTTP:Upgrade} !=websocket
+RewriteRule /shiny/(.</em>) <a href="http://localhost:3838/$1">http://localhost:3838/$1</a> [P,L]
+ProxyPass /shiny/ <a href="http://localhost:3838/">http://localhost:3838/</a><br />
+ProxyPassReverse /shiny/ <a href="http://localhost:3838/">http://localhost:3838/</a>
+You need to make sure that the following mod are turned on for apache:
+*mod_proxy</p>
+
+<p>*mod_proxy_html</p>
+
+<p>*mod_proxy_wstunnel
+Enable them the way that is appropriate for your server.  On Ubuntu it is:
+a2enmod mod_proxy
+a2enmod mod_proxy_html
+a2enmod mod_proxy_wstunnel
+##Restart Apache
+All that is left to do now is restart apache and check to see the startup screen for all shiny apps on the
+<a href="http://popgen.bio.vcu.edu/shiny/">http://popgen.bio.vcu.edu/shiny/</a> page.
+sudo service apache2 restart
+The first shiny app to be integrated into the Applied Population Genetics textbook is located in the Hardy-Weinberg chapter.  It is embedded as:
+And creates the following widget in the book (go ahead and play with it, it is interactive):
+This opens a whole slew of interactive graphics for the textbook!</p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fdyerlab%2f2016%2f06%2fintalling-shiny-server-on-ubuntu-14-lts%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=http%3a%2f%2fdyerlab%2f2016%2f06%2fintalling-shiny-server-on-ubuntu-14-lts%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      
+      <a class="nav-item" href="https://twitter.com/home?status=http%3a%2f%2fdyerlab%2f2016%2f06%2fintalling-shiny-server-on-ubuntu-14-lts%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  
+  
+
+  <section class="sidebar-module  sidebar-module-inset">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="/2017/01/new-server-new-site-first-post/">New Server, New Site, First Post!</a></li>
+      
+      <li><a href="/2017/01/new-position/">New Position</a></li>
+      
+      <li><a href="/2016/12/life-sciences-graduation/">Life Sciences Graduation</a></li>
+      
+      <li><a href="/2016/11/talk-at-temple/">Talk at Temple!</a></li>
+      
+      <li><a href="/2016/10/spatial-data-sources/">Spatial Data Sources</a></li>
+      
+    </ol>
+  </section>
+
+  
+  
+  <section class="sidebar-module sidebar-module-inset">
+  <h5>Search Dyerlab</h5>
+  <gcse:searchbox-only></gcse:searchbox-only>
+  </section>
+  
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="http://dyerlab.com/categories">Blog Tags</a></li>
+      
+      <li><a href="http://dyerlab.com/rstudio">RStudio</a></li>
+      
+      <li><a href="https://github.com/dyerlab">Github</a></li>
+      
+    </ol>
+  </section>
+  
+  
+  <div class="twitter-timeline">
+    <a class="twitter-timeline" href="https://twitter.com/Dyerlab" data-height="1200">Tweets by Dyerlab</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      &copy; by 2017 <a href="mailto:rjdyer@vcu.edu">R.J. Dyer</a>.
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

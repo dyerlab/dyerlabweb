@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/tutorials/index.xml</link>
+    <description>Recent content in Tutorials on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Applied Environmental Statistics</title>
+      <link>http://dyerlab/2016/08/applied-environmental-statistics/</link>
+      <pubDate>Mon, 29 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/08/applied-environmental-statistics/</guid>
+      <description>&lt;p&gt;This semester, I&amp;rsquo;ll be leading a graduate course in applied ecological statistics.  Should be a lot of fun getting a group of people up to speed on the benefits of being an R guru!
+&lt;a href=&#34;https://sites.google.com/a/vcu.edu/applied-environmental-statistics&#34;&gt;https://sites.google.com/a/vcu.edu/applied-environmental-statistics&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Collab &lt;- Slack &#43; R</title>
+      <link>http://dyerlab/2016/07/collab---slack-&#43;-r/</link>
+      <pubDate>Fri, 08 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/07/collab---slack-&#43;-r/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;I just ran across an R package that allows you to integrate your R workflow into the &lt;a href=&#34;http://www.slack.com&#34;&gt;Slack&lt;/a&gt; environment. Really cool. Below I show how to set it up and to post output of your analyses to slack channels for your team as well as to register notifications.&lt;/p&gt;
+&lt;p&gt;First things first, I recommend installing the latest version from the &lt;a href=&#34;https://github.com/hrbrmstr/slackr&#34;&gt;github&lt;/a&gt; repository.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(devtools)
+install_github(&amp;quot;hrbrmstr/slackr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now you have to set up a config file.  I think it looks for it in&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;~/.slackr&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is a normal Debian Control File (DCF) format. Here is my example one:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;api_token: xoxp-XXXXXXXXXXX-XXXXXXXXX-XXXXXXXXXX-XXXXXXXXX
+channel: #r
+username: rodney
+incoming_webhook_url: https://hooks.slack.com/services/XXXXXXXX/XXXXXXXX/XXXXXXXX&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You need to get the api_token and the &lt;code&gt;incoming_webhook_url&lt;/code&gt; from slack itself. Once you have that file saved, when you want to setup the slackr environment, you load it in and can send messages such as:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(slackr)
+slackr_setup()
+slackr(&amp;quot;This is an incoming piece of text from RStudio&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which results in the following in my #r slack channel:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab./Users/rodney/Desktop/dyerlabweb/static/img/slack_msg_from_r.png&#34; alt=&#34;Slack message from R&#34; /&gt; There is also a provision for sending output graphics like ggplot objects. Here&lt;/p&gt;
+&lt;p&gt;is an example of heterozygosity in the Arapat data set.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gstudio)
+library(ggplot2)
+data(arapat)
+he &amp;lt;- genetic_diversity(arapat,mode=&amp;quot;He&amp;quot;)
+p &amp;lt;- ggplot( he, aes(x=Locus, y=He)) + geom_bar(stat=&amp;quot;identity&amp;quot;) + theme_bw()
+ggslack(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which directly uploads the image to the channel as: &lt;img src=&#34;http://dyerlab./Users/rodney/Desktop/dyerlabweb/static/img/slack_plot.png&#34; alt=&#34;Slack image from R&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Very Cool!&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;There is a slight problem though. The current version of the slackr library has an error in it associated with (perhaps) a recent change in the Slack API that has not been fixed by the developer.&lt;/p&gt;
+&lt;p&gt;For me to get this to work, I had to compile the package myself after making the following change in one file.  To fix it, do the following:&lt;br /&gt;
+- Download (or checkout) the repository from github at:&lt;br /&gt;
+&lt;a href=&#34;https://github.com/hrbrmstr/slackr&#34; class=&#34;uri&#34;&gt;https://github.com/hrbrmstr/slackr&lt;/a&gt;&lt;br /&gt;
+- Open the project in RStudio&lt;br /&gt;
+- Open the R file names &lt;code&gt;slackr_utils.R&lt;/code&gt;&lt;br /&gt;
+- In the function named &lt;code&gt;slackr_ims&lt;/code&gt; the last line (line 117) is something like &lt;code&gt;dplyr::left_join( %some stuff% )&lt;/code&gt;&lt;br /&gt;
+- Replace this line with &lt;code&gt;suppressWarnings( merge(users, ims, by.x=&amp;quot;id&amp;quot;, by.y=&#39;user&#39;) )&lt;/code&gt;&lt;br /&gt;
+- The compile and install the package as below and it should all be fine:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(devtools)
+load_all()
+build()
+install()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hopefully, on the next time that this package is updated by the author, the &lt;code&gt;left_join()&lt;/code&gt; problem will have been resolved. This issue had been marked as “resolved” in the github issues a while back but apparently not pushed to the repository.&lt;/p&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Intalling Shiny Server on Ubuntu 14 LTS</title>
+      <link>http://dyerlab/2016/06/intalling-shiny-server-on-ubuntu-14-lts/</link>
+      <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/06/intalling-shiny-server-on-ubuntu-14-lts/</guid>
+      <description>&lt;p&gt;OK, so I just &amp;lsquo;
+&lt;a href=&#34;http://shiny.rstudio.com&#34;&gt;found&lt;/a&gt;&amp;rsquo; shiny and it has a lot of cool stuff to it.  OK, I&amp;rsquo;ve known about it for a long time but have just had the opportunity to sit down and work it out and see how it can fit into the presentation and learning I&amp;rsquo;m trying to develop in my
+&lt;a href=&#34;http://popgen.bio.vcu.edu&#34;&gt;Applied Population Genetics&lt;/a&gt; online textbook.  Here is a brief overview of how I set up the shiny server on my Ubuntu box that is hosting the book (so I can embed more interactivity in the display).
+more
+OK, below are the steps that I&amp;rsquo;m taking to upgrade everything on the box and install the shiny server app and start hosting individual shiny apps.##Updating Background &amp;amp; Installing Necessary Components
+First, you should update to the latest releases.  I&amp;rsquo;m running a LTS version (long-term support) so it is pretty stark.
+sudo apt-get update
+sudo apt-get upgrade
+Next, I needed to install the following development libraries so that things will go easily.
+sudo apt-get install libssl-dev
+sudo apt-get install gdebi-core
+sudo su - -c &amp;ldquo;R -e \&amp;ldquo;install.packages(&amp;lsquo;devtools&amp;rsquo;, repos=&amp;lsquo;&lt;a href=&#34;http://cran.rstudio.com/&#39;)&amp;quot;&amp;quot;&#34;&gt;http://cran.rstudio.com/&#39;)&amp;quot;&amp;quot;&lt;/a&gt;
+And then we can use the
+gdebi  framework to install the the server
+wget &lt;a href=&#34;https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb&#34;&gt;https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb&lt;/a&gt;
+sudo gdebi shiny-server-1.4.2.786-amd64.deb
+This puts the conf file in
+/etc/init/shiny-server.conf , sets up the user
+shiny  (and has a home directory), and starts the shiny-server process.
+##Redirecting URL Requests
+At this point the shiny-server is running and is servubg pages on port 3838.  However, I block all ports other than 22 and 80 for security, so what I want to do is to redirect requests to my server asking for anything in the subdirectory
+&lt;a href=&#34;http://popgen.bio.vcu.edu/shiny/&#34;&gt;http://popgen.bio.vcu.edu/shiny&lt;/a&gt; to redirect to
+&lt;a href=&#34;http://127.0.0.1:3838/&#34;&gt;http://127.0.0.1:3838&lt;/a&gt; locally.  I need to do this by fiddling with the Apache configuration scripts.
+Apache on Ubuntu puts configuration scripts in /etc/apache2/sites-available and symliks them to /etc/apache2/sites-enabled.  In this file, I set up a proxy pass so that any url that is asking for stuff in the /shiny/ subdirectory be redirected to the 3838 port on this machine.  At the end of the section for this server, enclosed in
+&lt;VirtualHost &lt;i&gt;:80&amp;gt;
+, I put the following in:
+RewriteCond %{HTTP:Upgrade} =websocket
+RewriteRule /shiny/(.&lt;em&gt;) ws://localhost:3838/$1 [P,L]
+RewriteCond %{HTTP:Upgrade} !=websocket
+RewriteRule /shiny/(.&lt;/em&gt;) &lt;a href=&#34;http://localhost:3838/$1&#34;&gt;http://localhost:3838/$1&lt;/a&gt; [P,L]
+ProxyPass /shiny/ &lt;a href=&#34;http://localhost:3838/&#34;&gt;http://localhost:3838/&lt;/a&gt;&lt;br /&gt;
+ProxyPassReverse /shiny/ &lt;a href=&#34;http://localhost:3838/&#34;&gt;http://localhost:3838/&lt;/a&gt;
+You need to make sure that the following mod are turned on for apache:
+*mod_proxy&lt;/p&gt;
+
+&lt;p&gt;*mod_proxy_html&lt;/p&gt;
+
+&lt;p&gt;*mod_proxy_wstunnel
+Enable them the way that is appropriate for your server.  On Ubuntu it is:
+a2enmod mod_proxy
+a2enmod mod_proxy_html
+a2enmod mod_proxy_wstunnel
+##Restart Apache
+All that is left to do now is restart apache and check to see the startup screen for all shiny apps on the
+&lt;a href=&#34;http://popgen.bio.vcu.edu/shiny/&#34;&gt;http://popgen.bio.vcu.edu/shiny/&lt;/a&gt; page.
+sudo service apache2 restart
+The first shiny app to be integrated into the Applied Population Genetics textbook is located in the Hardy-Weinberg chapter.  It is embedded as:
+And creates the following widget in the book (go ahead and play with it, it is interactive):
+This opens a whole slew of interactive graphics for the textbook!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Presentation Zen</title>
+      <link>http://dyerlab/2016/04/presentation-zen/</link>
+      <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/04/presentation-zen/</guid>
+      <description>&lt;p&gt;Here it is, time for student presentations all around!  I thought it would be nice to send this presentation around again to remind everyone what make good (and sucky) presentations.  More below the fold.
+more&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>STRUCTURE on OSX</title>
+      <link>http://dyerlab/2016/04/structure-on-osx/</link>
+      <pubDate>Tue, 05 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/04/structure-on-osx/</guid>
+      <description>&lt;p&gt;The program STRUCTURE is an ubiquitous feature of many population genetic studies these days—if it is appropriate is another question. Today, while covering model based clustering in population genetics, we ran into a problem where STRUCTURE was unable to run and the OS said it was Corrupted and should be thrown away.  Jump below for our fix, it really is an easy one.
+more
+The most recent version of the GUI STRUCTURE java package dates from 2012.  This is getting a bit long in the tooth, but when teaching it is not that far fetched to have aged laptops&amp;hellip;
+The error we were running into is the prompted with the following dialog box when attempting to start the program.
+&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/Screen-Shot-2016-04-05-at-2.46.30-PM-1024x380.png&#34; alt=&#34;Screen Shot 2016-04-05 at 2.46.30 PM&#34; /&gt;
+As it turns out, sometime between 2012 and now, OSX has moved towards digitally signing applications and in this case, it is not that it is &amp;ldquo;damaged&amp;rdquo; it just won&amp;rsquo;t allow the Java Runtime to run it unless we make a small change in the preferences panel and select the Security &amp;amp; Privacy option.
+&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/Screen-Shot-2016-04-05-at-2.48.22-PM-142x150.png&#34; alt=&#34;Screen Shot 2016-04-05 at 2.48.22 PM&#34; /&gt;
+Then authenticate on the bottom by clicking on the lock and entering your password.
+&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/Screen-Shot-2016-04-05-at-2.48.00-PM-300x74.png&#34; alt=&#34;Screen Shot 2016-04-05 at 2.48.00 PM&#34; /&gt;
+Now, change the setting on the Allow apps downloaded from to the Anywhere option.
+&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/Screen-Shot-2016-04-05-at-2.49.36-PM-300x98.png&#34; alt=&#34;Screen Shot 2016-04-05 at 2.49.36 PM&#34; /&gt;
+This should allow you to start STRUCTURE and run it.  Do that and then close it.  Go back to the System Preferences and turn it back to what you had it before.
+&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/Screen-Shot-2016-04-05-at-2.51.22-PM-300x101.png&#34; alt=&#34;Screen Shot 2016-04-05 at 2.51.22 PM&#34; /&gt;
+Once you run it once, you will be able to run it again without lowering your security. Happy clustering!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Buffers &amp; Convex Hulls</title>
+      <link>http://dyerlab/2016/03/buffers--convex-hulls/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/03/buffers--convex-hulls/</guid>
+      <description>---
+author: Rodney J. Dyer
+date: 2016-03-18
+layout: post
+title: Buffers &amp; Convex Hulls
+categories: 
+- Code
+- gdistance
+- polygon
+- R
+- raster
+- Tutorials
+---
+
+
+&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;An analysis common to modern population genetics is that of finding ecological distances between objects on a landscape. The estimation of pairwise distance derived from spatial data is a computationally intensive thing, one that if you are not careful will bring your laptop to its knees! One way to mitigate this data problem is to use a minimal amount raster area so that the estimation of the underlying distance graph can be done on a smaller set of points. This example provides a simple solution using convex hulls. ## A Bounding Box Approach The first option is to create a bounding box around your points. For this, I’ll use the enigmatic arapat data set included in the gstudio package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(raster)
+library(gstudio)
+data(arapat)
+lon.min &amp;lt;- min(arapat$Longitude)
+lon.max &amp;lt;- max(arapat$Longitude)
+lat.min &amp;lt;- min(arapat$Latitude)
+lat.max &amp;lt;- max(arapat$Latitude)
+e &amp;lt;- extent( lon.min, lon.max, lat.min, lat.max )
+e&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : Extent 
+## xmin        : -114.2935 
+## xmax        : -109.1263 
+## ymin        : 23.0757 
+## ymax        : 29.32541&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is the minimal box around the points, but we probably want to have some kind of buffer as we don’t want our populations on the very edge of the raster.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;e &amp;lt;- extent( -115, -108, 23, 30 )
+e&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : Extent 
+## xmin        : -115 
+## xmax        : -108 
+## ymin        : 23 
+## ymax        : 30&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can crop the raster to this size. I’ll use the altitude tile 22 from &lt;a href=&#34;http://worldclim.org&#34;&gt;worldclim&lt;/a&gt; for this. Here is the original raster.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;alt &amp;lt;- raster(&amp;quot;../../data/alt_22.tif&amp;quot;)
+alt&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : RasterLayer 
+## dimensions  : 3600, 3600, 12960000  (nrow, ncol, ncell)
+## resolution  : 0.008333333, 0.008333333  (x, y)
+## extent      : -120, -90, 0, 30  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## data source : /Users/rodney/Desktop/dyerlabweb/data/alt_22.tif 
+## names       : alt_22 
+## values      : -202, 5469  (min, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;which looks like.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(alt)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt; We can crop it to the bounding box for the points as:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bc &amp;lt;- crop( alt, e )
+bc&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## class       : RasterLayer 
+## dimensions  : 840, 840, 705600  (nrow, ncol, ncell)
+## resolution  : 0.008333333, 0.008333333  (x, y)
+## extent      : -115, -108, 23, 30  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## data source : in memory
+## names       : alt_22 
+## values      : -202, 2774  (min, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coords &amp;lt;- strata_coordinates(arapat)
+pts &amp;lt;- SpatialPoints( coords[,2:3] )
+plot(bc, xlab=&amp;quot;Longitude&amp;quot;, ylab=&amp;quot;Latitude&amp;quot;)
+points( pts, col=&amp;quot;darkred&amp;quot;, pch=16)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt; ## A Convex Hull Approach As you look at the image above, you see that there is a lot of area that is not in ‘the midst’ of the points. Moreover, there are those points on the mainland who are probably not going to be connected to the peninsular points due to the Sea of Cortez.  I’m going to first limit the points to the ones on the peninsula and then we will estimate a convex hull. A convex hull is the small convex polygon that contains all the points. You can think of it like snapping a rubber band around the points.  This will give us the minimal raster area on which can estimate raster-based distances (though we probably want to put a buffer around it so that we do not have points at the very edge). Here is how we do that. First, I’ll extract just the peninsular populations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;baja_coords &amp;lt;- coords[ !(coords$Stratum %in% c(&amp;quot;101&amp;quot;,&amp;quot;102&amp;quot;,&amp;quot;32&amp;quot;)), ]
+baja_pts &amp;lt;- SpatialPoints( baja_coords[,2:3])
+plot(bc)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt; Then we will load in the rgeos library and determine the hull&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(rgeos)
+hull &amp;lt;- gConvexHull(baja_pts)
+plot(bc)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)
+plot(hull,add=T,border=&amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt; This is great! So now, we probably want to put a buffer around it so that the points are on the very edge. The units we will use depend upon the units of the raster. So in this case, it will be in degrees of lat/lon (which is a bit dodgy since they are not quite equal distance metrics but for our purposes it is just fine).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hull_plus_buffer &amp;lt;- gBuffer(hull,width=.2)
+plot(bc)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)
+plot(hull_plus_buffer, add=T, border=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt; Perfect! Now, we need to only keep those components of our raster that are within the hull_plus_buffer polygon, and for this we use a mask.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pop_hull &amp;lt;- mask(bc,hull_plus_buffer)
+plot(pop_hull)
+plot(baja_pts,add=T,col=&amp;quot;darkred&amp;quot;,pch=16)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://dyerlab/2016/03/buffers--convex-hulls/figures/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt; Exact! Now, when you run this raster and these points through gdistance, you will be using a more minimal set of raster data for the calculations and it will be more efficient—and reduce the thermal load you are imposing on your laptop!&lt;/p&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A quick GGMap Tutorial</title>
+      <link>http://dyerlab/2016/01/a-quick-ggmap-tutorial/</link>
+      <pubDate>Sun, 17 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/01/a-quick-ggmap-tutorial/</guid>
+      <description>&lt;p&gt;[embed]&lt;a href=&#34;https://youtu.be/x1QQgKT4M9g[/embed&#34;&gt;https://youtu.be/x1QQgKT4M9g[/embed&lt;/a&gt;]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Applied Population Genetics Textbook Release</title>
+      <link>http://dyerlab/2015/12/applied-population-genetics-textbook-release/</link>
+      <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/12/applied-population-genetics-textbook-release/</guid>
+      <description>&lt;p&gt;I will be posting portions of all 10 chapters of my upcoming textbook, Applied Population Genetics, as early draft chapters to this website over the spring semester.
+This book will be published in both ibook and print-on-demand versions. I prefer the ibook format because I can embed interactive content (movies, JavaScript, etc.) into the text and it will update automatically when I make revisions etc.
+The drawback is that ibook is limited to OSX and iOS devices at this time—which is why I will also be making it available as a print-on-demand text (though the interactive content will not obviously be included). The complete text is scheduled to be made available by the end of the academic year and I will be using it as the primary source in my Spring courses of Population Genetics BIOL516 and Landscape Genetics ENVS 692&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Merging data frames</title>
+      <link>http://dyerlab/2015/08/merging-data-frames/</link>
+      <pubDate>Thu, 27 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/08/merging-data-frames/</guid>
+      <description>&lt;p&gt;In R, there is often the need to merge two
+data.frame objects (say one with individual samples and the other with population coordinates.  The
+merge()  function is a pretty awesome though it may take a little getting used to.
+Here are some things to remember:*You need to have two
+data.frame objects to merge&lt;/p&gt;
+
+&lt;p&gt;*The first one in the function call will be the one merged
+on-to the second one is added to the first.&lt;/p&gt;
+
+&lt;p&gt;*Each will need a column to use as an index—it is a column that will be used to match rows of data.  If they are the same column names then the function will do it automagically, if no common names are found in the
+names()  of either
+data.frame objects, you can specify the columns using the optional
+by.x=  and
+by.y=  function arguments.
+moreHere is an example. I&amp;rsquo;m going to load in some data from the
+popgraph  library.  First, I&amp;rsquo;ll load up the library and hten grab the population meta data for the lophocereus data set we analyzed in
+&lt;a href=&#34;http://dx.doi.org/10.1111/j.1365-294X.2004.02177.x&#34;&gt;Dyer &amp;amp; Nason (2004)&lt;/a&gt;.
+require(popgraph)
+data(baja)
+summary(baja)
+    Region     Population    Latitude       Longitude&lt;br /&gt;
+ Baja  :16   BaC    : 1   Min.   :22.93   Min.   :-114.7&lt;br /&gt;
+ Sonora:13   Cabo   : 1   1st Qu.:24.45   1st Qu.:-112.6&lt;br /&gt;
+             CP     : 1   Median :27.95   Median :-111.8&lt;br /&gt;
+             Ctv    : 1   Mean   :27.33   Mean   :-111.8&lt;br /&gt;
+             ELR    : 1   3rd Qu.:29.59   3rd Qu.:-110.7&lt;br /&gt;
+             IC     : 1   Max.   :31.95   Max.   :-109.5&lt;br /&gt;
+             (Other):23
+The graph itself has nodes indicated as populations and perhaps we are interested in plotting node size as a function of spatial location.  We can grab the names and sizes from the
+popgraph object (it is a kind of
+igraph ) by:
+data(lopho)
+df.nodes &amp;lt;- data.frame( Population=V(lopho)$name, Size=V(lopho)$size )
+summary(df.nodes)
+   Population      Size&lt;br /&gt;
+ BaC    : 1   Min.   : 2.500&lt;br /&gt;
+ CP     : 1   1st Qu.: 5.291&lt;br /&gt;
+ Ctv    : 1   Median : 6.860&lt;br /&gt;
+ LaV    : 1   Mean   : 7.770&lt;br /&gt;
+ LF     : 1   3rd Qu.:10.925&lt;br /&gt;
+ Lig    : 1   Max.   :16.001&lt;br /&gt;
+ (Other):15
+Now we have
+baja  and
+df.nodes as two data.frames and can merge them by their common column &lt;code&gt;Population&lt;/code&gt;.  If we merge
+df.nodesonto
+baja  then we get the new
+data.frame:
+merge( baja, df.nodes )
+   Population Region Latitude Longitude      Size
+1         BaC   Baja    26.59   -111.79 12.158810
+2          CP Sonora    27.95   -110.66  7.870725
+3         Ctv   Baja    29.73   -114.72  3.880886
+4         LaV   Baja    24.04   -109.99  3.533757
+5          LF Sonora    30.68   -112.27  8.472215
+6         Lig   Baja    25.73   -111.27  4.731355
+7          PL Sonora    30.39   -112.58  6.692795
+8         PtC   Baja    24.19   -111.15  4.684652
+9         PtP   Baja    29.03   -113.90 10.925375
+10     SenBas Sonora    31.95   -112.87  9.116705
+11       Seri Sonora    28.88   -111.96  2.500000
+12         SG Sonora    29.40   -112.05 11.027530
+13         SI Sonora    29.75   -112.50 11.521450
+14        SLG   Baja    29.59   -114.40  5.955645
+15         SN Sonora    28.82   -111.80  8.325785
+16        SnE   Baja    24.45   -110.70 11.828220
+17        SnF   Baja    30.76   -114.73  6.325655
+18        SnI   Baja    27.29   -113.02  5.466695
+19        StR   Baja    24.91   -111.62  6.859545
+20         TS Sonora    28.41   -111.37 16.001165
+21        TsS   Baja    23.58   -110.34  5.290570
+but if we do it the other way, we get:
+merge(df.nodes,baja)
+   Population      Size Region Latitude Longitude
+1         BaC 12.158810   Baja    26.59   -111.79
+2          CP  7.870725 Sonora    27.95   -110.66
+3         Ctv  3.880886   Baja    29.73   -114.72
+4         LaV  3.533757   Baja    24.04   -109.99
+5          LF  8.472215 Sonora    30.68   -112.27
+6         Lig  4.731355   Baja    25.73   -111.27
+7          PL  6.692795 Sonora    30.39   -112.58
+8         PtC  4.684652   Baja    24.19   -111.15
+9         PtP 10.925375   Baja    29.03   -113.90
+10     SenBas  9.116705 Sonora    31.95   -112.87
+11       Seri  2.500000 Sonora    28.88   -111.96
+12         SG 11.027530 Sonora    29.40   -112.05
+13         SI 11.521450 Sonora    29.75   -112.50
+14        SLG  5.955645   Baja    29.59   -114.40
+15         SN  8.325785 Sonora    28.82   -111.80
+16        SnE 11.828220   Baja    24.45   -110.70
+17        SnF  6.325655   Baja    30.76   -114.73
+18        SnI  5.466695   Baja    27.29   -113.02
+19        StR  6.859545   Baja    24.91   -111.62
+20         TS 16.001165 Sonora    28.41   -111.37
+21        TsS  5.290570   Baja    23.58   -110.34
+Hope this helps.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Loading in Rasters</title>
+      <link>http://dyerlab/2015/08/loading-in-rasters/</link>
+      <pubDate>Wed, 26 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/08/loading-in-rasters/</guid>
+      <description>
+
+&lt;p&gt;Much of the work in my laboratory uses spatial data in some context.  As such it is important to try to be able to grab and use spatial data to in an easy fashion.  At present, R is probably the best way to grab, visualize, and analyze spatial data. For this example, I went to
+&lt;a href=&#34;http://worldclim.org&#34;&gt;http://worldclim.org&lt;/a&gt; and downloaded the elevation (altitude) for tile 13 (eastern North America) as a GeoTiff.  A GeoTiff is a specific type of image format that has spatial data contained within it.  The tile data has a pixel resolution of 30 arc seconds which puts us in the general area of ~ 1km.   First, we need to get things set up to work.# Set the working directory to where you want it.
+setwd(&amp;rdquo;~/Downloads&amp;rdquo;)&lt;/p&gt;
+
+&lt;h1 id=&#34;load-in-the-raster-library&#34;&gt;load in the raster library&lt;/h1&gt;
+
+&lt;p&gt;require(raster)
+Loading required package: raster
+Loading required package: sp
+moreThen we can load in and visualize the data.
+r &amp;lt;- raster(&amp;ldquo;alt_13.tif&amp;rdquo;)
+plot&amp;reg;
+&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/08/Rplot.png&#34; alt=&#34;Rplot&#34; /&gt;
+We can see what the raster relates to by looking at the extent.
+extent&amp;reg;
+class       : Extent
+xmin        : -90
+xmax        : -60
+ymin        : 30
+ymax        : 60
+or its contents.
+print&amp;reg;
+class       : RasterLayer
+dimensions  : 3600, 3600, 12960000  (nrow, ncol, ncell)
+resolution  : 0.008333333, 0.008333333  (x, y)
+extent      : -90, -60, 30, 60  (xmin, xmax, ymin, ymax)
+coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
+data source : /Users/rodney/Downloads/alt_13.tif
+names       : alt_13
+values      : -98, 1961  (min, max)
+And you are off to the races.  This should get you going with the data.  Other posts you may be interested in looking at are found by
+&lt;a href=&#34;http://dyerlab.bio.vcu.edu/tag/r/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Basic graphics in R.</title>
+      <link>http://dyerlab/2015/08/basic-graphics-in-r./</link>
+      <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/08/basic-graphics-in-r./</guid>
+      <description>&lt;p&gt;Here is a short (39 minute) video of some basic graphics approaches in R I use in a class on population genetics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing R packages from github</title>
+      <link>http://dyerlab/2015/07/installing-r-packages-from-github/</link>
+      <pubDate>Thu, 30 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/07/installing-r-packages-from-github/</guid>
+      <description>&lt;p&gt;The default CRAN repository is not the only place that R packages are stored.  You can also find them on github.  When I develop libraries for R, I typically develop them on
+&lt;a href=&#34;http://github.com/dyerlab&#34;&gt;http://github.com/dyerlab&lt;/a&gt; and then upload them to CRAN when I get to major milestones.  The latest versions of all my software will always be found on github.  So here is how to install packages directly.
+more
+To install from github directly, you need two things, the devtools library and the repository and project name on github that you&amp;rsquo;ll be installing from.  As always, it is a great idea to update everything (latest version of R and packages via
+update.packages(ask=FALSE)) before you start.*In R, type
+install.packages(&amp;ldquo;devtools&amp;rdquo;) and it will go grab the stuff for you.  If you are on a machine that does not have compilers and other developers tools on it, R will tell you to go download the RTools package and install it.  They give you a URL to follow and a function to test the installation with.  Use it.&lt;/p&gt;
+
+&lt;p&gt;*require(devtools)&lt;/p&gt;
+
+&lt;p&gt;*Assuming you are using my account (dyerlab) and installing the gstudio package, you would then type:
+install_github(&amp;ldquo;dyerlab/gstudio&amp;rdquo;).&lt;/p&gt;
+
+&lt;p&gt;*Done.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Compiling the GSL Library for OSX</title>
+      <link>http://dyerlab/2015/07/compiling-the-gsl-library-for-osx/</link>
+      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/07/compiling-the-gsl-library-for-osx/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been working on integrating the Swift language into my analysis workflow but much of what I do involves the GNU Scientific Libraries for matrix analysis and other tools.  Here is a quick tutorial on how to install the GSL library on a clean OSX platform.*It is easiest if you have XCode installed.  You can get this from the App Store for free.  Go download it and install it.&lt;/p&gt;
+
+&lt;p&gt;*Download the latest version of the GSL libraries.  You can grab them by:
+*Looking for your nearest mirror site listed at
+&lt;a href=&#34;http://www.gnu.org/prep/ftp.html&#34;&gt;http://www.gnu.org/prep/ftp.html&lt;/a&gt; and connecting to it.&lt;/p&gt;
+
+&lt;p&gt;*Open the directory
+gsl/ where all the versions will be listed.  Scroll down and grab
+gsl-latest.tar.gz.&lt;/p&gt;
+
+&lt;p&gt;*Open the terminal (Utilities -&amp;gt; Terminal.app) and type:&lt;br /&gt;
+cd ~/Downloads&lt;/p&gt;
+
+&lt;p&gt;*Unpack the archive by:&lt;br /&gt;
+tar zxvf gsl-latest.tar.gz then
+cd gsl-1.16/ (or whatever the version actually was, it will probably be some number larger than 1.16).&lt;/p&gt;
+
+&lt;p&gt;*Inside that folder will be a README file (which you probably won&amp;rsquo;t read) and an INSTALL file (which you should read).  In that folder it will tell you to:&lt;br /&gt;
+./configure then&lt;br /&gt;
+make then
+sudo make install. This last command will require you to type in your password as it is going to install something into the base system.&lt;/p&gt;
+
+&lt;p&gt;*All the libraries and header files will be installed into the
+/usr/local/ directory.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Install rgeos on OSX</title>
+      <link>http://dyerlab/2015/03/install-rgeos-on-osx/</link>
+      <pubDate>Tue, 31 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/03/install-rgeos-on-osx/</guid>
+      <description>
+
+&lt;p&gt;There seems to be some nefarious conspiracy against packaging spatial R packages on the mac platform. Don&amp;rsquo;t quite understand it but it sucks.  Here is how to install the rgeos package.
+If you try the normal way, you get the following error:install.packages(&amp;ldquo;rgeos&amp;rdquo;)
+package ‘rgeos’ is available as a source package but not as a binary
+Warning in install.packages : package ‘rgeos’ is not available (as a binary package for R version 3.1.3)
+which is not very helpful.&lt;br /&gt;
+moreSo here is a quick way to do that I use when I need to upgrade it or put it on a new machine.
+*If you do not have the developers tools from Apple, download them and install through the normal AppStore mechanisms.  You will need to compile stuff from raw code for this to work.&lt;/p&gt;
+
+&lt;p&gt;*Download and install the GDAL Complete package from
+&lt;a href=&#34;http://www.kyngchaos.com/software:frameworks&#34;&gt;KyngChaos&lt;/a&gt;.  At the time of writing, it was version 1.11 (39.0 MB).  If you are using Mavericks or later, you&amp;rsquo;ll have to probably change your security settings (System Preferences -&amp;gt; Security -&amp;gt; General) to &amp;ldquo;Allow apps downloaded from &amp;lsquo;anywhere&amp;rsquo; to be installed. If everything works nicely (which I&amp;rsquo;ve never seen actually work), you should be able to do the following to install. Unfortunately, it always barfs on me.
+install.packages(&amp;ldquo;rgeos&amp;rdquo;, repos=&amp;ldquo;&lt;a href=&#34;http://R-Forge.R-project.org&amp;quot;&#34;&gt;http://R-Forge.R-project.org&amp;quot;&lt;/a&gt;, type=&amp;ldquo;source&amp;rdquo;)
+trying URL &amp;lsquo;&lt;a href=&#34;http://R-Forge.R-project.org/src/contrib/rgeos_0.3-9.tar.gz&#39;&#34;&gt;http://R-Forge.R-project.org/src/contrib/rgeos_0.3-9.tar.gz&#39;&lt;/a&gt;
+Content type &amp;lsquo;application/x-gzip&amp;rsquo; length 238246 bytes (232 KB)&lt;/p&gt;
+
+&lt;h1 id=&#34;opened-url&#34;&gt;opened URL&lt;/h1&gt;
+
+&lt;p&gt;downloaded 232 KB
+&lt;/i&gt; installing &lt;i&gt;source&lt;/i&gt; package ‘rgeos’ &amp;hellip;
+configure: CC: clang
+configure: CXX: clang++
+configure: rgeos: 0.3-8
+checking for /usr/bin/svnversion&amp;hellip; yes
+cat: inst/SVN_VERSION: No such file or directory
+configure: svn revision:
+checking for geos-config&amp;hellip; no
+configure: error: geos-config not found or not executable.
+ERROR: configuration failed for package ‘rgeos’
+&lt;/i&gt; removing ‘/Library/Frameworks/R.framework/Versions/3.1/Resources/library/rgeos’
+The downloaded source packages are in
+    ‘/private/var/folders/06/jmbn_ny94rs1nw19xclvdzqc0000gn/T/Rtmp9VCkBI/downloaded_packages’
+Warning message:
+In install.packages(&amp;ldquo;rgeos&amp;rdquo;, repos = &amp;ldquo;&lt;a href=&#34;http://R-Forge.R-project.org&amp;quot;&#34;&gt;http://R-Forge.R-project.org&amp;quot;&lt;/a&gt;,  :
+  installation of package ‘rgeos’ had non-zero exit status&lt;/p&gt;
+
+&lt;p&gt;*This means that you need to actually compile the results.  Download the latest sources from
+&lt;a href=&#34;https://r-forge.r-project.org/R/?group_id=602&#34;&gt;r-forge&lt;/a&gt; (use the &lt;i&gt;.tar.gz version).  Open the terminal and:
+cd ~/Downloads
+R CMD INSTALL
+and you should see the following:
+R CMD INSTALL rgeos_0.3-9.tar.gz &amp;ndash;configure-args=&amp;ldquo;&amp;ndash;with-geos-config=/Library/Frameworks/GEOS.framework/unix/bin/geos-config&amp;rdquo;
+&lt;/i&gt; installing to library ‘/Library/Frameworks/R.framework/Versions/3.1/Resources/library’
+&lt;/i&gt; installing &lt;i&gt;source&lt;/i&gt; package ‘rgeos’ &amp;hellip;
+configure: CC: clang
+configure: CXX: clang++
+configure: rgeos: 0.3-8
+checking for /usr/bin/svnversion&amp;hellip; yes
+cat: inst/SVN_VERSION: No such file or directory
+configure: svn revision:
+configure: geos-config set to /Library/Frameworks/GEOS.framework/unix/bin/geos-config
+checking geos-config exists&amp;hellip; yes
+checking geos-config executable&amp;hellip; yes
+checking geos-config usability&amp;hellip; yes
+configure: GEOS version: 3.4.2
+checking geos version at least 3.2.0&amp;hellip; yes
+checking geos-config clibs&amp;hellip; yes
+checking for gcc&amp;hellip; clang
+checking whether the C compiler works&amp;hellip; yes
+checking for C compiler default output file name&amp;hellip; a.out
+checking for suffix of executables&amp;hellip;
+checking whether we are cross compiling&amp;hellip; no
+checking for suffix of object files&amp;hellip; o
+checking whether we are using the GNU C compiler&amp;hellip; yes
+checking whether clang accepts -g&amp;hellip; yes
+checking for clang option to accept ISO C89&amp;hellip; none needed
+checking how to run the C preprocessor&amp;hellip; clang -E
+checking for grep that handles long lines and -e&amp;hellip; /usr/bin/grep
+checking for egrep&amp;hellip; /usr/bin/grep -E
+checking for ANSI C header files&amp;hellip; rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for sys/types.h&amp;hellip; yes
+checking for sys/stat.h&amp;hellip; yes
+checking for stdlib.h&amp;hellip; yes
+checking for string.h&amp;hellip; yes
+checking for memory.h&amp;hellip; yes
+checking for strings.h&amp;hellip; yes
+checking for inttypes.h&amp;hellip; yes
+checking for stdint.h&amp;hellip; yes
+checking for unistd.h&amp;hellip; yes
+checking geos_c.h usability&amp;hellip; yes
+checking geos_c.h presence&amp;hellip; yes
+checking for geos_c.h&amp;hellip; yes
+checking geos: linking with libgeos_c&amp;hellip; yes
+configure: PKG_CPPFLAGS:  -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include
+configure: PKG_LIBS:  -L/Library/Frameworks/GEOS.framework/Versions/3/unix/lib -lgeos -L/Library/Frameworks/GEOS.framework/Versions/3/unix/lib -lgeos_c
+configure: creating ./config.status
+config.status: creating src/Makevars
+*&lt;/i&gt; libs
+clang++ -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c dummy.cc -o dummy.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c init.c -o init.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c local_stubs.c -o local_stubs.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos.c -o rgeos.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_R2geos.c -o rgeos_R2geos.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_R2geosMP.c -o rgeos_R2geosMP.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_bbox.c -o rgeos_bbox.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_buffer.c -o rgeos_buffer.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_coord.c -o rgeos_coord.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_geos2R.c -o rgeos_geos2R.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_misc.c -o rgeos_misc.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_poly2nb.c -o rgeos_poly2nb.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_predicate_binary.c -o rgeos_predicate_binary.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_predicate_unary.c -o rgeos_predicate_unary.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_topology.c -o rgeos_topology.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_topology_binary.c -o rgeos_topology_binary.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_validate.c -o rgeos_validate.o
+clang -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -I/Library/Frameworks/GEOS.framework/Versions/3/unix/include -I/usr/local/include -I/usr/local/include/freetype2 -I/opt/X11/include -I&amp;rdquo;/Library/Frameworks/R.framework/Versions/3.1/Resources/library/sp/include&amp;rdquo;   -fPIC  -Wall -mtune=core2 -g -O2  -c rgeos_wkt.c -o rgeos_wkt.o
+clang++ -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o rgeos.so dummy.o init.o local_stubs.o rgeos.o rgeos_R2geos.o rgeos_R2geosMP.o rgeos_bbox.o rgeos_buffer.o rgeos_coord.o rgeos_geos2R.o rgeos_misc.o rgeos_poly2nb.o rgeos_predicate_binary.o rgeos_predicate_unary.o rgeos_topology.o rgeos_topology_binary.o rgeos_validate.o rgeos_wkt.o -L/Library/Frameworks/GEOS.framework/Versions/3/unix/lib -lgeos -L/Library/Frameworks/GEOS.framework/Versions/3/unix/lib -lgeos_c -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
+installing to /Library/Frameworks/R.framework/Versions/3.1/Resources/library/rgeos/libs
+*&lt;/i&gt; R
+*&lt;/i&gt; inst
+*&lt;/i&gt; preparing package for lazy loading
+*&lt;/i&gt; help
+**&lt;/i&gt; installing help indices
+*&lt;/i&gt; building package indices
+*&lt;/i&gt; testing if installed package can be loaded
+&lt;/i&gt; DONE (rgeos)&lt;/p&gt;
+
+&lt;p&gt;*And your done.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Turning In Assignments via Google Sharing</title>
+      <link>http://dyerlab/2015/01/turning-in-assignments-via-google-sharing/</link>
+      <pubDate>Fri, 23 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/01/turning-in-assignments-via-google-sharing/</guid>
+      <description>&lt;p&gt;If you use Google Docs for your writing, there are several cool tricks you can use to increase your efficiency.  Here is one thing that has made it much easier when it comes to turning in assignments.  Previously, one would create a document in some word processor, work on it, put it on a thumb drive, take it home and work on it, take it back to school, perhaps a lab computer, maybe it is also worked on in the library, etc.  Eventually, you finish the document and then to turn it in you can either print it off (got to go find a printer or where I put that extra paper) or email it  in.  This last option is terrible if you have a large class!
+If you are using Google Docs, you can just share it with the instructor.  In the sharing options, you can designate that you share with someone but only allow them to make &amp;ldquo;suggestions&amp;rdquo;.  This keeps the integrity of your document in place while allowing another person to mark it up.  Once you share it, they can open it and write in it but any and all changes to the document are indicated via a highlight color.  Since both of you are working on the document, there is no need to email it back and forth, there is only one document.
+Here is a short video how that is done if you need more visual input.
+[embed]&lt;a href=&#34;https://www.youtube.com/watch?v=riZ29ca_d4k[/embed&#34;&gt;https://www.youtube.com/watch?v=riZ29ca_d4k[/embed&lt;/a&gt;]&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

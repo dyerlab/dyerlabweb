@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Theory on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/theory/index.xml</link>
+    <description>Recent content in Theory on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/theory/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Applied Population Genetics Textbook Release</title>
+      <link>http://dyerlab/2015/12/applied-population-genetics-textbook-release/</link>
+      <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/12/applied-population-genetics-textbook-release/</guid>
+      <description>&lt;p&gt;I will be posting portions of all 10 chapters of my upcoming textbook, Applied Population Genetics, as early draft chapters to this website over the spring semester.
+This book will be published in both ibook and print-on-demand versions. I prefer the ibook format because I can embed interactive content (movies, JavaScript, etc.) into the text and it will update automatically when I make revisions etc.
+The drawback is that ibook is limited to OSX and iOS devices at this time—which is why I will also be making it available as a print-on-demand text (though the interactive content will not obviously be included). The complete text is scheduled to be made available by the end of the academic year and I will be using it as the primary source in my Spring courses of Population Genetics BIOL516 and Landscape Genetics ENVS 692&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

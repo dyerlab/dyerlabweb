@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gene Flow on The Dyer Laboratory</title>
+    <link>http://dyerlab/categories/gene-flow/index.xml</link>
+    <description>Recent content in Gene Flow on The Dyer Laboratory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://dyerlab/categories/gene-flow/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Talk at Temple!</title>
+      <link>http://dyerlab/2016/11/talk-at-temple/</link>
+      <pubDate>Sun, 13 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2016/11/talk-at-temple/</guid>
+      <description>&lt;p&gt;Giving a talk up at Temple University, last seminar of the year but one I&amp;rsquo;ve been looking forward to giving for a while.&lt;/p&gt;
+
+&lt;!-- More --&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/0B0T81CzLjtfPbVlYTFVGVzVKUWc/view?usp=sharing&#34;&gt;&lt;img src=&#34;http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/11/Screen-Shot-2016-11-13-at-10.30.05-PM-300x224.png&#34; alt=&#34;screen-shot-2016-11-13-at-10-30-05-pm&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Click through the image to download a PDF version of the talk.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Applied Population Genetics Textbook Release</title>
+      <link>http://dyerlab/2015/12/applied-population-genetics-textbook-release/</link>
+      <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/12/applied-population-genetics-textbook-release/</guid>
+      <description>&lt;p&gt;I will be posting portions of all 10 chapters of my upcoming textbook, Applied Population Genetics, as early draft chapters to this website over the spring semester.
+This book will be published in both ibook and print-on-demand versions. I prefer the ibook format because I can embed interactive content (movies, JavaScript, etc.) into the text and it will update automatically when I make revisions etc.
+The drawback is that ibook is limited to OSX and iOS devices at this time—which is why I will also be making it available as a print-on-demand text (though the interactive content will not obviously be included). The complete text is scheduled to be made available by the end of the academic year and I will be using it as the primary source in my Spring courses of Population Genetics BIOL516 and Landscape Genetics ENVS 692&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RVA Urban Dogwood</title>
+      <link>http://dyerlab/2015/08/rva-urban-dogwood/</link>
+      <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/08/rva-urban-dogwood/</guid>
+      <description>&lt;p&gt;Here is a map of the dogwood we&amp;rsquo;ve sampled in the Fan region of Richmond Virginia.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Compiling the GSL Library for OSX</title>
+      <link>http://dyerlab/2015/07/compiling-the-gsl-library-for-osx/</link>
+      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/07/compiling-the-gsl-library-for-osx/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been working on integrating the Swift language into my analysis workflow but much of what I do involves the GNU Scientific Libraries for matrix analysis and other tools.  Here is a quick tutorial on how to install the GSL library on a clean OSX platform.*It is easiest if you have XCode installed.  You can get this from the App Store for free.  Go download it and install it.&lt;/p&gt;
+
+&lt;p&gt;*Download the latest version of the GSL libraries.  You can grab them by:
+*Looking for your nearest mirror site listed at
+&lt;a href=&#34;http://www.gnu.org/prep/ftp.html&#34;&gt;http://www.gnu.org/prep/ftp.html&lt;/a&gt; and connecting to it.&lt;/p&gt;
+
+&lt;p&gt;*Open the directory
+gsl/ where all the versions will be listed.  Scroll down and grab
+gsl-latest.tar.gz.&lt;/p&gt;
+
+&lt;p&gt;*Open the terminal (Utilities -&amp;gt; Terminal.app) and type:&lt;br /&gt;
+cd ~/Downloads&lt;/p&gt;
+
+&lt;p&gt;*Unpack the archive by:&lt;br /&gt;
+tar zxvf gsl-latest.tar.gz then
+cd gsl-1.16/ (or whatever the version actually was, it will probably be some number larger than 1.16).&lt;/p&gt;
+
+&lt;p&gt;*Inside that folder will be a README file (which you probably won&amp;rsquo;t read) and an INSTALL file (which you should read).  In that folder it will tell you to:&lt;br /&gt;
+./configure then&lt;br /&gt;
+make then
+sudo make install. This last command will require you to type in your password as it is going to install something into the base system.&lt;/p&gt;
+
+&lt;p&gt;*All the libraries and header files will be installed into the
+/usr/local/ directory.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GStudio: An R Package for Spatial Analysis of Marker Data</title>
+      <link>http://dyerlab/2015/01/gstudio-an-r-package-for-spatial-analysis-of-marker-data/</link>
+      <pubDate>Fri, 16 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://dyerlab/2015/01/gstudio-an-r-package-for-spatial-analysis-of-marker-data/</guid>
+      <description>&lt;p&gt;This is the main package that provides data types and routines for spatial analysis of genetic marker data. The previous version is currently available on
+&lt;a href=&#34;http://cran.r-project.org/&#34;&gt;CRAN&lt;/a&gt; and you can install it rom within your R environtment by invoking the command
+install.packages(&amp;ldquo;gstudio&amp;rdquo;)
+If you want to keep up with the latest developments of this package, you can use the version found on GitHub.  Install it from within R as:
+require(devtools)
+install_github(&amp;ldquo;dyerlab/gstudio&amp;rdquo;)
+and that should get you up-to-date.  You&amp;rsquo;ll need to have a fully working LaTeX install and some other stuff to build it if you fork.
+The Users Manual for the package with several examples can be found
+&lt;a href=&#34;http://dyerlab.github.io/gstudio/&#34;&gt;here&lt;/a&gt;
+I have started a github account for this package, you can get access to the whole codebase read about it on the wiki, and contribute to the project from its repo at
+&lt;a href=&#34;http://github.com/dyerlab&#34;&gt;https://github.com/dyerlab&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
