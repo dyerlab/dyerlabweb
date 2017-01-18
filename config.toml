@@ -10,6 +10,7 @@ paginate = 10
 # copyright = "Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)."
 #googleAnalytics = "UA-123-45"
 #disqusShortname = "XYW"
+output_dir = "docs"
 
 [permalinks]
   post = "/:year/:month/:title/"
@@ -47,7 +48,7 @@ paginate = 10
   author = "Rodney J. Dyer"
 
   # Description/subtitle for homepage (can be Markdown)
-  description = "Illuminating mechanisms governing genetic connectivity."
+  description = "Illuminating the mechanics of genetic connectivity."
 
   # Format dates with Go's time formatting
   date_format = "Mon Jan 02, 2006"
