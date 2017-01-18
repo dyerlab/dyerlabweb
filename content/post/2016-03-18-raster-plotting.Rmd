@@ -1,0 +1,35 @@
+---
+author: Rodney J. Dyer
+date: 2016-03-18
+layout: post
+title: Raster Plotting
+permalink: https://dyerlab.bio.vcu.edu/2016/03/18/raster-plotting/index.html
+post_id: 857
+categories: 
+- Code
+- R
+- raster
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE)
+```
+A raster is essentially an image, whose pixel size correspond to a particular spatial extent and the data contained within each pixel represents a particular feature on the landscape. Common rasters are DEM’s (measuring elevation), rainfall, temperature, buildings, etc. In R, it is common to think of rasters as matrices whose values measure some feature on the landscape. In this section, we will examine how to acquire, load, manipulate, and extract data from raster objects.
+As mentioned above, a raster is essentially a matrix with some additional data added onto it related to the spatial extent of the values it contains. As such, we can easily start with a general matrix, perform various matrix manipulations, and then transform it into a raster object when we need it to have spatial properties and attributes. Here is an example of a basic matrix, whose values have been set to random normal variables (mean=0, sd=1) and then plot using the normal R plotting functions.
+```{r}
+x <- matrix(rnorm(100),ncol=10)
+image(x)
+```
+You can see that despite the origin of a matrix when we write it (and when you work with the row and column indices in R on it) is different than when we plot it. Two things should be noted:  
+- The axes from `image()` are not very helpful as they are scaled to the fractional width of the matrix rather than the number of rows and columns. This is apparently the preferred behavior from the people who wrote the original R graphics package.  
+- The aspect ratio of the cells (e.g., each cell width and height) are not the same. This is problematic if we are intending these data to represent spatial content.
+This matrix can be ‘decorated’ with additional attributes and turned into a raster object by casting it as one using the 
+`raster()` function.
+```{r}
+require(raster)
+r <- raster( x )
+r
+```
+If we plot the raster object, we get a different view.
+```{r}
+plot(r)
+```
