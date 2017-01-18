@@ -24,10 +24,19 @@
 }
 
 
+/* Google Search */
+
+.gsc-input {
+	width:10px;  
+}
+  
+.gsc-search-button {
+	width:10px;
+}
+
+
+
 /* For publist */
-
-
-
 .publist {
   border-collapse:separate; 
   border-spacing: 5em;
