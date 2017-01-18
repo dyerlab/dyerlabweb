@@ -6,5 +6,6 @@
 .Rproj.user
 public/*
 blogdown/*
+*.tar.gz
 
 
