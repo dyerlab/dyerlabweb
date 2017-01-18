@@ -9,5 +9,5 @@ categories:
 - Population Genetics
 ---
 Ran across this great image from 
-[lifehacker](http://lifehacker.com/second-cousins-once-removed-and-more-explained-in-1661572056?utm_campaign=socialflow_lifehacker_facebook&utm_source=lifehacker_facebook&utm_medium=socialflow).  Perfect for your genetics and population genetic pedigree analyses.
+[lifehacker](http://lifehacker.com/second-cousins-once-removed-and-more-explained-in-1661572056?utm_campaign=socialflow_lifehacker_facebook&utm_source=lifehacker_facebook&utm_medium=socialflow).  Perfect for your genetics and population genetic pedigree analyses.
 [![fzmzqdu46zj92varuqxj](http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/04/fzmzqdu46zj92varuqxj.gif)](http://lifehacker.com/second-cousins-once-removed-and-more-explained-in-1661572056?utm_campaign=socialflow_lifehacker_facebook&utm_source=lifehacker_facebook&utm_medium=socialflow)

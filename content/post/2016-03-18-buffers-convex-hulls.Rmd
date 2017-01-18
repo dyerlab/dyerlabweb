@@ -55,7 +55,7 @@ plot(bc, xlab="Longitude", ylab="Latitude")
 points( pts, col="darkred", pch=16)
 ```
 ## A Convex Hull Approach
-As you look at the image above, you see that there is a lot of area that is not in 'the midst' of the points. Moreover, there are those points on the mainland who are probably not going to be connected to the peninsular points due to the Sea of Cortez.  I'm going to first limit the points to the ones on the peninsula and then we will estimate a convex hull. A convex hull is the small convex polygon that contains all the points. You can think of it like snapping a rubber band around the points.  This will give us the minimal raster area on which can estimate raster-based distances (though we probably want to put a buffer around it so that we do not have points at the very edge). Here is how we do that.
+As you look at the image above, you see that there is a lot of area that is not in 'the midst' of the points. Moreover, there are those points on the mainland who are probably not going to be connected to the peninsular points due to the Sea of Cortez.  I'm going to first limit the points to the ones on the peninsula and then we will estimate a convex hull. A convex hull is the small convex polygon that contains all the points. You can think of it like snapping a rubber band around the points.  This will give us the minimal raster area on which can estimate raster-based distances (though we probably want to put a buffer around it so that we do not have points at the very edge). Here is how we do that.
 First, I'll extract just the peninsular populations.
 ```{r}
 baja_coords <- coords[ !(coords$Stratum %in% c("101","102","32")), ]

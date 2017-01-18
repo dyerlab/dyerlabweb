@@ -14,21 +14,21 @@ categories:
 - Tutorials
 ---
 In R, there is often the need to merge two 
-data.frame objects (say one with individual samples and the other with population coordinates.  The 
-merge()  function is a pretty awesome though it may take a little getting used to.
+data.frame objects (say one with individual samples and the other with population coordinates.  The 
+merge()  function is a pretty awesome though it may take a little getting used to.
 Here are some things to remember:*You need to have two 
-data.frame objects to merge
+data.frame objects to merge
 	
-*The first one in the function call will be the one merged 
-on-to the second one is added to the first.
+*The first one in the function call will be the one merged 
+on-to the second one is added to the first.
 	
-*Each will need a column to use as an index—it is a column that will be used to match rows of data.  If they are the same column names then the function will do it automagically, if no common names are found in the 
-names()  of either 
-data.frame objects, you can specify the columns using the optional 
-by.x=  and 
-by.y=  function arguments.
+*Each will need a column to use as an index—it is a column that will be used to match rows of data.  If they are the same column names then the function will do it automagically, if no common names are found in the 
+names()  of either 
+data.frame objects, you can specify the columns using the optional 
+by.x=  and 
+by.y=  function arguments.
 moreHere is an example. I'm going to load in some data from the 
-popgraph  library.  First, I'll load up the library and hten grab the population meta data for the lophocereus data set we analyzed in 
+popgraph  library.  First, I'll load up the library and hten grab the population meta data for the lophocereus data set we analyzed in 
 [Dyer & Nason (2004)](http://dx.doi.org/10.1111/j.1365-294X.2004.02177.x).
 require(popgraph)
 data(baja)
@@ -41,9 +41,9 @@ summary(baja)
              ELR    : 1   3rd Qu.:29.59   3rd Qu.:-110.7  
              IC     : 1   Max.   :31.95   Max.   :-109.5  
              (Other):23
-The graph itself has nodes indicated as populations and perhaps we are interested in plotting node size as a function of spatial location.  We can grab the names and sizes from the 
-popgraph object (it is a kind of 
-igraph ) by:
+The graph itself has nodes indicated as populations and perhaps we are interested in plotting node size as a function of spatial location.  We can grab the names and sizes from the 
+popgraph object (it is a kind of 
+igraph ) by:
 data(lopho)
 df.nodes <- data.frame( Population=V(lopho)$name, Size=V(lopho)$size )
 summary(df.nodes)
@@ -56,10 +56,10 @@ summary(df.nodes)
  Lig    : 1   Max.   :16.001  
  (Other):15
 Now we have 
-baja  and 
-df.nodes as two data.frames and can merge them by their common column `Population`.  If we merge 
-df.nodesonto 
-baja  then we get the new 
+baja  and 
+df.nodes as two data.frames and can merge them by their common column `Population`.  If we merge 
+df.nodesonto 
+baja  then we get the new 
 data.frame:
 merge( baja, df.nodes )
    Population Region Latitude Longitude      Size

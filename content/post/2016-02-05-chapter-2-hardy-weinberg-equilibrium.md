@@ -11,7 +11,7 @@ categories:
 - R
 ---
 Here are the online presentations for Chapter 2: Hardy Weinberg Equilibrium from the upcoming text, 
-Applied Population Genetics.  More information on this text can be found 
+Applied Population Genetics.  More information on this text can be found 
 [here](http://dyerlab.bio.vcu.edu/applied-population-genetics/).
 more
 [embed]https://youtu.be/s5Z0nItrdSo[/embed]

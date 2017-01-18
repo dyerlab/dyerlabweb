@@ -10,7 +10,7 @@ categories:
 - Research
 ---
 A large subset of the talks given at this year's Evolution meeting are now available on Youtube.*The playlist is 
-[here](https://docs.google.com/spreadsheets/d/1L1UgGMAVzVzwKsuznXq9ngf_qFQWAqRGD4EqvAu2waM/edit#gid=0) as a Google Docs spreadsheet.
+[here](https://docs.google.com/spreadsheets/d/1L1UgGMAVzVzwKsuznXq9ngf_qFQWAqRGD4EqvAu2waM/edit#gid=0) as a Google Docs spreadsheet.
  	
 *The channel is 
 [here](https://www.youtube.com/channel/UCLbk92wFKK32tphMS0saI7Q/videos) on Youtube.

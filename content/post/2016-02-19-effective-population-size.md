@@ -11,6 +11,6 @@ categories:
 - R
 - Teaching
 ---
-How big is the data set you are analyzing?  Apparently it depends on how you count...
+How big is the data set you are analyzing?  Apparently it depends on how you count...
 more
 [embed]https://youtu.be/JV85sUANwYQ[/embed]

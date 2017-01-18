@@ -9,4 +9,4 @@ categories:
 - graduate
 - People
 ---
-Congratulations to the latest member of the PhD club, Dr. Cathy Viverette!  Today, she became the 14th graduate student to graduate from the lab and the very first doctoral student.  Take a break, relax, and then let's get to those revisions!  ;-).
+Congratulations to the latest member of the PhD club, Dr. Cathy Viverette!  Today, she became the 14th graduate student to graduate from the lab and the very first doctoral student.  Take a break, relax, and then let's get to those revisions!  ;-).

@@ -8,7 +8,7 @@ post_id: 1015
 categories: 
 - Uncategorized
 ---
-I was experiencing a bit of a problem with some conflicting files on google drive and a github repository.  I mirror my google drive as my Documents folder and on occassion, I am logged into more than one machine at a time and if you work on the same files without saving, they result in a conflict.  I notice this when I got the message.Office-iMac:gstudio rodney$ git pull
+I was experiencing a bit of a problem with some conflicting files on google drive and a github repository.  I mirror my google drive as my Documents folder and on occassion, I am logged into more than one machine at a time and if you work on the same files without saving, they result in a conflict.  I notice this when I got the message.Office-iMac:gstudio rodney$ git pull
 fatal: Reference has invalid format: 'refs/heads/master[Conflict 1]'
 more
 And then when I looked into my .git folder, I saw
@@ -27,8 +27,8 @@ branches objects
 config packed-refs
 description refs
 hooks
-Apparently, git does not like square brackets and such in the names.  To fix this, you need to do the following.
+Apparently, git does not like square brackets and such in the names.  To fix this, you need to do the following.
 find .git -type f -name "*Conflict*" -exec rm -f {} \;
 And then clean up the packed references as:
 awk '!/conflicted/' .git/packed-refs > temp && mv temp .git/packed-refs
- 
+ 

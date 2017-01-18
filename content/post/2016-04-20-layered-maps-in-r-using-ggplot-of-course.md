@@ -13,4 +13,4 @@ categories:
 A very cool writeup on making blow out maps.
 [![687474703a2f2f692e737461636b2e696d6775722e636f6d2f336c6241542e706e67](http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2016/04/687474703a2f2f692e737461636b2e696d6775722e636f6d2f336c6241542e706e67.png)](http://urbandemographics.blogspot.co.uk/2016/04/creating-tilted-and-stacked-maps-in-r.html)
 [http://urbandemographics.blogspot.co.uk/2016/04/creating-tilted-and-stacked-maps-in-r.html](http://urbandemographics.blogspot.co.uk/2016/04/creating-tilted-and-stacked-maps-in-r.html)
- 
+ 

@@ -15,6 +15,6 @@ categories:
 ---
 Been working on a lexicographic analysis of 'Sustainability' as published by the journals 
 PNAS and 
-Sustainability.  Here are the stemmed word forms for 366 published articles represented as a hierarchical clustering.  The wordclouds represent the top 10 word stems per group.
+Sustainability.  Here are the stemmed word forms for 366 published articles represented as a hierarchical clustering.  The wordclouds represent the top 10 word stems per group.
 more
 ![TaxonomyOfSustainability](http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/10/TaxonomyOfSustainability.png)

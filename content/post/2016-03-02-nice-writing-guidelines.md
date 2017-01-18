@@ -2,7 +2,7 @@
 author: Rodney J. Dyer
 date: 2016-03-02
 layout: post
-title: Nice Writing Guidelines 
+title: Nice Writing Guidelines 
 permalink: https://dyerlab.bio.vcu.edu/2016/03/02/nice-writing-guidelines/index.html
 post_id: 837
 categories: 

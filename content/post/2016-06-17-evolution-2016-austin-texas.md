@@ -8,4 +8,4 @@ post_id: 1005
 categories: 
 - Uncategorized
 ---
-And it starts!  Going to be a great meeting with a huge VCU contingent!
+And it starts!  Going to be a great meeting with a huge VCU contingent!

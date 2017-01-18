@@ -9,5 +9,5 @@ categories:
 - Uncategorized
 ---
 Way to go 
-[Dr. Bulluck](http://rampages.us/bullucklab/)!  A cool overview of some research that we've been associated with over the years.
+[Dr. Bulluck](http://rampages.us/bullucklab/)!  A cool overview of some research that we've been associated with over the years.
 [embed]https://www.youtube.com/watch?v=nR3P1d3PI04[/embed]

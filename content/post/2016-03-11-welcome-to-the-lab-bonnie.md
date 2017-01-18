@@ -10,4 +10,4 @@ categories:
 ---
 As part of a collaboration with VDOT, I am pleased to announce that 
 [Ms. Bonnie Roderique](http://dyerlab.bio.vcu.edu/people/) has just joined the Dyer laboratory to work on a project around the endangered James River Spinymussel (
-Pleurobema collina).  Not a plant, but at least not a vertebrate!
+Pleurobema collina).  Not a plant, but at least not a vertebrate!

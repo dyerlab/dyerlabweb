@@ -15,14 +15,13 @@ categories:
 - Tutorials
 ---
 This document shows you how to extract data from rasters.
- ##Getting The Libraries
-First, I'll load in some packages to get the ability to work with raster data and to load in the 
-Arapatus attenuatus data set (it is part of the default 
-**gstudio**
-package).
+## Getting The Libraries
+
+First, I'll load in some packages to get the ability to work with raster data and to load in the *Arapatus attenuatus* data set (it is part of the default **gstudio** package).
+
 require(raster)
 require(gstudio)
- 
+ 
 ##
 ##Loading and Cropping Rasters
 We can load in the raster, and then crop it to just the are we need. These rasters were downloaded from [
@@ -32,7 +31,7 @@ e <- extent(c(-115, -109, 22, 30))
 baja_alt <- crop(tmp, e)
 baja_temp <- crop(raster("bio1_22.bil"), e)
 baja_prec <- crop(raster("bio12_22.bil"), e)
- 
+ 
 ##
 ##Getting Example Data from 
 Araptus attenuatus
@@ -40,7 +39,7 @@ Now, lets grab the
 Araptus data and look at the data and plot out the locations.
 data(arapat)
 summary(arapat)
- 
+ 
 ##    Species      Cluster      Population        ID         Latitude   
 ##  CladeA: 75   CBP-C :150   32     : 19   101_10A:  1   Min.   :23.1  
 ##  CladeB: 36   NBP-C : 84   75     : 11   101_1A :  1   1st Qu.:24.6  
@@ -65,14 +64,14 @@ summary(arapat)
 ##                     : 23   07:09  : 14   05:06  : 22  
 ##              07:09  : 22   08:08  :  9   11:11  : 12  
 ##              (Other):142   (Other): 20   (Other):112
- 
+ 
 plot(arapat, zoom = 6)
 ![png-3](http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/01/png-3.png)
 ##Extracting Point Data
 To elevation, temperature and precipitation from the rasters for each sampling location, we need to translate them into points first. I'll first grab the coordinate data as a 
 data.frame.
 coords <- StrataCoordinates(arapat)
- 
+ 
 Then we can grab them using the normal functions in the 
 **sp**
  library.
@@ -81,7 +80,7 @@ coords$elev <- extract(baja_alt, pts)
 coords$temp <- extract(baja_temp, pts)
 coords$prec <- extract(baja_prec, pts)
 coords
- 
+ 
 ##     Strata Longitude Latitude elev temp prec
 ## 1       88    -114.3    29.33  681  178  143
 ## 11       9    -113.9    29.01  361  195  148
@@ -122,19 +121,19 @@ coords
 ## 328    101    -110.6    27.91    8  249  244
 ## 337     32    -109.3    26.64   18  244  337
 ## 356    102    -109.1    26.38   10  245  346
- 
+ 
 ##
 ##Plotting Trend lines.
 Cool, lets sort this by latitude
 coords <- coords[order(coords$Latitude), ]
- 
+ 
 and then plot out some values to look at what is going on.
 require(ggplot2)
 ggplot(coords, aes(x = Latitude, y = elev)) + geom_line(color = "gray") + theme_bw() + geom_text(aes(y = elev + 10, label = Strata), color = "blue")
 ![png](http://rampages.us/dyerlab/wp-content/uploads/sites/4831/2015/01/png.png)
- 
+ 
 ggplot(coords, aes(x = Latitude, y = temp)) + geom_line(color = "gray") + theme_bw() + geom_text(aes(y = temp + 5, label = Strata), color = "blue")
 [![png-1](http://rampages.us/dyerlab/wp-content/uploads/sites/4831/2015/01/png-1.png)](http://rampages.us/dyerlab/wp-content/uploads/sites/4831/2015/01/png-1.png)
 ggplot(coords, aes(x = Latitude, y = prec)) + geom_line(color = "gray") + theme_bw() + geom_text(aes(y = prec + 10, label = Strata), color = "blue")
- 
+ 
 [![png-2](http://rampages.us/dyerlab/wp-content/uploads/sites/4831/2015/01/png-2.png)](http://rampages.us/dyerlab/wp-content/uploads/sites/4831/2015/01/png-2.png)

@@ -8,4 +8,4 @@ post_id: 586
 categories: 
 - People
 ---
-We have added a new member to our lab, Jane Remfert.  She is an incoming ILS PhD Student who is going to work on pollen movement in dogwood.  Very exciting!
+We have added a new member to our lab, Jane Remfert.  She is an incoming ILS PhD Student who is going to work on pollen movement in dogwood.  Very exciting!

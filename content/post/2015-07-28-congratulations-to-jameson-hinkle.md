@@ -11,4 +11,4 @@ categories:
 - Uncategorized
 ---
 ![Hinkle](http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/01/Hinkle-e1421078975142.png)
-Jameson successfully defended his MS Thesis on eDNA techniques for identification of Atlantic Sturgeon.  Jameson is now the twelfth graduate student to pass through the lab.  It was great having him here and we look forward to seeing where he goes from here.  Way to go!
+Jameson successfully defended his MS Thesis on eDNA techniques for identification of Atlantic Sturgeon.  Jameson is now the twelfth graduate student to pass through the lab.  It was great having him here and we look forward to seeing where he goes from here.  Way to go!

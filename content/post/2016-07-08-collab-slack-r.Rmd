@@ -27,7 +27,7 @@ library(devtools)
 install_github("hrbrmstr/slackr")
 ```
 
-Now you have to set up a config file.  I think it looks for it in 
+Now you have to set up a config file.  I think it looks for it in 
 
 ```{bash eval=FALSE}
 ~/.slackr
@@ -78,7 +78,7 @@ Very Cool!
 
 There is a slight problem though. The current version of the slackr library has an error in it associated with (perhaps) a recent change in the Slack API that has not been fixed by the developer.
 
-For me to get this to work, I had to compile the package myself after making the following change in one file.  To fix it, do the following:  
+For me to get this to work, I had to compile the package myself after making the following change in one file.  To fix it, do the following:  
 - Download (or checkout) the repository from github at:  
 [https://github.com/hrbrmstr/slackr](https://github.com/hrbrmstr/slackr)  
 - Open the project in RStudio  

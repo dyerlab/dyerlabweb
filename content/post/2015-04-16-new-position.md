@@ -10,4 +10,4 @@ categories:
 - VCU
 ---
 It looks like I will be moving into the position of Assistant Director for the 
-[Center for Environmental Studies](http://vcu.edu/cesweb/) this year!   Should be fun!
+[Center for Environmental Studies](http://vcu.edu/cesweb/) this year!   Should be fun!

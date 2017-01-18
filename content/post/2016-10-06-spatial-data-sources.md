@@ -12,8 +12,8 @@ categories:
 - spatial
 ---
 As part of a class in Landscape Genetics, faculty (mostly done by 
-[Melanie Murphy](https://sites.google.com/site/murphylabuwyo/) and 
-[Jeffrey Evans](http://www.nature.org/science-in-action/our-scientists/jeff-evans.xml)) compiled an extensive list of spatial data sources.  These were made available on the course website we hosted but I wanted to make a more persistent copy of them here so they will not be lost.  They are listed below the break.
+[Melanie Murphy](https://sites.google.com/site/murphylabuwyo/) and 
+[Jeffrey Evans](http://www.nature.org/science-in-action/our-scientists/jeff-evans.xml)) compiled an extensive list of spatial data sources.  These were made available on the course website we hosted but I wanted to make a more persistent copy of them here so they will not be lost.  They are listed below the break.
 moreAfrica
 Infrastructure Knowledge Program
 [http://www.infrastructureafrica.org/](http://www.infrastructureafrica.org/)
@@ -261,8 +261,8 @@ Washington
 [http://gis.ess.washington.edu/data/raster/naip2009ccm_wa/index.html](http://gis.ess.washington.edu/data/raster/naip2009ccm_wa/index.html)
 WorldClim
 [http://www.worldclim.org/](http://www.worldclim.org/)
- WyGISc (Wyoming GIS data server)
- 
+ WyGISc (Wyoming GIS data server)
+ 
 [http://www.uwyo.edu/wygisc/geodata/](http://www.uwyo.edu/wygisc/geodata/)
 WWF
 Ecoregions
@@ -273,4 +273,4 @@ data
 WWF
 Global Hydrosheds
 [http://hydrosheds.cr.usgs.gov/#](http://hydrosheds.cr.usgs.gov/)
- 
+ 

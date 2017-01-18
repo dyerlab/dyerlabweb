@@ -11,4 +11,4 @@ categories:
 ---
 Here are some very useful cheat sheets put out by RStudio. A great resource of information!
 https://www.rstudio.com/resources/cheatsheets/
- 
+ 

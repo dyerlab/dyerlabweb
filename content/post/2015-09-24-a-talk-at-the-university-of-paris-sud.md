@@ -9,7 +9,7 @@ categories:
 - Uncategorized
 ---
 I was fortunate to get asked to provide a talk at the 
-[University of Paris-Sud](http://www.u-psud.fr/en/index.html), a great campus that I've visited back in 2011.  Here are the slides I used, presenting for the first time the methylation genomic data from 
+[University of Paris-Sud](http://www.u-psud.fr/en/index.html), a great campus that I've visited back in 2011.  Here are the slides I used, presenting for the first time the methylation genomic data from 
 Araptus attenuatus.
 more
 [![Screen Shot 2015-09-15 at 7.48.32 AM](http://dyerlab.bio.vcu.edu/wp-content/uploads/sites/4831/2015/09/Screen-Shot-2015-09-15-at-7.48.32-AM.png)](https://docs.google.com/presentation/d/17bCkWxFXwLSmm2iQsLvbl7YkmgSqruz-7-WBJunqjoQ/pub?start=false&loop=false&delayms=3000)

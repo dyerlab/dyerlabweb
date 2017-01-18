@@ -8,6 +8,6 @@ post_id: 572
 categories: 
 - Uncategorized
 ---
-Two NSF grants submitted!  Taking a bit of time out for some programming and to set up Dyerlab South (in the vicinity of 24.9515812,-80.5807652)...
- 
- 
+Two NSF grants submitted!  Taking a bit of time out for some programming and to set up Dyerlab South (in the vicinity of 24.9515812,-80.5807652)...
+ 
+ 

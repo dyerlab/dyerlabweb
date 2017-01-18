@@ -18,11 +18,11 @@ Landscape Genetics again.
 	
 *Starting a new RadSEQ project on Protonotary Warblers and getting a new student to start in the fall.
 	
-*Starting a new Landscape Genetics NSF-funded project on gypsy moths with the Johnson Lab.  Need a technician for this one as well.
+*Starting a new Landscape Genetics NSF-funded project on gypsy moths with the Johnson Lab.  Need a technician for this one as well.
 	
 *The text 
 Applied Population Genetics should be released as an ebook.
 	
-*Should be finishing up both Jameson’s and Chitra’s theses and submitting them for publication.
+*Should be finishing up both Jameson’s and Chitra’s theses and submitting them for publication.
 	
 *Moving into a new laboratory location and perhaps collapsing both our lab and the Verrelli lab into a single unit.

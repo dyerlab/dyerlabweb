@@ -10,7 +10,7 @@ categories:
 - R
 ---
 Here are the presentations for Chapter 1: Learning R from the upcoming text 
-Applied Population Genetics.  More information on this text can be found 
+Applied Population Genetics.  More information on this text can be found 
 [here](http://dyerlab.bio.vcu.edu/applied-population-genetics/).
 more
 [embed]https://youtu.be/Xz5EgzV2S58[/embed]

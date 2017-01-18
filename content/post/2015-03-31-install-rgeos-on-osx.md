@@ -9,16 +9,16 @@ categories:
 - Code
 - Tutorials
 ---
-There seems to be some nefarious conspiracy against packaging spatial R packages on the mac platform. Don't quite understand it but it sucks.  Here is how to install the rgeos package.
+There seems to be some nefarious conspiracy against packaging spatial R packages on the mac platform. Don't quite understand it but it sucks.  Here is how to install the rgeos package.
 If you try the normal way, you get the following error:install.packages("rgeos")
 package ‘rgeos’ is available as a source package but not as a binary
 Warning in install.packages : package ‘rgeos’ is not available (as a binary package for R version 3.1.3)
-which is not very helpful.  
+which is not very helpful.  
 moreSo here is a quick way to do that I use when I need to upgrade it or put it on a new machine.
-*If you do not have the developers tools from Apple, download them and install through the normal AppStore mechanisms.  You will need to compile stuff from raw code for this to work.
+*If you do not have the developers tools from Apple, download them and install through the normal AppStore mechanisms.  You will need to compile stuff from raw code for this to work.
 	
 *Download and install the GDAL Complete package from 
-[KyngChaos](http://www.kyngchaos.com/software:frameworks ).  At the time of writing, it was version 1.11 (39.0 MB).  If you are using Mavericks or later, you'll have to probably change your security settings (System Preferences -> Security -> General) to "Allow apps downloaded from 'anywhere' to be installed. If everything works nicely (which I've never seen actually work), you should be able to do the following to install. Unfortunately, it always barfs on me.
+[KyngChaos](http://www.kyngchaos.com/software:frameworks ).  At the time of writing, it was version 1.11 (39.0 MB).  If you are using Mavericks or later, you'll have to probably change your security settings (System Preferences -> Security -> General) to "Allow apps downloaded from 'anywhere' to be installed. If everything works nicely (which I've never seen actually work), you should be able to do the following to install. Unfortunately, it always barfs on me.
 install.packages("rgeos", repos="http://R-Forge.R-project.org", type="source")
 trying URL 'http://R-Forge.R-project.org/src/contrib/rgeos_0.3-9.tar.gz'
 Content type 'application/x-gzip' length 238246 bytes (232 KB)
@@ -42,8 +42,8 @@ Warning message:
 In install.packages("rgeos", repos = "http://R-Forge.R-project.org",  :
   installation of package ‘rgeos’ had non-zero exit status
 	
-*This means that you need to actually compile the results.  Download the latest sources from 
-[r-forge](https://r-forge.r-project.org/R/?group_id=602) (use the <i>.tar.gz version).  Open the terminal and:
+*This means that you need to actually compile the results.  Download the latest sources from 
+[r-forge](https://r-forge.r-project.org/R/?group_id=602) (use the <i>.tar.gz version).  Open the terminal and:
 cd ~/Downloads
 R CMD INSTALL
 and you should see the following:

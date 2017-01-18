@@ -9,5 +9,5 @@ categories:
 - Presentations
 - Tutorials
 ---
-Here it is, time for student presentations all around!  I thought it would be nice to send this presentation around again to remind everyone what make good (and sucky) presentations.  More below the fold.
+Here it is, time for student presentations all around!  I thought it would be nice to send this presentation around again to remind everyone what make good (and sucky) presentations.  More below the fold.
 more

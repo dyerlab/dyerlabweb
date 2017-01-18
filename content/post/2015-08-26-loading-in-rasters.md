@@ -11,8 +11,8 @@ categories:
 - spatial
 - Tutorials
 ---
-Much of the work in my laboratory uses spatial data in some context.  As such it is important to try to be able to grab and use spatial data to in an easy fashion.  At present, R is probably the best way to grab, visualize, and analyze spatial data. For this example, I went to 
-[http://worldclim.org](http://worldclim.org) and downloaded the elevation (altitude) for tile 13 (eastern North America) as a GeoTiff.  A GeoTiff is a specific type of image format that has spatial data contained within it.  The tile data has a pixel resolution of 30 arc seconds which puts us in the general area of ~ 1km.   First, we need to get things set up to work.# Set the working directory to where you want it.
+Much of the work in my laboratory uses spatial data in some context.  As such it is important to try to be able to grab and use spatial data to in an easy fashion.  At present, R is probably the best way to grab, visualize, and analyze spatial data. For this example, I went to 
+[http://worldclim.org](http://worldclim.org) and downloaded the elevation (altitude) for tile 13 (eastern North America) as a GeoTiff.  A GeoTiff is a specific type of image format that has spatial data contained within it.  The tile data has a pixel resolution of 30 arc seconds which puts us in the general area of ~ 1km.   First, we need to get things set up to work.# Set the working directory to where you want it.
 setwd("~/Downloads")
 # load in the raster library
 require(raster)
@@ -39,5 +39,5 @@ coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 data source : /Users/rodney/Downloads/alt_13.tif 
 names       : alt_13 
 values      : -98, 1961  (min, max)
-And you are off to the races.  This should get you going with the data.  Other posts you may be interested in looking at are found by 
+And you are off to the races.  This should get you going with the data.  Other posts you may be interested in looking at are found by 
 [here](http://dyerlab.bio.vcu.edu/tag/r/).
