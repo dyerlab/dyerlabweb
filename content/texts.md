@@ -22,7 +22,7 @@ type: fullpage
 		<td>
 		<strong>Landscape Genetic Data Analysis.</strong>
 		<p>This text is used in a one-week <emph>Applied Landscape Genetics</emph> workshop I give through <a href="http://prstatistics.com">PR Statistics</a>.</p>
-			<p>You can <a href="http://dyerlab.com/texts/landgen/index.html">read</a> it online or visit its Github repository.</td>
+			<p>You can <a href="https://dyerlab.github.io/Landscape-Genetics-Data-Analysis/index.html">read</a> it online or visit its Github repository to grab the <a href="https://github.com/dyerlab/Landscape-Genetics-Data-Analysis">source</a>.</td>
 	</tr>
 	
 	<tr><td><p>&nbsp;</p></td></tr>
@@ -32,7 +32,7 @@ type: fullpage
 		<td>&nbsp;</td>
 		<td><strong>Applied Population Genetics.</strong>
 		<p>This text forms the basis of my population genetics course at Virginia Commonwealth University.  This text is provded online, as an html book with dynamical input and output and available as an open source textbook.</p>
-			<p>You can <a href="http://dyerlab.com/texts/popgen/index.html">read</a> it online or visit its Github repository.</td>
+			<p>You can <a href="http://dyerlab.github.io/applied_population_genetics/index.html">read</a> it online or visit its Github repository to grab the <a href="https://github.com/dyerlab/applied_population_genetics">source</a>.</td>
 	</tr>
 	
 	<tr><td><p>&nbsp;</p></td></tr>
