@@ -46,7 +46,7 @@ type: fullpage
 
 
 <tr>
-  <td><img src="/img/people/GenericPerson.png" align="center" /></td>
+  <td><img src="/img/people/MattDeSaix.jpeg" align="center" /></td>
   <td>
     <h3>Matthew DeSaix</h3>
     <ul>

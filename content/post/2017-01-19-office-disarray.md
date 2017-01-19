@@ -7,7 +7,7 @@ tags:
 title: "Office Disarray"
 ---
 
-![Desk](../../static/2017/01/IMG_071.jpg)
+{{< figure src="/img/2017/01/IMG_0071.jpg" title="Current desk configuration." >}}
 
-After spending a month gitano-style, I'm getting back into a real office.  The move back into the [Environmental Studies](http://ces.vcu.edu) is under way and we are looking to expand and develop our unit.  Pretty exciting.  Now, what do I do with all the boxes of books?
+After spending a month gitano-style, I'm getting back into a real office.  The move back into the [Environmental Studies](http://ces.vcu.edu) is under way and we are looking to expand and develop our unit.  Pretty exciting.  Now, what do I do with all these boxes of books?
 
