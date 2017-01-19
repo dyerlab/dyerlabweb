@@ -69,6 +69,7 @@ ggslack(p)
 
 
 Which directly uploads the image to the channel as:
+
 ![Slack image from R](../../static/img/slack_plot.png)
 
 
