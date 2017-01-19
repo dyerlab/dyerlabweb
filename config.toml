@@ -11,6 +11,7 @@ paginate = 10
 #googleAnalytics = "UA-123-45"
 #disqusShortname = "XYW"
 
+
 [permalinks]
   post = "/:year/:month/:title/"
   page = "/:slug/"
